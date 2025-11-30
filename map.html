@@ -26,10 +26,93 @@
     <link href="css/swiper-bundle-11.2.10.min.css" rel="stylesheet" media="all">
     <link href="vendor/perfect-scrollbar/perfect-scrollbar-1.5.6.css" rel="stylesheet" media="all">
     <!-- Leaflet CSS-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <style>
+        body.dark-mode {
+            background-color: #ffffff !important;
+            color: #fffefe !important;
+        }
+
+        body.dark-mode .card,
+        body.dark-mode .header-desktop {
+            background-color: #6d6a6a !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode .main-content {
+            background-color: #8f8989 !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode a {
+            color: #000000 !important;
+        }
+
+        body.dark-mode .account-dropdown {
+            background-color: #6d6a6a !important;
+        }
+
+        body.dark-mode .account-dropdown__item a {
+            color: #ffffff !important;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 90px;
+            height: 32px;
+        }
+
+        .switch-input {
+            display: none;
+        }
+
+        .switch-label {
+            display: block;
+            cursor: pointer;
+            border: 2px solid #ccc;
+            border-radius: 50px;
+            background-color: #f5f5f5;
+            text-align: center;
+            font-size: 14px;
+            line-height: 28px;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar__list li a.active {
+  background-color: #e8f0fe; /* warna terang seperti highlight */
+  color: #1a73e8 !important; /* biru agar selaras */
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Mode gelap */
+body.dark-mode .navbar__list li a.active{
+  background-color: #6d6a6a;
+  color: #0a0a0a !important;
+  border-radius: 8px;
+}
+/* Perbaiki agar active juga muncul di menu mobile */
+.navbar-mobile__list li a.active {
+  background-color: #e8f0fe !important;
+  color: #1a73e8 !important;
+  border-radius: 8px !important;
+  font-weight: 600;
+}
+
+/* Versi dark mode */
+body.dark-mode .navbar-mobile__list li a.active {
+  background-color: #6d6a6a !important;
+  color: #0a0a0a !important;
+}
+
+    </style>
 
 </head>
 
@@ -54,7 +137,7 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
@@ -71,11 +154,15 @@
                                     <a href="index4.html">Dashboard 4</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
+                            <a href="index.html">
+                                <i class="fas fa-tachometer-alt "></i>Dashboard</a>
+                        </li>
+                        <!-- <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
@@ -89,25 +176,43 @@
                                 <i class="fas fa-calendar-alt"></i>Calendar</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a class="active" href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li>
-                        <li class="has-sub">
+                        <li class="has-sub" >
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                                <i class="fas fa-desktop"></i>Account</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
+                               
+                                <li id="menuAccountMobile">
+                                    <a href="register.html">
+                                        <i class="fas fa-user"></i> Register
+                                    </a>
+                                </li>
+                                <!-- <li id="menuAccountMobile1">
+                                    <a href="forget-pass.html">
+                                        <i class="fas fa-unlock-alt"></i> Forget Password
+                                    </a>
+                                </li> -->
+                                <li id="menuAccountMobile2">
+                                    <a href="users.html">
+                                        <i class="fas fa-user-edit"></i> Users
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
+                                    <a href="profile.html">
+                                        <i class="far fa-id-card"></i> Profil Akun
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                 <li>
+                                    <a href="login.html">
+                                        <i class="fas fa-sign-in-alt"></i> Logout
+                                    </a>
                                 </li>
                             </ul>
+
                         </li>
-                        <li class="has-sub">
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
@@ -145,7 +250,7 @@
                                     <a href="typo.html">Typography</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </nav>
@@ -162,9 +267,9 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="has-sub">
+                        <!-- <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i href="index.html" class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="index.html">Dashboard 1</a>
@@ -179,11 +284,15 @@
                                     <a href="index4.html">Dashboard 4</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
+                            <a href="index.html">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        <!-- <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
@@ -196,26 +305,44 @@
                             <a href="calendar.html">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a>
                         </li>
-                        <li class="active">
-                            <a href="map.html">
+                        <li>
+                            <a class="active" href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li>
-                        <li class="has-sub">
+                        <li class="has-sub" >
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                                <i class="fas fa-desktop"></i>Account</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
+                                
+                                <li id="menuAccountDesktop">
+                                    <a href="register.html">
+                                        <i class="fas fa-user"></i> Register
+                                    </a>
+                                </li>
+                                <!-- <li id="menuAccountDesktop1">
+                                    <a href="forget-pass.html">
+                                        <i class="fas fa-unlock-alt"></i> Forget Password
+                                    </a>
+                                </li> -->
+                                <li id="menuAccountDesktop2">
+                                    <a href="users.html">
+                                        <i class="fas fa-user-edit"></i> Users
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
+                                    <a href="profile.html">
+                                        <i class="far fa-id-card"></i> Profil Akun
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a href="login.html">
+                                        <i class="fas fa-sign-in-alt"></i> Logout
+                                    </a>
                                 </li>
                             </ul>
+
                         </li>
-                        <li class="has-sub">
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -253,7 +380,7 @@
                                     <a href="typo.html">Typography</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
             </div>
@@ -268,10 +395,11 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                                <!-- <input class="au-input au-input--xl" type="text" name="search"
+                                    placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
-                                </button>
+                                </button> -->
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
@@ -389,41 +517,59 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img id="userAvatar" src="images/icon/avatar-01.jpg" alt="User Avatar" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" id="userName" href="#">User</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img id="dropdownAvatar" src="images/icon/avatar-01.jpg"
+                                                            alt="User Avatar" />
                                                     </a>
                                                 </div>
-                                                <div class="content">
+                                                <div class="content" style="height: 5px; margin-top: -11px;">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#" id="dropdownName">User</a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email" id="dropdownEmail">user@example.com</span><br>
+                                                    <small id="dropdownCabang" style="color:#777;">Cabang: -</small>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                    <a href="profile.html"><i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
+                                                <!-- <div class="account-dropdown__item">
+                                                    <a href="#"><i class="zmdi zmdi-settings"></i>Setting</a>
+                                                </div> -->
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
+                                                        <i class="zmdi zmdi-settings"></i>Tema
+
+                                                        <!-- <span id="themeLabel">Terang</span> -->
+                                                        <label class="switch switch-text switch-secondary switch-pill"
+                                                            style="margin-left: 5px; width: 100px;">
+                                                            <input id="themeToggle" type="checkbox"
+                                                                class="switch-input">
+                                                            <span data-on="Gelap" data-off="Terang"
+                                                                class="switch-label"></span>
+                                                            <span class="switch-handle"></span>
+                                                        </label>
+                                                    </a>
                                                 </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                                </div>
+
+
+
+                                                <!-- <div class="account-dropdown__item">
+                                                    <a href="#"><i class="zmdi zmdi-money-box"></i>Billing</a>
+                                                </div> -->
                                             </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="#">
+                                            <div class="account-dropdown__footer"
+                                                style="background-color: #db3232; margin-top: -18px;">
+                                                <a href="#" id="logoutBtn">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -441,111 +587,45 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <!-- MAP DATA-->
+                                <!-- LOKASI PT BUMI SARANA UTAMA -->
                                 <div class="map-data m-b-40">
                                     <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-map"></i>map data</h3>
-                                    <div class="filters">
-                                        <div class="select-wrapper">
-                                            <select class="form-select form-select-lg" name="property">
-                                                <option selected="selected">All Properties</option>
-                                                <option value="">Products</option>
-                                                <option value="">Services</option>
-                                            </select>
-                                            
-                                        </div>
-                                        <div class="select-wrapper">
-                                            <select class="form-select form-select-lg" name="time">
-                                                <option selected="selected" value="all">All Time</option>
-                                                <option value="month">By Month</option>
-                                                <option value="day">By Day</option>
-                                            </select>
-                                            
-                                        </div>
-                                    </div>
+                                        <i class="zmdi zmdi-map"></i> Lokasi Kantor PT Bumi Sarana Utama
+                                    </h3>
+
                                     <div class="map-wrap m-t-45 m-b-20">
-                                        <div id="vmap" style="height: 284px;"></div>
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1986.85864037212!2d119.41293298579781!3d-5.149133931143379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf1d5653fcadf9%3A0xebf49f2a256ff52b!2sBumi%20Sarana%20Utama.%20PT!5e0!3m2!1sid!2sid!4v1762313110087!5m2!1sid!2sid"
+                                            width="100%" height="500" style="border:0; border-radius:10px;"
+                                            allowfullscreen="" loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade">
+                                        </iframe>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <p style="font-size:14px; color:#555;">
+                                            📍 <strong>Koordinat:</strong> -5.14905111820848, 119.41522895662453
+                                        </p>
+                                        <a href="https://maps.app.goo.gl/wn7KrX7gBEPmwi788" target="_blank"
+                                            class="btn btn-primary btn-sm">
+                                            Buka di Google Maps
+                                        </a>
                                     </div>
                                 </div>
-                                <!-- END MAP DATA-->
+                                <!-- END LOKASI PT BUMI SARANA UTAMA -->
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <!-- MAP DATA-->
-                                <div class="map-data m-b-40">
-                                    <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-map"></i>Europe</h3>
-                                    <div class="map-wrap">
-                                        <div class="vmap" id="vmap1"></div>
-                                    </div>
-                                </div>
-                                <!-- END MAP DATA-->
-                            </div>
-                            <div class="col-md-6">
-                                <!-- MAP DATA-->
-                                <div class="map-data m-b-40">
-                                    <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-map"></i>USA</h3>
-                                    <div class="map-wrap">
-                                        <div class="vmap" id="vmap2"></div>
-                                    </div>
-                                </div>
-                                <!-- END MAP DATA-->
-                            </div>
-                            <div class="col-md-6">
-                                <!-- MAP DATA-->
-                                <div class="map-data m-b-40">
-                                    <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-map"></i>Germany</h3>
-                                    <div class="map-wrap">
-                                        <div class="vmap" id="vmap3"></div>
-                                    </div>
-                                </div>
-                                <!-- END MAP DATA-->
-                            </div>
-                            <div class="col-md-6">
-                                <!-- MAP DATA-->
-                                <div class="map-data m-b-40">
-                                    <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-map"></i>France</h3>
-                                    <div class="map-wrap">
-                                        <div class="vmap" id="vmap4"></div>
-                                    </div>
-                                </div>
-                                <!-- END MAP DATA-->
-                            </div>
-                            <div class="col-md-6">
-                                <!-- MAP DATA-->
-                                <div class="map-data m-b-40">
-                                    <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-map"></i>Russia</h3>
-                                    <div class="map-wrap">
-                                        <div class="vmap" id="vmap5"></div>
-                                    </div>
-                                </div>
-                                <!-- END MAP DATA-->
-                            </div>
-                            <div class="col-md-6">
-                                <!-- MAP DATA-->
-                                <div class="map-data m-b-40">
-                                    <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-map"></i>Brazil</h3>
-                                    <div class="map-wrap">
-                                        <div class="vmap" id="vmap6"></div>
-                                    </div>
-                                </div>
-                                <!-- END MAP DATA-->
-                                <!-- END PAGE CONTAINER-->
-                            </div>
-                        </div>
-                        <div class="row">
+
+
+
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <p>Copyright © 2025 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                    <p>Copyright © 2025 Colorlib. All rights reserved. Template by <a
+                                            href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -560,186 +640,235 @@
     <script src="vendor/perfect-scrollbar/perfect-scrollbar-1.5.6.min.js"></script>
     <script src="vendor/chartjs/chart.umd.js-4.5.0.min.js"></script>
     <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 
-	<!-- Modern JS-->
-	<script src="js/bootstrap5-init.js"></script>
-	<script src="js/swiper-bundle-11.2.10.min.js"></script>
-	<script src="js/aos.js"></script>
-	<script src="js/modern-plugins.js"></script>    <!-- Main JS-->
+    <!-- Modern JS-->
+    <script src="js/bootstrap5-init.js"></script>
+    <script src="js/swiper-bundle-11.2.10.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/modern-plugins.js"></script> <!-- Main JS-->
     <script src="js/main-vanilla.js"></script>
+
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+  /* 🔒 SEMBUNYIKAN MENU ACCOUNT JIKA BUKAN ADMIN */
+if ((user.role || "").toLowerCase() !== "admin") {
+    const accMobile = document.getElementById("menuAccountMobile");
+                    const accMobile1 = document.getElementById("menuAccountMobile1");
+                    const accMobile2 = document.getElementById("menuAccountMobile2");
+                    const accDesktop = document.getElementById("menuAccountDesktop");
+                    const accDesktop1 = document.getElementById("menuAccountDesktop1");
+                    const accDesktop2 = document.getElementById("menuAccountDesktop2");
+
+                    if (accMobile) accMobile.style.display = "none";
+                    if (accMobile1) accMobile1.style.display = "none";
+                    if (accMobile2) accMobile2.style.display = "none";
+                    if (accDesktop) accDesktop.style.display = "none";
+                    if (accDesktop1) accDesktop1.style.display = "none";
+                    if (accDesktop2) accDesktop2.style.display = "none";
+}
+
+                if (user) {
+                    document.getElementById("userName").textContent = user.namaLengkap || "User";
+                    document.getElementById("dropdownName").textContent = user.namaLengkap || "User";
+                    document.getElementById("dropdownEmail").textContent = user.email || "-";
+                    document.getElementById("dropdownCabang").textContent = user.role ? "" + user.role : "-";
+
+                    if (user.avatarUrl) {
+                        document.getElementById("userAvatar").src = user.avatarUrl;
+                        document.getElementById("dropdownAvatar").src = user.avatarUrl;
+                    }
+                } else {
+                    window.location.href = "login.html";
+                }
+
+                document.getElementById("logoutBtn").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    localStorage.removeItem("user");
+                    window.location.href = "login.html";
+                });
+                console.log("User data loaded from localStorage:", user);
+            });
+        </script>
 
     <!-- Initialize Leaflet Maps for map.html only -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Only initialize if this is map.html
-        const isMapPage = window.location.pathname.includes('map.html') || document.title.includes('Maps');
-        
-        if (!isMapPage || typeof L === 'undefined') {
-            return;
-        }
-        
-        // Map configurations for different regions
-        const mapConfigs = [
-            {
-                id: 'vmap',
-                center: [20, 0],
-                zoom: 2,
-                title: 'World Map',
-                data: [
-                    { name: 'United States', lat: 39.8283, lng: -98.5795, value: 45000, color: '#00b5e9' },
-                    { name: 'United Kingdom', lat: 55.3781, lng: -3.4360, value: 32000, color: '#4caf50' },
-                    { name: 'Germany', lat: 51.1657, lng: 10.4515, value: 28000, color: '#ff9800' },
-                    { name: 'Japan', lat: 36.2048, lng: 138.2529, value: 35000, color: '#e91e63' },
-                    { name: 'Australia', lat: -25.2744, lng: 133.7751, value: 22000, color: '#9c27b0' },
-                    { name: 'Brazil', lat: -14.2350, lng: -51.9253, value: 18000, color: '#f44336' },
-                    { name: 'India', lat: 20.5937, lng: 78.9629, value: 25000, color: '#3f51b5' },
-                    { name: 'China', lat: 35.8617, lng: 104.1954, value: 40000, color: '#00bcd4' }
-                ]
-            },
-            {
-                id: 'vmap1',
-                center: [39.8283, -95.5795],
-                zoom: 4,
-                title: 'USA Map',
-                data: [
-                    { name: 'New York', lat: 40.7128, lng: -74.0060, value: 15000, color: '#00b5e9' },
-                    { name: 'Los Angeles', lat: 34.0522, lng: -118.2437, value: 12000, color: '#4caf50' },
-                    { name: 'Chicago', lat: 41.8781, lng: -87.6298, value: 8000, color: '#ff9800' },
-                    { name: 'Houston', lat: 29.7604, lng: -95.3698, value: 6000, color: '#e91e63' },
-                    { name: 'Miami', lat: 25.7617, lng: -80.1918, value: 4000, color: '#9c27b0' }
-                ]
-            },
-            {
-                id: 'vmap2',
-                center: [-14.2350, -51.9253],
-                zoom: 4,
-                title: 'Brazil Map',
-                data: [
-                    { name: 'São Paulo', lat: -23.5505, lng: -46.6333, value: 8000, color: '#00b5e9' },
-                    { name: 'Rio de Janeiro', lat: -22.9068, lng: -43.1729, value: 6000, color: '#4caf50' },
-                    { name: 'Brasília', lat: -15.8267, lng: -47.9218, value: 4000, color: '#ff9800' }
-                ]
-            },
-            {
-                id: 'vmap3',
-                center: [54.5260, 15.2551],
-                zoom: 4,
-                title: 'Europe Map',
-                data: [
-                    { name: 'London', lat: 51.5074, lng: -0.1278, value: 12000, color: '#00b5e9' },
-                    { name: 'Paris', lat: 48.8566, lng: 2.3522, value: 10000, color: '#4caf50' },
-                    { name: 'Berlin', lat: 52.5200, lng: 13.4050, value: 8000, color: '#ff9800' },
-                    { name: 'Madrid', lat: 40.4168, lng: -3.7038, value: 6000, color: '#e91e63' },
-                    { name: 'Rome', lat: 41.9028, lng: 12.4964, value: 5000, color: '#9c27b0' }
-                ]
-            },
-            {
-                id: 'vmap4',
-                center: [46.6034, 1.8883],
-                zoom: 6,
-                title: 'France Map',
-                data: [
-                    { name: 'Paris', lat: 48.8566, lng: 2.3522, value: 10000, color: '#00b5e9' },
-                    { name: 'Lyon', lat: 45.7640, lng: 4.8357, value: 4000, color: '#4caf50' },
-                    { name: 'Marseille', lat: 43.2965, lng: 5.3698, value: 3000, color: '#ff9800' }
-                ]
-            },
-            {
-                id: 'vmap5',
-                center: [51.1657, 10.4515],
-                zoom: 6,
-                title: 'Germany Map',
-                data: [
-                    { name: 'Berlin', lat: 52.5200, lng: 13.4050, value: 8000, color: '#00b5e9' },
-                    { name: 'Munich', lat: 48.1351, lng: 11.5820, value: 5000, color: '#4caf50' },
-                    { name: 'Hamburg', lat: 53.5511, lng: 9.9937, value: 4000, color: '#ff9800' }
-                ]
-            },
-            {
-                id: 'vmap6',
-                center: [61.5240, 105.3188],
-                zoom: 3,
-                title: 'Russia Map',
-                data: [
-                    { name: 'Moscow', lat: 55.7558, lng: 37.6176, value: 12000, color: '#00b5e9' },
-                    { name: 'St. Petersburg', lat: 59.9311, lng: 30.3609, value: 6000, color: '#4caf50' },
-                    { name: 'Novosibirsk', lat: 55.0084, lng: 82.9357, value: 3000, color: '#ff9800' }
-                ]
+        document.addEventListener('DOMContentLoaded', function () {
+            // Only initialize if this is map.html
+            const isMapPage = window.location.pathname.includes('map.html') || document.title.includes('Maps');
+
+            if (!isMapPage || typeof L === 'undefined') {
+                return;
             }
-        ];
 
-        // Initialize each map
-        mapConfigs.forEach(config => {
-            const mapContainer = document.getElementById(config.id);
-            if (mapContainer && typeof L !== 'undefined' && !mapContainer._leaflet_id) {
-                try {
-                    // Initialize the map
-                    const map = L.map(config.id, {
-                        center: config.center,
-                        zoom: config.zoom,
-                        zoomControl: true,
-                        scrollWheelZoom: false,
-                        doubleClickZoom: true,
-                        attributionControl: false
-                    });
+            // Map configurations for different regions
+            const mapConfigs = [
+                {
+                    id: 'vmap',
+                    center: [20, 0],
+                    zoom: 2,
+                    title: 'World Map',
+                    data: [
+                        { name: 'United States', lat: 39.8283, lng: -98.5795, value: 45000, color: '#00b5e9' },
+                        { name: 'United Kingdom', lat: 55.3781, lng: -3.4360, value: 32000, color: '#4caf50' },
+                        { name: 'Germany', lat: 51.1657, lng: 10.4515, value: 28000, color: '#ff9800' },
+                        { name: 'Japan', lat: 36.2048, lng: 138.2529, value: 35000, color: '#e91e63' },
+                        { name: 'Australia', lat: -25.2744, lng: 133.7751, value: 22000, color: '#9c27b0' },
+                        { name: 'Brazil', lat: -14.2350, lng: -51.9253, value: 18000, color: '#f44336' },
+                        { name: 'India', lat: 20.5937, lng: 78.9629, value: 25000, color: '#3f51b5' },
+                        { name: 'China', lat: 35.8617, lng: 104.1954, value: 40000, color: '#00bcd4' }
+                    ]
+                },
+                {
+                    id: 'vmap1',
+                    center: [39.8283, -95.5795],
+                    zoom: 4,
+                    title: 'USA Map',
+                    data: [
+                        { name: 'New York', lat: 40.7128, lng: -74.0060, value: 15000, color: '#00b5e9' },
+                        { name: 'Los Angeles', lat: 34.0522, lng: -118.2437, value: 12000, color: '#4caf50' },
+                        { name: 'Chicago', lat: 41.8781, lng: -87.6298, value: 8000, color: '#ff9800' },
+                        { name: 'Houston', lat: 29.7604, lng: -95.3698, value: 6000, color: '#e91e63' },
+                        { name: 'Miami', lat: 25.7617, lng: -80.1918, value: 4000, color: '#9c27b0' }
+                    ]
+                },
+                {
+                    id: 'vmap2',
+                    center: [-14.2350, -51.9253],
+                    zoom: 4,
+                    title: 'Brazil Map',
+                    data: [
+                        { name: 'São Paulo', lat: -23.5505, lng: -46.6333, value: 8000, color: '#00b5e9' },
+                        { name: 'Rio de Janeiro', lat: -22.9068, lng: -43.1729, value: 6000, color: '#4caf50' },
+                        { name: 'Brasília', lat: -15.8267, lng: -47.9218, value: 4000, color: '#ff9800' }
+                    ]
+                },
+                {
+                    id: 'vmap3',
+                    center: [54.5260, 15.2551],
+                    zoom: 4,
+                    title: 'Europe Map',
+                    data: [
+                        { name: 'London', lat: 51.5074, lng: -0.1278, value: 12000, color: '#00b5e9' },
+                        { name: 'Paris', lat: 48.8566, lng: 2.3522, value: 10000, color: '#4caf50' },
+                        { name: 'Berlin', lat: 52.5200, lng: 13.4050, value: 8000, color: '#ff9800' },
+                        { name: 'Madrid', lat: 40.4168, lng: -3.7038, value: 6000, color: '#e91e63' },
+                        { name: 'Rome', lat: 41.9028, lng: 12.4964, value: 5000, color: '#9c27b0' }
+                    ]
+                },
+                {
+                    id: 'vmap4',
+                    center: [46.6034, 1.8883],
+                    zoom: 6,
+                    title: 'France Map',
+                    data: [
+                        { name: 'Paris', lat: 48.8566, lng: 2.3522, value: 10000, color: '#00b5e9' },
+                        { name: 'Lyon', lat: 45.7640, lng: 4.8357, value: 4000, color: '#4caf50' },
+                        { name: 'Marseille', lat: 43.2965, lng: 5.3698, value: 3000, color: '#ff9800' }
+                    ]
+                },
+                {
+                    id: 'vmap5',
+                    center: [51.1657, 10.4515],
+                    zoom: 6,
+                    title: 'Germany Map',
+                    data: [
+                        { name: 'Berlin', lat: 52.5200, lng: 13.4050, value: 8000, color: '#00b5e9' },
+                        { name: 'Munich', lat: 48.1351, lng: 11.5820, value: 5000, color: '#4caf50' },
+                        { name: 'Hamburg', lat: 53.5511, lng: 9.9937, value: 4000, color: '#ff9800' }
+                    ]
+                },
+                {
+                    id: 'vmap6',
+                    center: [61.5240, 105.3188],
+                    zoom: 3,
+                    title: 'Russia Map',
+                    data: [
+                        { name: 'Moscow', lat: 55.7558, lng: 37.6176, value: 12000, color: '#00b5e9' },
+                        { name: 'St. Petersburg', lat: 59.9311, lng: 30.3609, value: 6000, color: '#4caf50' },
+                        { name: 'Novosibirsk', lat: 55.0084, lng: 82.9357, value: 3000, color: '#ff9800' }
+                    ]
+                }
+            ];
 
-                    // Add tile layer
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '',
-                        maxZoom: 18,
-                        minZoom: 1
-                    }).addTo(map);
+            // Initialize each map
+            mapConfigs.forEach(config => {
+                const mapContainer = document.getElementById(config.id);
+                if (mapContainer && typeof L !== 'undefined' && !mapContainer._leaflet_id) {
+                    try {
+                        // Initialize the map
+                        const map = L.map(config.id, {
+                            center: config.center,
+                            zoom: config.zoom,
+                            zoomControl: true,
+                            scrollWheelZoom: false,
+                            doubleClickZoom: true,
+                            attributionControl: false
+                        });
 
-                    // Add markers for each data point
-                    config.data.forEach(point => {
-                        const marker = L.circleMarker([point.lat, point.lng], {
-                            radius: Math.sqrt(point.value / 200) + 3,
-                            fillColor: point.color,
-                            color: '#fff',
-                            weight: 2,
-                            opacity: 1,
-                            fillOpacity: 0.7
+                        // Add tile layer
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '',
+                            maxZoom: 18,
+                            minZoom: 1
                         }).addTo(map);
 
-                        // Add popup with location info
-                        marker.bindPopup(`
+                        // Add markers for each data point
+                        config.data.forEach(point => {
+                            const marker = L.circleMarker([point.lat, point.lng], {
+                                radius: Math.sqrt(point.value / 200) + 3,
+                                fillColor: point.color,
+                                color: '#fff',
+                                weight: 2,
+                                opacity: 1,
+                                fillOpacity: 0.7
+                            }).addTo(map);
+
+                            // Add popup with location info
+                            marker.bindPopup(`
                             <div style="text-align: center; padding: 5px;">
                                 <strong>${point.name}</strong><br>
                                 <span style="color: ${point.color}; font-weight: bold;">$${point.value.toLocaleString()}</span>
                             </div>
                         `);
 
-                        // Hover effects
-                        marker.on('mouseover', function() {
-                            this.setStyle({
-                                fillOpacity: 0.9,
-                                weight: 3
+                            // Hover effects
+                            marker.on('mouseover', function () {
+                                this.setStyle({
+                                    fillOpacity: 0.9,
+                                    weight: 3
+                                });
+                            });
+
+                            marker.on('mouseout', function () {
+                                this.setStyle({
+                                    fillOpacity: 0.7,
+                                    weight: 2
+                                });
                             });
                         });
 
-                        marker.on('mouseout', function() {
-                            this.setStyle({
-                                fillOpacity: 0.7,
-                                weight: 2
-                            });
-                        });
-                    });
+                        // Add title control
+                        const info = L.control({ position: 'topright' });
+                        info.onAdd = function () {
+                            const div = L.DomUtil.create('div', 'info');
+                            div.innerHTML = `<div style="background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">${config.title}</div>`;
+                            return div;
+                        };
+                        info.addTo(map);
 
-                    // Add title control
-                    const info = L.control({position: 'topright'});
-                    info.onAdd = function() {
-                        const div = L.DomUtil.create('div', 'info');
-                        div.innerHTML = `<div style="background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">${config.title}</div>`;
-                        return div;
-                    };
-                    info.addTo(map);
-
-                } catch (error) {
-                    console.error(`Error initializing ${config.title}:`, error);
-                    // Fallback content
-                    mapContainer.innerHTML = `
+                    } catch (error) {
+                        console.error(`Error initializing ${config.title}:`, error);
+                        // Fallback content
+                        mapContainer.innerHTML = `
                         <div style="height: 100%; display: flex; align-items: center; justify-content: center; background: #f8f9fa; color: #666; border-radius: 8px;">
                             <div style="text-align: center;">
                                 <i class="fas fa-map-marker-alt" style="font-size: 24px; margin-bottom: 8px;"></i>
@@ -748,12 +877,40 @@
                             </div>
                         </div>
                     `;
+                    }
                 }
-            }
-        });
+            });
 
-        console.log('All Leaflet maps initialized successfully');
-    });
+            console.log('All Leaflet maps initialized successfully');
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const themeToggle = document.getElementById("themeToggle");
+
+            // Ambil tema dari localStorage
+            const currentTheme = localStorage.getItem("theme") || "light";
+
+            // Set awal tema
+            if (currentTheme === "dark") {
+                document.body.classList.add("dark-mode");
+                themeToggle.checked = true;
+            } else {
+                document.body.classList.remove("dark-mode");
+                themeToggle.checked = false;
+            }
+
+            // Event ketika switch diubah
+            themeToggle.addEventListener("change", function () {
+                if (themeToggle.checked) {
+                    document.body.classList.add("dark-mode");
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    document.body.classList.remove("dark-mode");
+                    localStorage.setItem("theme", "light");
+                }
+            });
+        });
     </script>
 
 </body>

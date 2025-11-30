@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview Perjanjian</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- html2pdf untuk PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: "Times New Roman", serif;
+    }
+    .doc-container {
+      background: #fff;
+      width: 80%;
+      margin: 30px auto;
+      padding: 50px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ccc;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="text-center mb-4">
+      <h3>📝 Dokumen Perjanjian Jual Beli Aspal</h3>
+      <button id="btnPreviewPDF" class="btn btn-danger btn-sm">Lihat PDF</button>
+      <button id="btnDownloadWord" class="btn btn-primary btn-sm" disabled>Memuat docx...</button>
+    </div>
+
+    <div id="previewArea" class="doc-container">
+      <h4>PERJANJIAN JUAL BELI DAN PENGIRIMAN ASPAL CURAH PENISTRA</h4>
+      <h5>No: <span id="no_perjanjian"></span></h5>
+
+      <div class="section">
+        Perjanjian ini dibuat di <b><span id="tempatperjanjian"></span></b>,
+        pada tanggal <b><span id="tanggalperjanjian"></span></b>.
+      </div>
+
+      <div class="section">
+        <p><b>PENJUAL:</b> PT Bumi Sarana Utama</p>
+        <p><b>Pembeli:</b> <span id="nama_pembeli"></span></p>
+        <p><b>Alamat:</b> <span id="alamat_pembeli"></span></p>
+        <p><b>Telp:</b> <span id="tel_pembeli"></span></p>
+        <p><b>Email:</b> <span id="email_pembeli"></span></p>
+      </div>
+
+      <div class="section">
+        <p><b>Volume Aspal:</b> <span id="volumeaspal"></span> Mton</p>
+        <p><b>Harga Satuan:</b> Rp <span id="hargaaspal"></span></p>
+        <p><b>PPN:</b> <span id="ppnaspal"></span>%</p>
+        <p><b>Biaya Angkut:</b> Rp <span id="biayaangkut"></span></p>
+        <p><b>Total Harga:</b> Rp <span id="totalharga"></span></p>
+      </div>
+
+      <div class="section">
+        <p><b>Batas Kredit:</b> <span id="bataskredit"></span></p>
+        <p><b>Jatuh Tempo:</b> <span id="jatuhtempo"></span></p>
+        <p><b>Pengambilan Aspal:</b> <span id="pengambilanaspal"></span></p>
+      </div>
+
+      <div class="section">
+        <p><b>Nama TTD Penjual:</b> <span id="namattdpenjual"></span> (<span id="jabatanpenjual"></span>)</p>
+        <p><b>Nama TTD Pembeli:</b> <span id="namattdpembeli"></span> (<span id="jabatanpembeli"></span>)</p>
+      </div>
+    </div>
+
+    <iframe id="pdfViewer" style="display:none;"></iframe>
+  </div>
+
+  <!-- ✅ DOCX loader dengan fallback -->
+  <script>
+  // Tombol Download Word
+  document.getElementById("btnDownloadWord").innerText = "Download Word";
+  document.getElementById("btnDownloadWord").disabled = false;
+
+  document.getElementById("btnDownloadWord").addEventListener("click", () => {
+    const content = document.getElementById("previewArea").innerHTML;
+
+    // Template dokumen Word HTML
+    const preHtml = `
+      <html xmlns:o='urn:schemas-microsoft-com:office:office'
+            xmlns:w='urn:schemas-microsoft-com:office:word'
+            xmlns='http://www.w3.org/TR/REC-html40'>
+      <head><meta charset='utf-8'>
+        <title>Perjanjian</title>
+        <style>
+          body { font-family: "Times New Roman", serif; font-size: 12pt; }
+          h4, h5 { text-align: center; }
+          table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+          th, td { border: 1px solid black; padding: 5px; vertical-align: top; }
+          th { background: #f2f2f2; }
+        </style>
+      </head>
+      <body><div class="Section1">
+    `;
+
+    const postHtml = "</div></body></html>";
+
+    const html = preHtml + content + postHtml;
+
+    // Buat Blob dan unduh
+    const blob = new Blob(['\ufeff', html], { type: "application/msword" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `Perjanjian_${document.getElementById("no_perjanjian").innerText || "baru"}.doc`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  });
+</script>
+
+</body>
+</html>

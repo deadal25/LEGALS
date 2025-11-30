@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Register</title>
+    <title>Forms</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -28,77 +28,941 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <style>
+        body.dark-mode {
+            background-color: #ffffff !important;
+            color: #fffefe !important;
+        }
+
+        body.dark-mode .card,
+        body.dark-mode .header-desktop {
+            background-color: #6d6a6a !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode .main-content {
+            background-color: #8f8989 !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode a {
+            color: #000000 !important;
+        }
+
+        body.dark-mode .account-dropdown {
+            background-color: #6d6a6a !important;
+        }
+
+        body.dark-mode .account-dropdown__item a {
+            color: #ffffff !important;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 90px;
+            height: 32px;
+        }
+
+        .switch-input {
+            display: none;
+        }
+
+        .switch-label {
+            display: block;
+            cursor: pointer;
+            border: 2px solid #ccc;
+            border-radius: 50px;
+            background-color: #f5f5f5;
+            text-align: center;
+            font-size: 14px;
+            line-height: 28px;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar__list li a.active {
+            background-color: #e8f0fe;
+            /* warna terang seperti highlight */
+            color: #1a73e8 !important;
+            /* biru agar selaras */
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Mode gelap */
+        body.dark-mode .navbar__list li a.active {
+            background-color: #6d6a6a;
+            color: #0a0a0a !important;
+            border-radius: 8px;
+        }
+
+        /* Perbaiki agar active juga muncul di menu mobile */
+        .navbar-mobile__list li a.active {
+            background-color: #e8f0fe !important;
+            color: #1a73e8 !important;
+            border-radius: 8px !important;
+            font-weight: 600;
+        }
+
+        /* Versi dark mode */
+        body.dark-mode .navbar-mobile__list li a.active {
+            background-color: #6d6a6a !important;
+            color: #0a0a0a !important;
+        }
+
+        /* Batasi ukuran form login */
+        .login-content {
+            width: 100%;
+            max-width: 500px;
+            /* Atur lebar maksimal */
+            margin: 0 auto;
+            /* Tengah secara horizontal */
+            padding: 30px;
+            border-radius: 16px;
+            background: #ffffff;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ===============================
+   FIX: Teks form tetap hitam & tebal meski dark mode
+   =============================== */
+        .login-content,
+        .login-content * {
+            color: #000000 !important;
+            /* Tetap hitam */
+            font-weight: 500 !important;
+            /* Teks tebal */
+        }
+
+        /* Placeholder tetap terlihat jelas */
+        .login-content input::placeholder {
+            color: #444 !important;
+            font-weight: 400 !important;
+        }
+
+        .login-content label {
+            color: #000 !important;
+        }
+
+
+
+
+        .register-title {
+            text-align: center;
+            width: 100%;
+            font-size: 35px;
+            font-weight: 800;
+            color: #000000;
+            letter-spacing: 0.5px;
+            margin-top: 5px !important;
+            /* Supaya lebih dekat ke logo */
+            margin-bottom: 10px !important;
+        }
+
+
+        /* Pastikan container full height agar berada di tengah vertikal */
+        .container {
+            min-height: 100vh;
+            /* Tinggi layar penuh */
+        }
+
+        /* Pusatkan vertikal + horizontal */
+        .d-flex {
+            display: flex;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+
+        /* Agar form tidak terlalu melebar pada layar kecil */
+        @media (max-width: 480px) {
+            .login-content {
+                padding: 20px;
+                max-width: 90%;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
     <div class="page-wrapper">
-        <div class="page-content--bge5">
-            <div class="container">
-                <div class="login-wrap">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            <a href="#">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
-                            </a>
-                        </div>
-                        <div class="login-form">
-                            <form action="" method="post">
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input class="au-input au-input--full" type="text" name="username" placeholder="Username">
-                                </div>
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
-                                </div>
-                                <div class="login-checkbox">
-                                    <label>
-                                        <input type="checkbox" name="aggree">Agree the terms and policy
-                                    </label>
-                                </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">register</button>
-                                <div class="social-login-content">
-                                    <div class="social-button">
-                                        <button class="au-btn au-btn--block au-btn--blue m-b-20">register with facebook</button>
-                                        <button class="au-btn au-btn--block au-btn--blue2">register with twitter</button>
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            <img src="images/icon/logo.png" alt="CoolAdmin" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <!-- <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="index.html">Dashboard 1</a>
+                                </li>
+                                <li>
+                                    <a href="index2.html">Dashboard 2</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Dashboard 3</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Dashboard 4</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                        <li>
+                            <a href="index.html">
+                                <i class="fas fa-tachometer-alt "></i>Dashboard</a>
+                        </li>
+                        <!-- <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-bar"></i>Charts</a>
+                        </li> -->
+                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
+                        </li>
+                        <li>
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">
+                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>Maps</a>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-desktop"></i>Account</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                
+                                <li id="menuAccountMobile">
+                                    <a href="register.html" class="active">
+                                        <i class="fas fa-user"></i> Register
+                                    </a>
+                                </li>
+                                <!-- <li id="menuAccountMobile1">
+                                    <a href="forget-pass.html">
+                                        <i class="fas fa-unlock-alt"></i> Forget Password
+                                    </a>
+                                </li> -->
+                                <li id="menuAccountMobile2">
+                                    <a href="users.html">
+                                        <i class="fas fa-user-edit"></i> Users
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="profile.html">
+                                        <i class="far fa-id-card"></i> Profil Akun
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="login.html">
+                                        <i class="fas fa-sign-in-alt"></i> Logout
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <!-- <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-desktop"></i>UI Elements</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="button.html">Button</a>
+                                </li>
+                                <li>
+                                    <a href="badge.html">Badges</a>
+                                </li>
+                                <li>
+                                    <a href="tab.html">Tabs</a>
+                                </li>
+                                <li>
+                                    <a href="card.html">Cards</a>
+                                </li>
+                                <li>
+                                    <a href="alert.html">Alerts</a>
+                                </li>
+                                <li>
+                                    <a href="progress-bar.html">Progress Bars</a>
+                                </li>
+                                <li>
+                                    <a href="modal.html">Modals</a>
+                                </li>
+                                <li>
+                                    <a href="switch.html">Switchs</a>
+                                </li>
+                                <li>
+                                    <a href="grid.html">Grids</a>
+                                </li>
+                                <li>
+                                    <a href="fontawesome.html">Fontawesome Icon</a>
+                                </li>
+                                <li>
+                                    <a href="typo.html">Typography</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/icon/logo.png" alt="Cool Admin" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <!-- <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i href="index.html" class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="index.html">Dashboard 1</a>
+                                </li>
+                                <li>
+                                    <a href="index2.html">Dashboard 2</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Dashboard 3</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Dashboard 4</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                        <li>
+                            <a href="index.html">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        <!-- <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-bar"></i>Charts</a>
+                        </li> -->
+                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
+                        </li>
+                        <li>
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">
+                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>Maps</a>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-desktop"></i>Account</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                
+                                <li>
+                                    <a id="menuAccountDesktop" href="register.html" class="active">
+                                        <i class="fas fa-user"></i> Register
+                                    </a>
+                                </li>
+                                <!-- <li id="menuAccountDesktop1" >
+                                    <a href="forget-pass.html">
+                                        <i class="fas fa-unlock-alt"></i> Forget Password
+                                    </a>
+                                </li> -->
+                                <li id="menuAccountDesktop2">
+                                    <a href="users.html">
+                                        <i class="fas fa-user-edit"></i> Users
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="profile.html">
+                                        <i class="far fa-id-card"></i> Profil Akun
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="login.html">
+                                        <i class="fas fa-sign-in-alt"></i> Logout
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <!-- <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-desktop"></i>UI Elements</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="button.html">Button</a>
+                                </li>
+                                <li>
+                                    <a href="badge.html">Badges</a>
+                                </li>
+                                <li>
+                                    <a href="tab.html">Tabs</a>
+                                </li>
+                                <li>
+                                    <a href="card.html">Cards</a>
+                                </li>
+                                <li>
+                                    <a href="alert.html">Alerts</a>
+                                </li>
+                                <li>
+                                    <a href="progress-bar.html">Progress Bars</a>
+                                </li>
+                                <li>
+                                    <a href="modal.html">Modals</a>
+                                </li>
+                                <li>
+                                    <a href="switch.html">Switchs</a>
+                                </li>
+                                <li>
+                                    <a href="grid.html">Grids</a>
+                                </li>
+                                <li>
+                                    <a href="fontawesome.html">Fontawesome Icon</a>
+                                </li>
+                                <li>
+                                    <a href="typo.html">Typography</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <form class="form-header" action="" method="POST">
+
+                            </form>
+                            <div class="header-button">
+                                <div class="noti-wrap">
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-comment-more"></i>
+                                        <span class="quantity">1</span>
+                                        <div class="mess-dropdown js-dropdown">
+                                            <div class="mess__title">
+                                                <p>You have 2 news message</p>
+                                            </div>
+                                            <div class="mess__item">
+                                                <div class="image img-cir img-40">
+                                                    <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
+                                                </div>
+                                                <div class="content">
+                                                    <h6>Michelle Moreno</h6>
+                                                    <p>Have sent a photo</p>
+                                                    <span class="time">3 min ago</span>
+                                                </div>
+                                            </div>
+                                            <div class="mess__item">
+                                                <div class="image img-cir img-40">
+                                                    <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
+                                                </div>
+                                                <div class="content">
+                                                    <h6>Diane Myers</h6>
+                                                    <p>You are now connected on message</p>
+                                                    <span class="time">Yesterday</span>
+                                                </div>
+                                            </div>
+                                            <div class="mess__footer">
+                                                <a href="#">View all messages</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-email"></i>
+                                        <span class="quantity">1</span>
+                                        <div class="email-dropdown js-dropdown">
+                                            <div class="email__title">
+                                                <p>You have 3 New Emails</p>
+                                            </div>
+                                            <div class="email__item">
+                                                <div class="image img-cir img-40">
+                                                    <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
+                                                </div>
+                                                <div class="content">
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, 3 min ago</span>
+                                                </div>
+                                            </div>
+                                            <div class="email__item">
+                                                <div class="image img-cir img-40">
+                                                    <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                                </div>
+                                                <div class="content">
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, Yesterday</span>
+                                                </div>
+                                            </div>
+                                            <div class="email__item">
+                                                <div class="image img-cir img-40">
+                                                    <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                                </div>
+                                                <div class="content">
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, January 15, 2025</span>
+                                                </div>
+                                            </div>
+                                            <div class="email__footer">
+                                                <a href="#">See all emails</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-notifications"></i>
+                                        <span class="quantity">3</span>
+                                        <div class="notifi-dropdown js-dropdown">
+                                            <div class="notifi__title">
+                                                <p>You have 3 Notifications</p>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c1 img-cir img-40">
+                                                    <i class="zmdi zmdi-email-open"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>You got a email notification</p>
+                                                    <span class="date">January 15, 2025 14:30</span>
+                                                </div>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c2 img-cir img-40">
+                                                    <i class="zmdi zmdi-account-box"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>Your account has been blocked</p>
+                                                    <span class="date">January 15, 2025 14:30</span>
+                                                </div>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c3 img-cir img-40">
+                                                    <i class="zmdi zmdi-file-text"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>You got a new file</p>
+                                                    <span class="date">January 15, 2025 14:30</span>
+                                                </div>
+                                            </div>
+                                            <div class="notifi__footer">
+                                                <a href="#">All notifications</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </form>
-                            <div class="register-link">
-                                <p>
-                                    Already have account?
-                                    <a href="#">Sign In</a>
-                                </p>
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img id="userAvatar" src="images/icon/avatar-01.jpg" alt="User Avatar" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" id="userName" href="#">User</a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img id="dropdownAvatar" src="images/icon/avatar-01.jpg"
+                                                            alt="User Avatar" />
+                                                    </a>
+                                                </div>
+                                                <div class="content" style="height: 5px; margin-top: -11px;">
+                                                    <h5 class="name">
+                                                        <a href="#" id="dropdownName">User</a>
+                                                    </h5>
+                                                    <span class="email" id="dropdownEmail">user@example.com</span><br>
+                                                    <small id="dropdownCabang" style="color:#777;">Cabang: -</small>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="profile.html"><i class="zmdi zmdi-account"></i>Account</a>
+                                                </div>
+                                                <!-- <div class="account-dropdown__item">
+                                                    <a href="#"><i class="zmdi zmdi-settings"></i>Setting</a>
+                                                </div> -->
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-settings"></i>Tema
+
+                                                        <!-- <span id="themeLabel">Terang</span> -->
+                                                        <label class="switch switch-text switch-secondary switch-pill"
+                                                            style="margin-left: 5px; width: 100px;">
+                                                            <input id="themeToggle" type="checkbox"
+                                                                class="switch-input">
+                                                            <span data-on="Gelap" data-off="Terang"
+                                                                class="switch-label"></span>
+                                                            <span class="switch-handle"></span>
+                                                        </label>
+                                                    </a>
+                                                </div>
+
+
+
+                                                <!-- <div class="account-dropdown__item">
+                                                    <a href="#"><i class="zmdi zmdi-money-box"></i>Billing</a>
+                                                </div> -->
+                                            </div>
+                                            <div class="account-dropdown__footer"
+                                                style="background-color: #db3232; margin-top: -18px;">
+                                                <a href="#" id="logoutBtn">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container d-flex justify-content-center align-items-center">
+                        <div class="row w-100 justify-content-center">
+                            <div class="login-content">
+                                <h3 class="register-title">Registrasi Akun</h3>
+
+                                <div class="login-form">
+                                    <form id="registerForm" onsubmit="event.preventDefault(); registerUser();">
+
+                                        <div class="form-group">
+                                            <label>Nama Lengkap</label>
+                                            <input class="au-input au-input--full" type="text" id="namaLengkap"
+                                                placeholder="Nama Lengkap" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input class="au-input au-input--full" type="email" id="email"
+                                                placeholder="Email" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>NIK Karyawan</label>
+                                            <input class="au-input au-input--full" type="text" id="nik"
+                                                placeholder="NIK Karyawan" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Username</label>
+                                            <input class="au-input au-input--full" type="text" id="username"
+                                                placeholder="Username" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Email SALES</label>
+                                            <input class="au-input au-input--full" type="email" id="emailSales"
+                                                placeholder="Email SALES">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Email ADH</label>
+                                            <input class="au-input au-input--full" type="email" id="emailADH"
+                                                placeholder="Email ADH">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Email PENJUAL</label>
+                                            <input class="au-input au-input--full" type="email" id="emailPenjual"
+                                                placeholder="Email PENJUAL">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input class="au-input au-input--full" type="password" id="password"
+                                                placeholder="Password" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Konfirmasi Password</label>
+                                            <input class="au-input au-input--full" type="password" id="confirmPassword"
+                                                placeholder="Konfirmasi Password" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Cabang</label>
+                                            <select class="au-input au-input--full" id="role" style="height: 40px;"
+                                                required>
+                                                <option value="">-- Pilih Cabang --</option>
+                                                <option value="MAKASSAR">MAKASSAR</option>
+                                                <option value="PALU">PALU</option>
+                                                <option value="PONTIANAK">PONTIANAK</option>
+                                                <option value="JAYAPURA">JAYAPURA</option>
+                                                <option value="SORONG">SORONG</option>
+                                                <option value="SAMARINDA">SAMARINDA</option>
+                                                <option value="BULUNGAN">BULUNGAN</option>
+                                                <option value="CILEGON">CILEGON</option>
+                                                <option value="BALIKPAPAN">BALIKPAPAN</option>
+                                                <option value="GORONTALO">GORONTALO</option>
+                                            </select>
+                                        </div>
+
+
+
+                                        <button id="registerBtn" type="button"
+                                            class="au-btn au-btn--block au-btn--green" onclick="registerUser()"
+                                            style="margin-top: 20px;">
+                                            Registrasi
+                                        </button>
+
+                                    </form>
+
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div>
 
-    <!-- Bootstrap 5 JS-->
-    <!-- Jquery JS-->
-    <script src="js/vanilla-utils.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-5.3.8.bundle.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar-1.5.6.min.js"></script>
-    <script src="vendor/chartjs/chart.umd.js-4.5.0.min.js"></script>
+            <!-- Jquery JS-->
+            <script src="js/vanilla-utils.js"></script>
+            <!-- Bootstrap JS-->
+            <script src="vendor/bootstrap-5.3.8.bundle.min.js"></script>
+            <!-- Vendor JS       -->
+            <script src="vendor/perfect-scrollbar/perfect-scrollbar-1.5.6.min.js"></script>
+            <script src="vendor/chartjs/chart.umd.js-4.5.0.min.js"></script>
 
-    <!-- Main JS-->
-    <script src="js/bootstrap5-init.js"></script>
-    <script src="js/main-vanilla.js"></script>
-    <script src="js/swiper-bundle-11.2.10.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/modern-plugins.js"></script>
+            <!-- Main JS-->
+            <script src="js/bootstrap5-init.js"></script>
+            <script src="js/main-vanilla.js"></script>
+            <script src="js/swiper-bundle-11.2.10.min.js"></script>
+            <script src="js/aos.js"></script>
+            <script src="js/modern-plugins.js"></script>
 
+
+            <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (user) {
+
+        /* 🔒 CEK ROLE ADMIN UNTUK AKSES HALAMAN */
+        if ((user.role || "").toLowerCase() !== "admin") {
+            alert("❌ Anda tidak memiliki akses ke halaman ini!");
+            window.location.href = "index.html";
+            return; 
+        }
+
+        /* 🔒 SEMBUNYIKAN MENU ACCOUNT JIKA BUKAN ADMIN */
+        if ((user.role || "").toLowerCase() !== "admin") {
+            const accMobile = document.getElementById("menuAccountMobile");
+                    const accMobile1 = document.getElementById("menuAccountMobile1");
+                    const accMobile2 = document.getElementById("menuAccountMobile2");
+                    const accDesktop = document.getElementById("menuAccountDesktop");
+                    const accDesktop1 = document.getElementById("menuAccountDesktop1");
+                    const accDesktop2 = document.getElementById("menuAccountDesktop2");
+
+                    if (accMobile) accMobile.style.display = "none";
+                    if (accMobile1) accMobile1.style.display = "none";
+                    if (accMobile2) accMobile2.style.display = "none";
+                    if (accDesktop) accDesktop.style.display = "none";
+                    if (accDesktop1) accDesktop1.style.display = "none";
+                    if (accDesktop2) accDesktop2.style.display = "none";
+        }
+
+        /* ✔ TAMPILKAN DATA USER */
+        document.getElementById("userName").textContent = user.namaLengkap || "User";
+        document.getElementById("dropdownName").textContent = user.namaLengkap || "User";
+        document.getElementById("dropdownEmail").textContent = user.email || "-";
+        document.getElementById("dropdownCabang").textContent = user.role ? "" + user.role : "-";
+
+        if (user.avatarUrl) {
+            document.getElementById("userAvatar").src = user.avatarUrl;
+            document.getElementById("dropdownAvatar").src = user.avatarUrl;
+        }
+
+    } else {
+        window.location.href = "login.html";
+        return;
+    }
+
+    document.getElementById("logoutBtn").addEventListener("click", function (e) {
+        e.preventDefault();
+        localStorage.removeItem("user");
+        window.location.href = "login.html";
+    });
+
+    console.log("User data loaded from localStorage:", user);
+});
+</script>
+
+
+
+
+            <script>
+
+                const scriptURL = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
+                const registerBtn = document.getElementById("registerBtn");
+
+                async function registerUser() {
+                    const namaLengkap = document.getElementById("namaLengkap").value.trim();
+                    const nik = document.getElementById("nik").value.trim();
+                    const username = document.getElementById("username").value.trim();
+                    const email = document.getElementById("email").value.trim();
+                    const password = document.getElementById("password").value.trim();
+                    const confirmPassword = document.getElementById("confirmPassword").value.trim();
+                    const role = document.getElementById("role").value.trim();
+
+                    // 🔹 Tambahan kolom email baru (boleh kosong)
+                    const emailSales = document.getElementById("emailSales")?.value.trim() || "";
+                    const emailADH = document.getElementById("emailADH")?.value.trim() || "";
+                    const emailPenjual = document.getElementById("emailPenjual")?.value.trim() || "";
+
+                    // 🟡 Validasi kolom wajib
+                    if (!namaLengkap || !nik || !username || !email || !password || !confirmPassword || !role) {
+                        showMessage("⚠️ Semua kolom wajib diisi!", "warning");
+                        return;
+                    }
+
+                    // 🔵 Validasi email
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(email)) {
+                        showMessage("⚠️ Format email tidak valid!", "warning");
+                        return;
+                    }
+
+                    // 🔒 Pastikan password cocok
+                    if (password !== confirmPassword) {
+                        showMessage("❌ Password dan konfirmasi tidak sama!", "error");
+                        return;
+                    }
+
+                    // Tombol loading
+                    registerBtn.disabled = true;
+                    registerBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Sedang memproses...`;
+
+                    try {
+                        const response = await fetch(scriptURL, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            body: new URLSearchParams({
+                                action: "register",
+                                namaLengkap,
+                                nik,
+                                username,
+                                email,
+                                password,
+                                role,
+                                emailSales,
+                                emailADH,
+                                emailPenjual,
+                                loginEmail: localStorage.getItem("userEmail")
+                            })
+                        });
+
+                        const result = await response.json();
+                        showMessage(result.message, result.success ? "success" : "error");
+
+                        if (result.success) {
+                            document.getElementById("registerForm").reset();
+                        }
+
+                    } catch (error) {
+                        console.error("Error:", error);
+                        showMessage("❌ Gagal mengirim data. Periksa koneksi atau izin Apps Script.", "error");
+                    } finally {
+                        registerBtn.disabled = false;
+                        registerBtn.innerHTML = "Register";
+                    }
+                }
+
+                // 🔔 Fungsi notifikasi pojok bawah
+                function showMessage(msg, type = "info") {
+                    const colors = {
+                        success: "#4CAF50",
+                        error: "#f44336",
+                        warning: "#ff9800",
+                        info: "#2196F3"
+                    };
+
+                    const div = document.createElement("div");
+                    div.textContent = msg;
+                    div.style.position = "fixed";
+                    div.style.bottom = "20px";
+                    div.style.right = "20px";
+                    div.style.background = colors[type];
+                    div.style.color = "white";
+                    div.style.padding = "10px 15px";
+                    div.style.borderRadius = "8px";
+                    div.style.boxShadow = "0 3px 8px rgba(0,0,0,0.3)";
+                    div.style.zIndex = "9999";
+                    div.style.transition = "opacity 0.3s ease";
+                    document.body.appendChild(div);
+
+                    setTimeout(() => {
+                        div.style.opacity = "0";
+                        setTimeout(() => div.remove(), 300);
+                    }, 2000);
+                }
+            </script>
+
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const themeToggle = document.getElementById("themeToggle");
+
+                    // Ambil tema dari localStorage
+                    const currentTheme = localStorage.getItem("theme") || "light";
+
+                    // Set awal tema
+                    if (currentTheme === "dark") {
+                        document.body.classList.add("dark-mode");
+                        themeToggle.checked = true;
+                    } else {
+                        document.body.classList.remove("dark-mode");
+                        themeToggle.checked = false;
+                    }
+
+                    // Event ketika switch diubah
+                    themeToggle.addEventListener("change", function () {
+                        if (themeToggle.checked) {
+                            document.body.classList.add("dark-mode");
+                            localStorage.setItem("theme", "dark");
+                        } else {
+                            document.body.classList.remove("dark-mode");
+                            localStorage.setItem("theme", "light");
+                        }
+                    });
+                });
+            </script>
 </body>
 
 </html>

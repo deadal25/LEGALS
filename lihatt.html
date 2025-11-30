@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perjanjian Jual Beli Aspal</title>
+<style>
+  @page {
+    size: A4;
+    margin: 1cm;
+  }
+
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11pt;
+    line-height: 1.05;
+    margin: 0;
+    padding: 0;
+    color: #000;
+  }
+
+  /* Logo di luar tabel kanan atas */
+  .logo {
+    text-align: right;
+    margin-right: 25px;
+    margin-top: 5px;
+  }
+
+  .logo img {
+    width: 110px;
+  }
+
+  /* Kontainer utama agar di tengah */
+  .page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 750px;
+    margin-top: 5px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5pt;
+  }
+
+  td {
+    vertical-align: top;
+    padding: 3px 6px;
+    border: 1px solid #000;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .highlight {
+    background-color: yellow;
+  }
+
+  p {
+    margin: 5px 0;
+    text-align: justify;
+  }
+
+  .footer-note {
+    font-size: 9.5pt;
+    margin-top: 6px;
+    text-align: justify;
+  }
+
+  .signature {
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-size: 10.5pt;
+    margin-top: 10px;
+  }
+
+  .signature td {
+    border: none;
+    padding-top: 20px;
+  }
+
+  @media print {
+    body {
+      margin: 0;
+    }
+    .container {
+      width: 95%;
+    }
+    .logo img {
+      width: 90px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Logo di luar tabel -->
+<div class="logo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Kalla_Group_logo.png" alt="Kalla Aspal Logo">
+</div>
+
+<div class="page">
+  <div class="container">
+    <table>
+      <!-- Header di dalam tabel -->
+      <tr>
+        <td colspan="2" class="center">
+          <strong>PERJANJIAN JUAL BELI DAN PENGIRIMAN<br>ASPAL CURAH PENISTRASI</strong><br>
+          No. <span class="highlight">{x}</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          Perjanjian Jual Beli Aspal dan Pengiriman ini (“<strong>Perjanjian</strong>”) dibuat di 
+          <span class="highlight">{x}</span> pada hari ini, tanggal <span class="highlight">{x}</span>, 
+          telah disepakati bersama oleh para pihak, sebagai berikut:
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%">
+          <strong>1. PENJUAL (PEMILIK ASPAL)</strong><br>
+          PT Bumi Sarana Utama<br>
+          Wisma Kalla Lt. 10, Jl. Dr. Sam Ratulangi No. 8-10, Makassar<br>
+          Telp.: 0411-879999 HP: <span class="highlight">{x}</span> Faks. 0411-851445<br>
+          e-mail: bumisaranautama.co.id
+        </td>
+        <td>
+          <strong>2. PEMBELI</strong><br>
+          PT/CV/Perorangan <span class="highlight">{x}</span><br>
+          Alamat <span class="highlight">{x}</span><br>
+          Telp. <span class="highlight">{x}</span><br>
+          e-mail <span class="highlight">{x}</span><br>
+          Baru [ ] / Lama [ ]
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>3. VOLUME DAN HARGA</strong><br>
+          Volume: <span class="highlight">{x}</span> Mon (melalui penerbitan PO)<br>
+          Harga Satuan: Rp <span class="highlight">{x}</span><br>
+          Harga sewaktu-waktu dapat berubah dengan pemberitahuan tertulis terlebih dahulu dan berlaku terhadap aspal yg belum diserahkan.<br><br>
+          - PPN 11%: <span class="highlight">{x}</span><br>
+          - Biaya Angkut: <span class="highlight">{x}</span><br>
+          - Total Harga: <span class="highlight">{x}</span><br>
+          - Biaya lain: @ pihak sesuai ketentuan yg berlaku.<br><br>
+          <strong>HARGA TOTAL PERJANJIAN = JUMLAH ASPAL x TOTAL HARGA ASPAL</strong>
+        </td>
+        <td>
+          <strong>4. JANGKA WAKTU</strong><br>
+          Jangka Waktu Perjanjian terhitung sejak tanggal ditandatanganinya Perjanjian Jual Beli atau tanggal lain yg disepakati Para Pihak dan berakhir sejak kewajiban telah terpenuhi oleh Para Pihak atau seluruh pembayaran selesai.
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>5. FASILITAS PEMBAYARAN KREDIT</strong><br>
+          Batasan Limit pengambilan aspal <span class="highlight">{x}</span> Mon* dan/atau Sebesar Rp <span class="highlight">{x}</span><br>
+          *Diberikan setelah memenuhi syarat yang berlaku.
+        </td>
+        <td>
+          <strong>6. TATA CARA PEMBAYARAN</strong><br>
+          Pembayaran paling lambat <span class="highlight">{x}</span> hari setelah aspal diterima.<br>
+          Dokumen yang dilengkapi dalam 1 rangkap, terdiri dari:<br>
+          - Kwitansi tagihan / invoice.<br>
+          - Faktur pajak.<br>
+          - Nota pengiriman barang / material.<br>
+          - Berita acara serah terima barang / material.<br><br>
+          Apabila disepakati untuk pembayaran kredit dengan jangka waktu selambat-lambatnya <span class="highlight">{x}</span>.
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>7. CARA PEMBAYARAN</strong><br>
+          Transfer ke:<br>
+          Bank Mandiri<br>
+          No. Rekening: 152-00-1367251-0<br>
+          Atas nama: PT Bumi Sarana Utama
+        </td>
+        <td>
+          <strong>8. PENGIRIMAN, PENYERAHAN DAN PERNYATAAN</strong><br>
+          - Lokasi pengiriman sesuai dengan PO.<br>
+          - Serah Terima dilaksanakan dengan Berita Acara Penyerahan Aspal (BAPA).
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>9. KETERLAMBATAN PEMBAYARAN</strong><br>
+          - PENJUAL akan mengenakan denda 1% per hari kalender atas keterlambatan pembayaran tertunggak terhitung 7 hari kerja setelah jatuh tempo.<br>
+          - PENJUAL berhak menahan pengiriman apabila PEMBELI belum melakukan pembayaran senilai yg ditagihkan.<br>
+          - PENJUAL akan menyampaikan informasi tertulis apabila tagihan telah jatuh tempo.
+        </td>
+        <td>
+          <strong>10. PENGAKUAN DAN PEMBUKTIAN HUTANG</strong><br>
+          Pembukuan yang bersumber dari PENJUAL adalah sah dan mengikat PEMBELI dan dapat dipergunakan sebagai pengakuan hutang, kecuali dapat dibuktikan sebaliknya.
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>11. PEMUTUSAN DAN BERAKHIRNYA PERJANJIAN</strong><br>
+          - Jangka waktu berakhir atau dinyatakan berakhir oleh Para Pihak.<br>
+          - Perubahan kebijakan Pemerintah.<br>
+          - Salah satu pihak melanggar, setelah mendapat Surat Peringatan 1, 2, dan 3 (@7 hari).<br>
+          - Salah satu pihak dibubarkan, atau dinyatakan pailit/bangkrut.<br>
+          - Perjanjian ini mengesampingkan Pasal 1266 dan 1267 KUHPerdata.
+        </td>
+        <td>
+          <strong>12. LAIN-LAIN</strong><br>
+          - Penambahan aspal dibuat dalam bentuk addendum.<br>
+          - Perjanjian ini tidak dapat dialihkan tanpa persetujuan tertulis pihak lain.<br>
+          - Hal-hal yg belum diatur diatur dalam addendum yg merupakan bagian perjanjian ini.<br>
+          - PENJUAL dan PEMBELI memiliki kewenangan sesuai ketentuan hukum yg berlaku untuk melaksanakan perjanjian ini.<br>
+          - Pilihan domisili Pengadilan Negeri <span class="highlight">{x}</span>.
+        </td>
+      </tr>
+    </table>
+
+    <p class="footer-note">
+      Demikian Perjanjian ini dibuat dalam keadaan sadar tanpa paksaan dan disetujui serta ditandatangani bersama dalam rangkap 2 (dua),
+      bermaterai cukup yang masing-masing mempunyai kekuatan hukum yang sama.
+    </p>
+
+    <table class="signature">
+      <tr>
+        <td><strong>PENJUAL</strong><br>PT BUMI SARANA UTAMA</td>
+        <td><strong>PEMBELI</strong><br><span class="highlight">{x}</span></td>
+      </tr>
+      <tr><td height="60"></td><td></td></tr>
+      <tr>
+        <td><span class="highlight">{x}</span></td>
+        <td><span class="highlight">{x}</span></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

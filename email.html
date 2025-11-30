@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kirim Email Otomatis Pembeli</title>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <!-- html2pdf.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 40px;
+      background-color: #f4f6f8;
+    }
+
+    h2 {
+      color: #2b8a3e;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    th {
+      background-color: #2b8a3e;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    button {
+      background-color: #2b8a3e;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #226b31;
+    }
+  </style>
+
+  <script>
+    // ✅ Inisialisasi EmailJS (ganti dengan public key kamu)
+    (function() {
+      emailjs.init("1EM2eUriiIxHhl_iy");
+    })();
+
+    // ✅ Link CSV publik dari Google Sheet (publish ke web → CSV)
+    const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRcSToz0OvXEQrObU7gBaRuhUiDDDlbEotwGWyw5NQOLyBtEnwTScBKeN0cPsyZ_7vvSDTHHni2Ez6L/pub?output=csv";
+
+    // 🔹 Ambil data dari Spreadsheet
+    async function ambilSemuaData() {
+      try {
+        const response = await fetch(sheetURL);
+        const csvText = await response.text();
+
+        const rows = csvText.trim().split("\n").map(r => r.split(","));
+        const header = rows[0];
+        const dataRows = rows.slice(1);
+
+        const tbody = document.getElementById("data-body");
+        tbody.innerHTML = "";
+
+        dataRows.forEach((row) => {
+          const data = {};
+          header.forEach((h, j) => {
+            data[h.trim()] = row[j] ? row[j].trim() : "";
+          });
+
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${data.noperjanjian || "-"}</td>
+            <td>${data.namaperusahaan || "-"}</td>
+            <td>${data.namattdpembeli || "-"}</td>
+            <td>${data.emailpembeli || "-"}</td>
+            <td style="text-align:center;">
+              <button onclick='kirimEmail(${JSON.stringify(data)})'>Kirim</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+      } catch (err) {
+        alert("❌ Gagal mengambil data dari Spreadsheet: " + err);
+        console.error(err);
+      }
+    }
+
+    // 🔹 Fungsi kirim email dengan lampiran PDF
+    async function kirimEmail(data) {
+      if (!data.emailpembeli) {
+        alert("Email pembeli tidak tersedia!");
+        return;
+      }
+
+      isiTemplate(data);
+      const element = document.getElementById("template");
+
+      const pdfBlob = await html2pdf().from(element).outputPdf("blob");
+
+      const reader = new FileReader();
+      reader.readAsDataURL(pdfBlob);
+      reader.onloadend = function() {
+        const base64PDF = reader.result.split(",")[1];
+
+        const params = {
+          to_email: data.emailpembeli,
+          nama_pembeli: data.namaperusahaan,
+          total_harga: data.totalharga,
+          attachment: base64PDF
+        };
+
+        // ✅ Ganti dengan Service ID & Template ID kamu di EmailJS
+        emailjs.send("service_zdcnoy8", "template_3u1b8gj", params)
+          .then(() => {
+            alert("✅ Email terkirim ke: " + data.emailpembeli);
+          })
+          .catch(err => {
+            alert("❌ Gagal mengirim email: " + JSON.stringify(err));
+            console.error(err);
+          });
+      };
+    }
+
+    // 🔹 Isi template PDF dengan data pembeli
+    function isiTemplate(data) {
+      document.getElementById("noperjanjian").textContent = data.noperjanjian || "-";
+      document.getElementById("tempatperjanjian").textContent = data.tempatperjanjian || "-";
+      document.getElementById("tanggalperjanjian").textContent = data.tanggalperjanjian || "-";
+      document.getElementById("namaperusahaan").textContent = data.namaperusahaan || "-";
+      document.getElementById("alamatpembeli").textContent = data.alamatpembeli || "-";
+      document.getElementById("totalharga").textContent = data.totalharga || "-";
+      document.getElementById("emailpembeli").textContent = data.emailpembeli || "-";
+      document.getElementById("namattdpenjual").textContent = data.namattdpenjual || "-";
+      document.getElementById("namattdpembeli").textContent = data.namattdpembeli || "-";
+      document.getElementById("jabatanpenjual").textContent = data.jabatanpenjual || "-";
+      document.getElementById("jabatanpembeli").textContent = data.jabatanpembeli || "-";
+    }
+
+    window.onload = ambilSemuaData;
+  </script>
+</head>
+
+<body>
+  <h2>📧 Kirim Otomatis Perjanjian Jual Beli Aspal</h2>
+  <p>
+    Data pembeli diambil langsung dari Google Spreadsheet (CSV publik).<br>
+    Klik tombol <b>"Kirim"</b> untuk mengirim file PDF ke email pembeli.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>No. Perjanjian</th>
+        <th>Nama Perusahaan</th>
+        <th>Nama Pembeli</th>
+        <th>Email Pembeli</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="data-body">
+      <tr>
+        <td colspan="5" style="text-align:center;">⏳ Memuat data...</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 🔹 Template PDF (disembunyikan) -->
+  <div id="template" style="display:none; padding:20px; max-width:600px;">
+    <h2 style="text-align:center;">PERJANJIAN JUAL BELI ASPAL</h2>
+
+    <p>Nomor Perjanjian: <strong id="noperjanjian"></strong></p>
+    <p>Tempat Perjanjian: <strong id="tempatperjanjian"></strong></p>
+    <p>Tanggal Perjanjian: <strong id="tanggalperjanjian"></strong></p>
+    <p>Nama Perusahaan: <strong id="namaperusahaan"></strong></p>
+    <p>Alamat Pembeli: <strong id="alamatpembeli"></strong></p>
+    <p>Email Pembeli: <strong id="emailpembeli"></strong></p>
+    <p>Total Harga: <strong id="totalharga"></strong></p>
+
+    <br />
+    <p>
+      Perjanjian ini dibuat dengan itikad baik antara pihak penjual dan pembeli
+      sesuai kesepakatan bersama.
+    </p>
+
+    <br /><br />
+    <table style="width:100%; margin-top:30px;">
+      <tr>
+        <td style="text-align:center;">
+          <strong id="namattdpenjual"></strong><br />
+          <em id="jabatanpenjual"></em><br />
+          (Pihak Penjual)
+        </td>
+        <td style="text-align:center;">
+          <strong id="namattdpembeli"></strong><br />
+          <em id="jabatanpembeli"></em><br />
+          (Pihak Pembeli)
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

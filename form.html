@@ -28,6 +28,90 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <style>
+        body.dark-mode {
+            background-color: #ffffff !important;
+            color: #fffefe !important;
+        }
+
+        body.dark-mode .card,
+        body.dark-mode .header-desktop {
+            background-color: #6d6a6a !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode .main-content {
+            background-color: #8f8989 !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode a {
+            color: #000000 !important;
+        }
+
+        body.dark-mode .account-dropdown {
+            background-color: #6d6a6a !important;
+        }
+
+        body.dark-mode .account-dropdown__item a {
+            color: #ffffff !important;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 90px;
+            height: 32px;
+        }
+
+        .switch-input {
+            display: none;
+        }
+
+        .switch-label {
+            display: block;
+            cursor: pointer;
+            border: 2px solid #ccc;
+            border-radius: 50px;
+            background-color: #f5f5f5;
+            text-align: center;
+            font-size: 14px;
+            line-height: 28px;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar__list li a.active {
+            background-color: #e8f0fe;
+            /* warna terang seperti highlight */
+            color: #1a73e8 !important;
+            /* biru agar selaras */
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Mode gelap */
+        body.dark-mode .navbar__list li a.active {
+            background-color: #6d6a6a;
+            color: #0a0a0a !important;
+            border-radius: 8px;
+        }
+
+        /* Perbaiki agar active juga muncul di menu mobile */
+        .navbar-mobile__list li a.active {
+            background-color: #e8f0fe !important;
+            color: #1a73e8 !important;
+            border-radius: 8px !important;
+            font-weight: 600;
+        }
+
+        /* Versi dark mode */
+        body.dark-mode .navbar-mobile__list li a.active {
+            background-color: #6d6a6a !important;
+            color: #0a0a0a !important;
+        }
+    </style>
 
 </head>
 
@@ -52,7 +136,7 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
@@ -69,17 +153,21 @@
                                     <a href="index4.html">Dashboard 4</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
+                            <a href="index.html">
+                                <i class="fas fa-tachometer-alt "></i>Dashboard</a>
+                        </li>
+                        <!-- <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a class="active" href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
                         <li>
@@ -90,22 +178,40 @@
                             <a href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li>
-                        <li class="has-sub">
+                        <li class="has-sub" >
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                                <i class="fas fa-desktop"></i>Account</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
+                                
+                                <li id="menuAccountMobile">
+                                    <a href="register.html">
+                                        <i class="fas fa-user"></i> Register
+                                    </a>
+                                </li>
+                                <!-- <li id="menuAccountMobile1">
+                                    <a href="forget-pass.html">
+                                        <i class="fas fa-unlock-alt"></i> Forget Password
+                                    </a>
+                                </li> -->
+                                <li id="menuAccountMobile2">
+                                    <a href="users.html">
+                                        <i class="fas fa-user-edit"></i> Users
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
+                                    <a href="profile.html">
+                                        <i class="far fa-id-card"></i> Profil Akun
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a href="login.html">
+                                        <i class="fas fa-sign-in-alt"></i> Logout
+                                    </a>
                                 </li>
                             </ul>
+
                         </li>
-                        <li class="has-sub">
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
@@ -143,7 +249,7 @@
                                     <a href="typo.html">Typography</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </nav>
@@ -160,9 +266,9 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="has-sub">
+                        <!-- <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i href="index.html" class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="index.html">Dashboard 1</a>
@@ -177,17 +283,21 @@
                                     <a href="index4.html">Dashboard 4</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
+                            <a href="index.html">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        <!-- <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
-                        <li class="active">
-                            <a href="form.html">
+                        <li>
+                            <a class="active" href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
                         <li>
@@ -200,20 +310,38 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                                <i class="fas fa-desktop"></i>Account</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
+                                
+                                <li id="menuAccountDesktop">
+                                    <a href="register.html">
+                                        <i class="fas fa-user"></i> Register
+                                    </a>
+                                </li>
+                                <!-- <li id="menuAccountDesktop1">
+                                    <a href="forget-pass.html">
+                                        <i class="fas fa-unlock-alt"></i> Forget Password
+                                    </a>
+                                </li> -->
+                                <li id="menuAccountDesktop2">
+                                    <a href="users.html">
+                                        <i class="fas fa-user-edit"></i> Users
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
+                                    <a href="profile.html">
+                                        <i class="far fa-id-card"></i> Profil Akun
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a href="login.html">
+                                        <i class="fas fa-sign-in-alt"></i> Logout
+                                    </a>
                                 </li>
                             </ul>
+
                         </li>
-                        <li class="has-sub">
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -251,7 +379,7 @@
                                     <a href="typo.html">Typography</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
             </div>
@@ -266,10 +394,7 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                                <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
+
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
@@ -387,41 +512,59 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img id="userAvatar" src="images/icon/avatar-01.jpg" alt="User Avatar" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" id="userName" href="#">User</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img id="dropdownAvatar" src="images/icon/avatar-01.jpg"
+                                                            alt="User Avatar" />
                                                     </a>
                                                 </div>
-                                                <div class="content">
+                                                <div class="content" style="height: 5px; margin-top: -11px;">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#" id="dropdownName">User</a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email" id="dropdownEmail">user@example.com</span><br>
+                                                    <small id="dropdownCabang" style="color:#777;">Cabang: -</small>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                    <a href="profile.html"><i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
+                                                <!-- <div class="account-dropdown__item">
+                                                    <a href="#"><i class="zmdi zmdi-settings"></i>Setting</a>
+                                                </div> -->
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
+                                                        <i class="zmdi zmdi-settings"></i>Tema
+
+                                                        <!-- <span id="themeLabel">Terang</span> -->
+                                                        <label class="switch switch-text switch-secondary switch-pill"
+                                                            style="margin-left: 5px; width: 100px;">
+                                                            <input id="themeToggle" type="checkbox"
+                                                                class="switch-input">
+                                                            <span data-on="Gelap" data-off="Terang"
+                                                                class="switch-label"></span>
+                                                            <span class="switch-handle"></span>
+                                                        </label>
+                                                    </a>
                                                 </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                                </div>
+
+
+
+                                                <!-- <div class="account-dropdown__item">
+                                                    <a href="#"><i class="zmdi zmdi-money-box"></i>Billing</a>
+                                                </div> -->
                                             </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="#">
+                                            <div class="account-dropdown__footer"
+                                                style="background-color: #db3232; margin-top: -18px;">
+                                                <a href="#" id="logoutBtn">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -437,1036 +580,739 @@
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">Credit Card</div>
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <h3 class="text-center title-2">Pay Invoice</h3>
-                                        </div>
-                                        <hr>
-                                        <form action="" method="post" novalidate="novalidate">
-                                            <div class="mb-3">
-                                                <label for="cc-payment" class="control-label mb-1">Payment amount</label>
-                                                <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00">
-                                            </div>
-                                            <div class="form-group has-success">
-                                                <label for="cc-name" class="control-label mb-1">Name on card</label>
-                                                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
-                                                    autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
-                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="cc-number" class="control-label mb-1">Card number</label>
-                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true"
-                                                    data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
-                                                    autocomplete="cc-number">
-                                                <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <div class="mb-3">
-                                                        <label for="cc-exp" class="control-label mb-1">Expiration</label>
-                                                        <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                            data-val-cc-exp="Please enter a valid month and year" placeholder="MM / YY"
-                                                            autocomplete="cc-exp">
-                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="x_card_code" class="control-label mb-1">Security code</label>
-                                                    <div class="input-group">
-                                                        <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code"
-                                                            data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
+                    <div class="container d-flex justify-content-center align-items-center">
+                        <div class="row w-100 justify-content-center">
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="d-grid">
-                                                <button id="payment-button" type="submit" class="btn btn-lg btn-info">
-                                                    <i class="fa-solid fa-lock fa-lg"></i>&nbsp;
-                                                    <span id="payment-button-amount">Pay $100.00</span>
-                                                    <span id="payment-button-sending" style="display:none;">Sending…</span>
-                                                </button>
-                                            </div>
-                                        </form>
+                            <div id="formUploadDokumen" class="col-lg-8 mx-auto my-4">
+                                <div class="card shadow-sm border-0">
+                                    <div class="card-header bg-primary text-white" style="font-size: 22px;">
+                                        <strong>Upload Dokumen Persyaratan</strong>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Company</strong>
-                                        <small> Form</small>
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <div class="form-group">
-                                            <label for="company" class=" form-control-label">Company</label>
-                                            <input type="text" id="company" placeholder="Enter your company name" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="vat" class=" form-control-label">VAT</label>
-                                            <input type="text" id="vat" placeholder="DE1234567890" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="street" class=" form-control-label">Street</label>
-                                            <input type="text" id="street" placeholder="Enter street name" class="form-control">
-                                        </div>
-                                        <div class="row form-group">
-                                            <div class="col-6">
-                                                <div class="mb-3">
-                                                    <label for="city" class="form-control-label">City</label>
-                                                    <input type="text" id="city" placeholder="Enter your city" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="mb-3">
-                                                    <label for="postal-code" class="form-control-label">Postal Code</label>
-                                                    <input type="text" id="postal-code" placeholder="Postal Code" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="country" class=" form-control-label">Country</label>
-                                            <input type="text" id="country" placeholder="Country name" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Basic Form</strong> Elements
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label class=" form-control-label">Static</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <p class="form-control-plaintext">Username</p>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Text Input</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control">
-                                                    <small class="form-text text-muted">This is a help text</small>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="email-input" class=" form-control-label">Email Input</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="email" id="email-input" name="email-input" placeholder="Enter Email" class="form-control">
-                                                    <small class="form-text text-muted">Please enter your email</small>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="password-input" class=" form-control-label">Password</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="password" id="password-input" name="password-input" placeholder="Password" class="form-control">
-                                                    <small class="form-text text-muted">Please enter a complex password</small>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="disabled-input" class=" form-control-label">Disabled Input</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="disabled-input" name="disabled-input" placeholder="Disabled" disabled="" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="textarea-input" class=" form-control-label">Textarea</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Select</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="select" id="select" class="form-select">
-                                                        <option value="0">Please select</option>
-                                                        <option value="1">Option #1</option>
-                                                        <option value="2">Option #2</option>
-                                                        <option value="3">Option #3</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="selectLg" class=" form-control-label">Select Large</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="selectLg" id="selectLg" class="form-select form-select-lg">
-                                                        <option value="0">Please select</option>
-                                                        <option value="1">Option #1</option>
-                                                        <option value="2">Option #2</option>
-                                                        <option value="3">Option #3</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="selectSm" class=" form-control-label">Select Small</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="selectSm" id="SelectLm" class="form-select form-select-sm">
-                                                        <option value="0">Please select</option>
-                                                        <option value="1">Option #1</option>
-                                                        <option value="2">Option #2</option>
-                                                        <option value="3">Option #3</option>
-                                                        <option value="4">Option #4</option>
-                                                        <option value="5">Option #5</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="disabledSelect" class=" form-control-label">Disabled Select</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="disabledSelect" id="disabledSelect" disabled="" class="form-select">
-                                                        <option value="0">Please select</option>
-                                                        <option value="1">Option #1</option>
-                                                        <option value="2">Option #2</option>
-                                                        <option value="3">Option #3</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="multiple-select" class=" form-control-label">Multiple select</label>
-                                                </div>
-                                                <div class="col col-md-9">
-                                                    <select name="multiple-select" id="multiple-select" multiple="" class="form-select" size="6">
-                                                        <option value="1">Option #1</option>
-                                                        <option value="2">Option #2</option>
-                                                        <option value="3">Option #3</option>
-                                                        <option value="4">Option #4</option>
-                                                        <option value="5">Option #5</option>
-                                                        <option value="6">Option #6</option>
-                                                        <option value="7">Option #7</option>
-                                                        <option value="8">Option #8</option>
-                                                        <option value="9">Option #9</option>
-                                                        <option value="10">Option #10</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label class=" form-control-label">Radios</label>
-                                                </div>
-                                                <div class="col col-md-9">
-                                                    <div class="form-check mb-2">
-                                                        <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">
-                                                        <label for="radio1" class="form-check-label">Option 1</label>
-                                                    </div>
-                                                    <div class="form-check mb-2">
-                                                        <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">
-                                                        <label for="radio2" class="form-check-label">Option 2</label>
-                                                    </div>
-                                                    <div class="form-check mb-2">
-                                                        <input type="radio" id="radio3" name="radios" value="option3" class="form-check-input">
-                                                        <label for="radio3" class="form-check-label">Option 3</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label class=" form-control-label">Inline Radios</label>
-                                                </div>
-                                                <div class="col col-md-9">
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="inline-radio1" name="inline-radios" value="option1" class="form-check-input">
-                                                        <label for="inline-radio1" class="form-check-label">One</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="inline-radio2" name="inline-radios" value="option2" class="form-check-input">
-                                                        <label for="inline-radio2" class="form-check-label">Two</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="inline-radio3" name="inline-radios" value="option3" class="form-check-input">
-                                                        <label for="inline-radio3" class="form-check-label">Three</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label class=" form-control-label">Checkboxes</label>
-                                                </div>
-                                                <div class="col col-md-9">
-                                                    <div class="form-check mb-2">
-                                                        <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" class="form-check-input">
-                                                        <label for="checkbox1" class="form-check-label">Option 1</label>
-                                                    </div>
-                                                    <div class="form-check mb-2">
-                                                        <input type="checkbox" id="checkbox2" name="checkbox2" value="option2" class="form-check-input">
-                                                        <label for="checkbox2" class="form-check-label">Option 2</label>
-                                                    </div>
-                                                    <div class="form-check mb-2">
-                                                        <input type="checkbox" id="checkbox3" name="checkbox3" value="option3" class="form-check-input">
-                                                        <label for="checkbox3" class="form-check-label">Option 3</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label class=" form-control-label">Inline Checkboxes</label>
-                                                </div>
-                                                <div class="col col-md-9">
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1" class="form-check-input">
-                                                        <label for="inline-checkbox1" class="form-check-label">One</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="checkbox" id="inline-checkbox2" name="inline-checkbox2" value="option2" class="form-check-input">
-                                                        <label for="inline-checkbox2" class="form-check-label">Two</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="checkbox" id="inline-checkbox3" name="inline-checkbox3" value="option3" class="form-check-input">
-                                                        <label for="inline-checkbox3" class="form-check-label">Three</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="file-input" class=" form-control-label">File input</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-input" name="file-input" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="file-multiple-input" class=" form-control-label">Multiple File input</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-multiple-input" name="file-multiple-input" multiple="" class="form-control">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa-regular fa-dot-circle"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa-solid fa-ban"></i> Reset
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Inline</strong> Form
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="row g-3">
-                                            <div class="col-auto">
-                                                <label for="exampleInputName2" class="visually-hidden">Name</label>
-                                                <input type="text" id="exampleInputName2" placeholder="Jane Doe" required="" class="form-control">
-                                            </div>
-                                            <div class="col-auto">
-                                                <label for="exampleInputEmail2" class="visually-hidden">Email</label>
-                                                <input type="email" id="exampleInputEmail2" placeholder="jane.doe@example.com" required="" class="form-control">
-                                            </div>
-                                            <div class="col-auto">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa-regular fa-dot-circle"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa-solid fa-ban"></i> Reset
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Horizontal</strong> Form
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="form-horizontal">
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-email" class=" form-control-label">Email</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="email" id="hf-email" name="hf-email" placeholder="Enter Email..." class="form-control">
-                                                    <small class="form-text text-muted">Please enter your email</small>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-password" class=" form-control-label">Password</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="password" id="hf-password" name="hf-password" placeholder="Enter Password..." class="form-control">
-                                                    <small class="form-text text-muted">Please enter your password</small>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa-regular fa-dot-circle"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa-solid fa-ban"></i> Reset
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Normal</strong> Form
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="">
+
+                                    <div class="card-body">
+                                        <form id="uploadForm" method="post" enctype="multipart/form-data"
+                                            onsubmit="return false;">
+                                            <!-- Dokumen 1-5 -->
                                             <div class="mb-3">
-                                                <label for="nf-email" class=" form-control-label">Email</label>
-                                                <input type="email" id="nf-email" name="nf-email" placeholder="Enter Email.." class="form-control">
-                                                <span class="help-block">Please enter your email</span>
+                                                <label class="form-label">Dokumen 1 (Wajib)</label>
+                                                <input type="file" id="dok1" name="dok1" accept="application/pdf"
+                                                    class="form-control" required>
                                             </div>
+
                                             <div class="mb-3">
-                                                <label for="nf-password" class=" form-control-label">Password</label>
-                                                <input type="password" id="nf-password" name="nf-password" placeholder="Enter Password.." class="form-control">
-                                                <span class="help-block">Please enter your password</span>
+                                                <label class="form-label">Dokumen 2 (Wajib)</label>
+                                                <input type="file" id="dok2" name="dok2" accept="application/pdf"
+                                                    class="form-control" required>
                                             </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Dokumen 3 (Wajib)</label>
+                                                <input type="file" id="dok3" name="dok3" accept="application/pdf"
+                                                    class="form-control" required>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Dokumen 4 (Wajib)</label>
+                                                <input type="file" id="dok4" name="dok4" accept="application/pdf"
+                                                    class="form-control" required>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Dokumen 5 (Opsional)</label>
+                                                <input type="file" id="dok5" name="dok5" accept="application/pdf"
+                                                    class="form-control">
+                                            </div>
+
+                                            <div id="statusUpload" class="mb-3 fw-bold"></div>
+
+                                            <button type="button" id="btnUpload" onclick="uploadAllDokumen()"
+                                                class="btn btn-success w-100">
+                                                <i class="fas fa-upload"></i> Upload Dokumen
+                                            </button>
                                         </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa-regular fa-dot-circle"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa-solid fa-ban"></i> Reset
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header">
-                                        Input
-                                        <strong>Grid</strong>
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="form-horizontal">
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-3">
-                                                    <input type="text" placeholder=".col-sm-3" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-4">
-                                                    <input type="text" placeholder=".col-sm-4" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-5">
-                                                    <input type="text" placeholder=".col-sm-5" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-6">
-                                                    <input type="text" placeholder=".col-sm-6" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-7">
-                                                    <input type="text" placeholder=".col-sm-7" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-8">
-                                                    <input type="text" placeholder=".col-sm-8" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-9">
-                                                    <input type="text" placeholder=".col-sm-9" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-10">
-                                                    <input type="text" placeholder=".col-sm-10" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-11">
-                                                    <input type="text" placeholder=".col-sm-11" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-12">
-                                                    <input type="text" placeholder=".col-sm-12" class="form-control">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa-solid fa-user"></i> Login
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa-solid fa-ban"></i> Reset
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header">
-                                        Input
-                                        <strong>Sizes</strong>
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="form-horizontal">
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-5">
-                                                    <label for="input-small" class=" form-control-label">Small Input</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                    <input type="text" id="input-small" name="input-small" placeholder=".form-control-sm" class="input-sm form-control-sm form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-5">
-                                                    <label for="input-normal" class=" form-control-label">Normal Input</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                    <input type="text" id="input-normal" name="input-normal" placeholder="Normal" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-sm-5">
-                                                    <label for="input-large" class=" form-control-label">Large Input</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                    <input type="text" id="input-large" name="input-large" placeholder=".form-control-lg" class="input-lg form-control-lg form-control">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa-regular fa-dot-circle"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa-solid fa-ban"></i> Reset
-                                        </button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Validation states</strong> Form
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <div class="has-success form-group">
-                                            <label for="inputIsValid" class=" form-control-label">Input is valid</label>
-                                            <input type="text" id="inputIsValid" class="is-valid form-control-success form-control">
-                                        </div>
-                                        <div class="has-warning form-group">
-                                            <label for="inputIsInvalid" class=" form-control-label">Input is invalid</label>
-                                            <input type="text" id="inputIsInvalid" class="is-invalid form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Validation states</strong> with optional icons
-                                        <em>(deprecated)</em>
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <div class="has-success form-group">
-                                            <label for="inputSuccess2i" class=" form-control-label">Input with success</label>
-                                            <input type="text" id="inputSuccess2i" class="form-control-success form-control">
-                                        </div>
-                                        <div class="has-warning form-group">
-                                            <label for="inputWarning2i" class=" form-control-label">Input with warning</label>
-                                            <input type="text" id="inputWarning2i" class="form-control-warning form-control">
-                                        </div>
-                                        <div class="has-danger has-feedback form-group">
-                                            <label for="inputError2i" class=" form-control-label">Input with error</label>
-                                            <input type="text" id="inputError2i" class="form-control-danger form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Icon/Text</strong> Groups
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="form-horizontal">
-                                            <div class="row mb-3">
-                                                <div class="col col-md-12">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa-solid fa-user"></i>
-                                                        </div>
-                                                        <input type="text" id="input1-group1" name="input1-group1" placeholder="Username" class="form-control">
-                                                    </div>
-                                                </div>
+
+                            <div id="formKontrakSection" style="display:none;">
+                                <!-- FORM KONTRAK ANDA -->
+
+                                <div class="row w-100 justify-content-center">
+                                    <div class="col-lg-8 ">
+                                        <div class="card">
+                                            <div style="font-size: 22px;" class="card-header">
+                                                <strong>Formulir Kontrak</strong> Digital
                                             </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-12">
-                                                    <div class="input-group">
-                                                        <input type="email" id="input2-group1" name="input2-group1" placeholder="Email" class="form-control">
-                                                        <div class="input-group-addon">
-                                                            <i class="far fa-envelope"></i>
+                                            <div class="card-body card-body">
+                                                <form id="formPerjanjian" action="" method="post"
+                                                    enctype="multipart/form-data" class="form-horizontal"
+                                                    style="font-size: 18px;">
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Nomor Perjanjian</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="noperjanjian" name="text-input"
+                                                                placeholder="Masukkan Nomor Perjanjian"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-12">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa-solid fa-euro"></i>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label for="text-input" class=" form-control-label">Tempat
+                                                                Pembuatan
+                                                                Perjanjian
+                                                            </label>
                                                         </div>
-                                                        <input type="text" id="input3-group1" name="input3-group1" placeholder=".." class="form-control">
-                                                        <div class="input-group-addon">.00</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-success btn-sm">
-                                            <i class="fa-regular fa-dot-circle"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa-solid fa-ban"></i> Reset
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Buttons</strong> Groups
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="form-horizontal">
-                                            <div class="row mb-3">
-                                                <div class="col col-md-12">
-                                                    <div class="input-group">
-                                                        <div class="input-group-btn">
-                                                            <button class="btn btn-primary">
-                                                                <i class="fa-solid fa-search"></i> Search
-                                                            </button>
-                                                        </div>
-                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="Username" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-12">
-                                                    <div class="input-group">
-                                                        <input type="email" id="input2-group2" name="input2-group2" placeholder="Email" class="form-control">
-                                                        <div class="input-group-btn">
-                                                            <button class="btn btn-primary">Submit</button>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="text" id="tempatperjanjian" name="text-input"
+                                                                placeholder="Masukkan Tempat Pembuatan Perjanjian"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-12">
-                                                    <div class="input-group">
-                                                        <button class="btn btn-primary" type="button">
-                                                            <i class="fas fa-search"></i>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col-md-3">
+                                                            <label class="form-control-label">Tanggal Pembuatan
+                                                                Perjanjian</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <div class="input-group">
+                                                                <span class="input-group-text">
+                                                                    <i class="fa fa-calendar-alt"></i>
+                                                                </span>
+                                                                <input id="tanggalperjanjian" type="date"
+                                                                    class="form-control" placeholder="Pilih tanggal">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Nomor HP Penjual ( PT
+                                                                Bumi
+                                                                Sarana
+                                                                Utama)</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="nohppenjual" name="text-input"
+                                                                placeholder="Masukkan Nomor HP Penjual ( PT Bumi Sarana Utama)"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label for="statuspembeli" class=" form-control-label">Status
+                                                                Pembeli</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <select name="statuspembeli" id="statuspembeli"
+                                                                class="form-select form-select-lg">
+                                                                <!-- <option value="0">Please select</option> -->
+                                                                <option value="Baru">Baru</option>
+                                                                <option value="Lama">Lama</option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Nama Perusahaan / CV /
+                                                                Perorangan
+                                                                Pembeli</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="namaperusahaan" name="text-input"
+                                                                placeholder="Masukkan Nama Perusahaan/CV/Perorangan"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Alamat Pembeli</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="alamatpembeli" name="text-input"
+                                                                placeholder="Masukkan Alamat Pembeli"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Nomor Telepon
+                                                                Pembeli</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="nohppembeli" name="text-input"
+                                                                placeholder="Masukkan Nomor Telepon Pembeli"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label for="email-input" class=" form-control-label">Email
+                                                                Pembeli</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="email" id="emailpembeli" name="email-input"
+                                                                placeholder="Enter Email Pembeli" class="form-control">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Volume Aspal (Dalam
+                                                                Mton)</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="volumeaspal" name="text-input"
+                                                                placeholder="Masukkan Volume Aspal (Dalam Mton)"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Harga Satuan Aspal
+                                                                (Rp)</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="hargaaspal" name="text-input"
+                                                                placeholder="Masukkan Harga Satuan Aspal (Rp)"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">PPN 11% (Rp)</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="ppnaspal" name="text-input"
+                                                                placeholder="Masukkan PPN 11% (Rp)"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Biaya Angkut (Rp)</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="biayaangkut" name="text-input"
+                                                                placeholder="Masukkan Biaya Angkut (Rp)"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Total Harga (Rp)</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="totalharga" name="text-input"
+                                                                placeholder="Masukkan Total Harga (Rp)"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Batas Limit Pengambilan
+                                                                Aspal
+                                                                (Mton)</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="pengambilanaspal" name="text-input"
+                                                                placeholder="Masukkan Batas Limit Pengambilan Aspal (Mton)"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Batas Limit Nilai Kredit
+                                                                (Rp)</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="bataskredit" name="text-input"
+                                                                placeholder="Masukkan Batas Limit Nilai Kredit (Rp)"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col-md-3">
+                                                            <label class="form-control-label">Jatuh Tempo Pembayaran
+                                                                (Hari
+                                                                setelah aspal diterima)</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <div class="input-group">
+                                                                <span class="input-group-text">
+                                                                    <i class="fa fa-calendar-alt"></i>
+                                                                </span>
+                                                                <input id="jatuhtempo" type="date" class="form-control"
+                                                                    placeholder="Pilih tanggal">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Jangka Waktu Pembayaran
+                                                                Kredit
+                                                                (Hari)</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="jangkakredit" name="text-input"
+                                                                placeholder="Masukkan Jangka Waktu Pembayaran Kredit (Hari)"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label"> Domisili Pengadilan
+                                                                Negeri</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="domisilipengadilan" name="text-input"
+                                                                placeholder="Masukkan  Domisili Pengadilan Negeri"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label"> Nama Penandatangan dari
+                                                                Pihak
+                                                                Penjual</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="namattdpenjual" name="text-input"
+                                                                placeholder="Masukkan  Nama Penandatangan dari Pihak Penjual"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label"> Jabatan Penandatangan
+                                                                Penjual</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="namajabatanpenjual" name="text-input"
+                                                                placeholder="Masukkan  Nama Jabatan Penandatangan Penjual"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label"> Nama Penandatangan dari
+                                                                Pihak
+                                                                Pembeli</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="namattdpembeli" name="text-input"
+                                                                placeholder="Masukkan  Nama Penandatangan dari Pihak Pembeli"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label"> Jabatan Penandatangan
+                                                                Pembeli</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="namajabatanpembeli" name="text-input"
+                                                                placeholder="Masukkan  Nama Jabatan Penandatangan Pembeli"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card-footer">
+                                                        <button type="submit" class="btn btn-primary btn-sm">
+                                                            <i class="fa-regular fa-dot-circle"></i> Submit
                                                         </button>
-                                                        <input type="text" id="input3-group2" name="input3-group2" placeholder="Search" class="form-control">
-                                                        <button class="btn btn-secondary" type="button">
-                                                            <i class="fas fa-times"></i>
+                                                        <button type="reset" class="btn btn-danger btn-sm">
+                                                            <i class="fa-solid fa-ban"></i> Reset
                                                         </button>
                                                     </div>
-                                                </div>
+                                                </form>
                                             </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-success btn-sm">
-                                            <i class="fa-regular fa-dot-circle"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa-solid fa-ban"></i> Reset
-                                        </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Dropdowns</strong> Groups
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <form class="form-horizontal">
-                                            <div class="row mb-3">
-                                                <div class="col col-md-12">
-                                                    <div class="input-group">
-                                                        <div class="input-group-btn">
-                                                            <div class="btn-group">
-                                                                <button type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Dropdown</button>
-                                                                <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Action</button>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Another Action</button>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Something else here</button>
-                                                                    <div tabindex="-1" class="dropdown-divider"></div>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Separated link</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <input type="text" id="input1-group3" name="input1-group3" placeholder="Username" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-12">
-                                                    <div class="input-group">
-                                                        <input type="email" id="input2-group3" name="input2-group3" placeholder="Email" class="form-control">
-                                                        <div class="input-group-btn">
-                                                            <div class="btn-group">
-                                                                <button type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Dropdown</button>
-                                                                <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Action</button>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Another Action</button>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Something else here</button>
-                                                                    <div tabindex="-1" class="dropdown-divider"></div>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Separated link</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-12">
-                                                    <div class="input-group">
-                                                        <div class="input-group-btn">
-                                                            <div class="btn-group">
-                                                                <button type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Action</button>
-                                                                <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Action</button>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Another Action</button>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Something else here</button>
-                                                                    <div tabindex="-1" class="dropdown-divider"></div>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Separated link</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <input type="text" id="input3-group3" name="input3-group3" placeholder=".." class="form-control">
-                                                        <div class="input-group-btn">
-                                                            <div class="btn-group">
-                                                                <button type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Dropdown</button>
-                                                                <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Action</button>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Another Action</button>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Something else here</button>
-                                                                    <div tabindex="-1" class="dropdown-divider"></div>
-                                                                    <button type="button" tabindex="0" class="dropdown-item">Separated link</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-success btn-sm">
-                                            <i class="fa-regular fa-dot-circle"></i> Submit
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa-solid fa-ban"></i> Reset
-                                        </button>
+                            <!-- <div class="row">
+                                <div class="col-md-12">
+                                    <div class="copyright">
+                                        <p>Copyright © 2025 Colorlib. All rights reserved. Template by <a
+                                                href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.
+                                        </p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        Use the grid for big devices!
-                                        <small>
-                                            <code>.col-lg-*</code>
-                                            <code>.col-md-*</code>
-                                            <code>.col-sm-*</code>
-                                        </small>
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="form-horizontal">
-                                            <div class="row mb-3">
-                                                <div class="col col-md-8">
-                                                    <input type="text" placeholder=".col-md-8" class="form-control">
-                                                </div>
-                                                <div class="col col-md-4">
-                                                    <input type="text" placeholder=".col-md-4" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-7">
-                                                    <input type="text" placeholder=".col-md-7" class="form-control">
-                                                </div>
-                                                <div class="col col-md-5">
-                                                    <input type="text" placeholder=".col-md-5" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-6">
-                                                    <input type="text" placeholder=".col-md-6" class="form-control">
-                                                </div>
-                                                <div class="col col-md-6">
-                                                    <input type="text" placeholder=".col-md-6" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-5">
-                                                    <input type="text" placeholder=".col-md-5" class="form-control">
-                                                </div>
-                                                <div class="col col-md-7">
-                                                    <input type="text" placeholder=".col-md-7" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col col-md-4">
-                                                    <input type="text" placeholder=".col-md-4" class="form-control">
-                                                </div>
-                                                <div class="col col-md-8">
-                                                    <input type="text" placeholder=".col-md-8" class="form-control">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">Action</button>
-                                        <button class="btn btn-danger btn-sm">Action</button>
-                                        <button class="btn btn-warning btn-sm">Action</button>
-                                        <button class="btn btn-info btn-sm">Action</button>
-                                        <button class="btn btn-success btn-sm">Action</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        Input Grid for small devices!
-                                        <small>
-                                            <code>.col-*</code>
-                                        </small>
-                                    </div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="form-horizontal">
-                                            <div class="row mb-3">
-                                                <div class="col-4">
-                                                    <input type="text" placeholder=".col-4" class="form-control">
-                                                </div>
-                                                <div class="col-8">
-                                                    <input type="text" placeholder=".col-8" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-5">
-                                                    <input type="text" placeholder=".col-5" class="form-control">
-                                                </div>
-                                                <div class="col-7">
-                                                    <input type="text" placeholder=".col-7" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-6">
-                                                    <input type="text" placeholder=".col-6" class="form-control">
-                                                </div>
-                                                <div class="col-6">
-                                                    <input type="text" placeholder=".col-6" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-7">
-                                                    <input type="text" placeholder=".col-5" class="form-control">
-                                                </div>
-                                                <div class="col-5">
-                                                    <input type="text" placeholder=".col-5" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-8">
-                                                    <input type="text" placeholder=".col-8" class="form-control">
-                                                </div>
-                                                <div class="col-4">
-                                                    <input type="text" placeholder=".col-4" class="form-control">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">Action</button>
-                                        <button class="btn btn-danger btn-sm">Action</button>
-                                        <button class="btn btn-warning btn-sm">Action</button>
-                                        <button class="btn btn-info btn-sm">Action</button>
-                                        <button class="btn btn-success btn-sm">Action</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">Example Form</div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="">
-                                            <div class="mb-3">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">Username</div>
-                                                    <input type="text" id="username3" name="username3" class="form-control">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa-solid fa-user"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">Email</div>
-                                                    <input type="email" id="email3" name="email3" class="form-control">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa-solid fa-envelope"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">Password</div>
-                                                    <input type="password" id="password3" name="password3" class="form-control">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa-solid fa-asterisk"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-actions form-group">
-                                                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">Example Form</div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="">
-                                            <div class="mb-3">
-                                                <div class="input-group">
-                                                    <input type="text" id="username2" name="username2" placeholder="Username" class="form-control">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa-solid fa-user"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <div class="input-group">
-                                                    <input type="email" id="email2" name="email2" placeholder="Email" class="form-control">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa-solid fa-envelope"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <div class="input-group">
-                                                    <input type="password" id="password2" name="password2" placeholder="Password" class="form-control">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa-solid fa-asterisk"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-actions form-group">
-                                                <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">Example Form</div>
-                                    <div class="card-body card-body">
-                                        <form action="" method="post" class="">
-                                            <div class="mb-3">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa-solid fa-user"></i>
-                                                    </div>
-                                                    <input type="text" id="username" name="username" placeholder="Username" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa-solid fa-envelope"></i>
-                                                    </div>
-                                                    <input type="email" id="email" name="email" placeholder="Email" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa-solid fa-asterisk"></i>
-                                                    </div>
-                                                    <input type="password" id="password" name="password" placeholder="Password" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-actions form-group">
-                                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2025 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
-                                </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
-    </div>
+        <!-- Jquery JS-->
+        <script src="js/vanilla-utils.js"></script>
+        <!-- Bootstrap JS-->
+        <script src="vendor/bootstrap-5.3.8.bundle.min.js"></script>
+        <!-- Vendor JS       -->
+        <script src="vendor/perfect-scrollbar/perfect-scrollbar-1.5.6.min.js"></script>
+        <script src="vendor/chartjs/chart.umd.js-4.5.0.min.js"></script>
 
-    <!-- Jquery JS-->
-    <script src="js/vanilla-utils.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-5.3.8.bundle.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar-1.5.6.min.js"></script>
-    <script src="vendor/chartjs/chart.umd.js-4.5.0.min.js"></script>
+        <!-- Main JS-->
+        <script src="js/bootstrap5-init.js"></script>
+        <script src="js/main-vanilla.js"></script>
+        <script src="js/swiper-bundle-11.2.10.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/modern-plugins.js"></script>
 
-    <!-- Main JS-->
-    <script src="js/bootstrap5-init.js"></script>
-    <script src="js/main-vanilla.js"></script>
-    <script src="js/swiper-bundle-11.2.10.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/modern-plugins.js"></script>
+
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+  /* 🔒 SEMBUNYIKAN MENU ACCOUNT JIKA BUKAN ADMIN */
+if ((user.role || "").toLowerCase() !== "admin") {
+    const accMobile = document.getElementById("menuAccountMobile");
+                    const accMobile1 = document.getElementById("menuAccountMobile1");
+                    const accMobile2 = document.getElementById("menuAccountMobile2");
+                    const accDesktop = document.getElementById("menuAccountDesktop");
+                    const accDesktop1 = document.getElementById("menuAccountDesktop1");
+                    const accDesktop2 = document.getElementById("menuAccountDesktop2");
+
+                    if (accMobile) accMobile.style.display = "none";
+                    if (accMobile1) accMobile1.style.display = "none";
+                    if (accMobile2) accMobile2.style.display = "none";
+                    if (accDesktop) accDesktop.style.display = "none";
+                    if (accDesktop1) accDesktop1.style.display = "none";
+                    if (accDesktop2) accDesktop2.style.display = "none";
+}
+
+                if (user) {
+                    document.getElementById("userName").textContent = user.namaLengkap || "User";
+                    document.getElementById("dropdownName").textContent = user.namaLengkap || "User";
+                    document.getElementById("dropdownEmail").textContent = user.email || "-";
+                    document.getElementById("dropdownCabang").textContent = user.role ? "" + user.role : "-";
+
+                    if (user.avatarUrl) {
+                        document.getElementById("userAvatar").src = user.avatarUrl;
+                        document.getElementById("dropdownAvatar").src = user.avatarUrl;
+                    }
+                } else {
+                    window.location.href = "login.html";
+                }
+
+                document.getElementById("logoutBtn").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    localStorage.removeItem("user");
+                    window.location.href = "login.html";
+                });
+                console.log("User data loaded from localStorage:", user);
+            });
+        </script>
+
+
+        <script>
+            function toBase64(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = () => resolve(reader.result.split(',')[1]);
+                    reader.onerror = reject;
+                });
+            }
+
+            const scriptURL1 = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
+
+            async function uploadAllDokumen() {
+                const btn = document.getElementById("btnUpload");
+
+                // Ambil file
+                const dok1 = document.getElementById("dok1").files[0];
+                const dok2 = document.getElementById("dok2").files[0];
+                const dok3 = document.getElementById("dok3").files[0];
+                const dok4 = document.getElementById("dok4").files[0];
+                const dok5 = document.getElementById("dok5").files[0] ?? null;
+
+                const user = JSON.parse(localStorage.getItem("user"));
+                const cabang = user ? user.role : "";
+
+                // Nama folder dinamis berdasarkan waktu sekarang
+                const now = new Date();
+                const namaFolder = `${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, '0')}${now.getDate().toString().padStart(2, '0')}_${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+
+                // Validasi
+                if (!dok1 || !dok2 || !dok3 || !dok4) {
+                    showMessage("❌ 4 dokumen wajib belum lengkap!", "error");
+                    return;
+                }
+                if (!cabang) {
+                    showMessage("⚠️ Cabang wajib diisi!", "warning");
+                    return;
+                }
+
+                // Loading
+                btn.disabled = true;
+                btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Mengupload...`;
+
+                try {
+                    // Konversi ke base64
+                    const b64_1 = await toBase64(dok1);
+                    const b64_2 = await toBase64(dok2);
+                    const b64_3 = await toBase64(dok3);
+                    const b64_4 = await toBase64(dok4);
+                    const b64_5 = dok5 ? await toBase64(dok5) : "";
+
+                    // Kirim ke Apps Script
+                    let formData = new FormData();
+                    formData.append("action", "upload5Dokumen");
+                    formData.append("cabang", cabang);
+                    formData.append("namaFolder", namaFolder);
+                    formData.append("dok1", b64_1);
+                    formData.append("dok2", b64_2);
+                    formData.append("dok3", b64_3);
+                    formData.append("dok4", b64_4);
+                    formData.append("dok5", b64_5);
+
+                    const response = await fetch(scriptURL1, { method: "POST", body: formData });
+                    const raw = await response.text();
+                    console.log("RAW RESPONSE:", raw);
+
+                    const result = JSON.parse(raw);
+
+                    if (!result.success) {
+                        showMessage("❌ Gagal upload: " + result.message, "error");
+                        return;
+                    }
+
+                    showMessage("✅ Semua dokumen berhasil diupload!", "success");
+                    console.log("Drive links:", result.links);
+
+                    // Tampilkan form kontrak jika ada
+                    const formKontrak = document.getElementById("formKontrakSection");
+                    if (formKontrak) {
+                        formKontrak.style.display = "block";
+                        formKontrak.scrollIntoView({ behavior: "smooth" });
+                    }
+
+                    // Sembunyikan form upload
+                    document.getElementById("formUploadDokumen").style.display = "none";
+
+                } catch (error) {
+                    showMessage("❌ Error frontend: " + error, "error");
+                    console.error(error);
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = `<i class="fas fa-upload"></i> Upload Dokumen`;
+                }
+            }
+
+            function showMessage(msg, type = "info") {
+                const colors = { success: "#4CAF50", error: "#f44336", warning: "#ff9800", info: "#2196F3" };
+                const div = document.createElement("div");
+                div.textContent = msg;
+                div.style.position = "fixed";
+                div.style.bottom = "20px";
+                div.style.right = "20px";
+                div.style.background = colors[type];
+                div.style.color = "white";
+                div.style.padding = "10px 15px";
+                div.style.borderRadius = "8px";
+                div.style.boxShadow = "0 3px 8px rgba(0,0,0,0.3)";
+                div.style.zIndex = "9999";
+                div.style.transition = "opacity 0.3s ease";
+                document.body.appendChild(div);
+                setTimeout(() => { div.style.opacity = "0"; setTimeout(() => div.remove(), 300); }, 2500);
+            }
+        </script>
+
+
+
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
+
+const formElement = document.getElementById("formPerjanjian");
+const submitButton = formElement.querySelector(".btn.btn-primary.btn-sm");
+const resetButton = formElement.querySelector(".btn.btn-danger.btn-sm");
+
+// =============================
+//   EVENT SUBMIT FORM
+// =============================
+submitButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(formElement);
+
+    // 1️⃣ Ambil user dari localStorage
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+
+    if (!user.email) {
+        alert("⚠️ User belum login! Silakan login terlebih dahulu.");
+        return;
+    }
+
+    // 2️⃣ Kirim loginEmail ke Apps Script
+    // 2️⃣ Kirim loginEmail + email tambahan ke Apps Script
+formData.append("loginEmail", (user.email || "").trim());
+formData.append("emailSales", (user.emailSales || "").trim());
+formData.append("emailADH", (user.emailADH || "").trim());
+formData.append("emailPenjual", (user.emailPenjual || "").trim());
+
+
+
+    // 3️⃣ Ambil semua field form
+    const fields = [
+        "noperjanjian", "tempatperjanjian", "tanggalperjanjian", "nohppenjual",
+        "statuspembeli", "namaperusahaan", "alamatpembeli", "nohppembeli",
+        "emailpembeli", "volumeaspal", "hargaaspal", "ppnaspal", "biayaangkut",
+        "totalharga", "pengambilanaspal", "bataskredit", "jatuhtempo",
+        "jangkakredit", "domisilipengadilan", "namattdpenjual",
+        "jabatanpenjual", "namattdpembeli", "jabatanpembeli"
+    ];
+
+    fields.forEach(id => {
+    const el = document.getElementById(id);
+    let val = el ? el.value.trim() : "";
+    formData.append(id, val);
+});
+
+
+    // 4️⃣ Validasi dasar
+    if (!formElement.noperjanjian.value || !formElement.emailpembeli.value) {
+        alert("Nomor perjanjian dan email pembeli wajib diisi!");
+        return;
+    }
+
+    // 5️⃣ Tombol loading
+    submitButton.disabled = true;
+    submitButton.innerText = "Menyimpan...";
+
+    try {
+        const response = await fetch(scriptURL, { method: "POST", body: formData });
+        const result = await response.text();
+
+        alert("✅ Data berhasil disimpan!");
+        console.log("Response Apps Script:", result);
+
+        formElement.reset(); // kosongkan isian
+    } catch (err) {
+        console.error("Fetch error:", err);
+        alert("⚠️ Gagal menyimpan data! Periksa koneksi atau Apps Script.");
+    } finally {
+        submitButton.disabled = false;
+        submitButton.innerText = "Submit";
+    }
+});
+
+// =============================
+//   EVENT RESET FORM
+// =============================
+resetButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (confirm("Apakah Anda yakin ingin menghapus semua isian formulir?")) {
+        formElement.reset();
+    }
+});
+</script>
+
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const themeToggle = document.getElementById("themeToggle");
+
+                // Ambil tema dari localStorage
+                const currentTheme = localStorage.getItem("theme") || "light";
+
+                // Set awal tema
+                if (currentTheme === "dark") {
+                    document.body.classList.add("dark-mode");
+                    themeToggle.checked = true;
+                } else {
+                    document.body.classList.remove("dark-mode");
+                    themeToggle.checked = false;
+                }
+
+                // Event ketika switch diubah
+                themeToggle.addEventListener("change", function () {
+                    if (themeToggle.checked) {
+                        document.body.classList.add("dark-mode");
+                        localStorage.setItem("theme", "dark");
+                    } else {
+                        document.body.classList.remove("dark-mode");
+                        localStorage.setItem("theme", "light");
+                    }
+                });
+            });
+        </script>
+
+
+
+
+
 
 </body>
 

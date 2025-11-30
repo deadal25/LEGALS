@@ -43,35 +43,57 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form onsubmit="event.preventDefault(); loginUser();">
                                 <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    <label>Email atau NIK Karyawan</label>
+                                    <input class="au-input au-input--full" type="text" id="identifier"
+                                        placeholder="Email atau NIK" required>
                                 </div>
+
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
+                                    <input class="au-input au-input--full" type="password" id="password"
+                                        placeholder="Password" required>
                                 </div>
-                                <div class="login-checkbox">
+
+                                <div class="form-group">
+                                    <label>Pilih Cabang</label>
+                                    <select class="au-input au-input--full" id="role" style="height: 40px;" required>
+                                        <option value="">-- Pilih Cabang --</option>
+                                        <option value="MAKASSAR">MAKASSAR</option>
+                                        <option value="PALU">PALU</option>
+                                        <option value="PONTIANAK">PONTIANAK</option>
+                                        <option value="JAYAPURA">JAYAPURA</option>
+                                        <option value="BANJARMASIN">BANJARMASIN</option>
+                                        <option value="KENDARI">KENDARI</option>
+                                        <option value="SORONG">SORONG</option>
+                                        <option value="SAMARINDA">SAMARINDA</option>
+                                        <option value="BULUNGAN">BULUNGAN</option>
+                                        <option value="CILEGON">CILEGON</option>
+                                        <option value="SAMARINDA">SAMARINDA</option>
+                                        <option value="BALIKPAPAN">BALIKPAPAN</option>
+                                        <option value="GORONTALO">GORONTALO</option>
+                                    </select>
+                                </div>
+
+                                <div class="login-checkbox" style="margin-top: 5px;">
                                     <label>
-                                        <input type="checkbox" name="remember">Remember Me
+                                        <input type="checkbox" name="remember"> Remember Me
                                     </label>
                                     <label>
-                                        <a href="#">Forgotten Password?</a>
+                                        <a href="forget-pass.html">Forgot Password?</a>
                                     </label>
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
-                                <div class="social-login-content">
-                                    <div class="social-button">
-                                        <button class="au-btn au-btn--block au-btn--blue m-b-20">sign in with facebook</button>
-                                        <button class="au-btn au-btn--block au-btn--blue2">sign in with twitter</button>
-                                    </div>
-                                </div>
+
+                                <button class="au-btn au-btn--block au-btn--green" type="submit"
+                                    style="margin-top: 3px;">Login</button>
                             </form>
+
+
                             <div class="register-link">
                                 <p>
-                                    Don't you have account?
-                                    <a href="#">Sign Up Here</a>
+                                    Belum Punya Akun?
+                                    <a href="register.html">Register Here!</a>
                                 </p>
                             </div>
                         </div>
@@ -89,6 +111,83 @@
     <!-- Vendor JS       -->
     <script src="vendor/perfect-scrollbar/perfect-scrollbar-1.5.6.min.js"></script>
     <script src="vendor/chartjs/chart.umd.js-4.5.0.min.js"></script>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
+
+        const loginBtn = document.querySelector(".au-btn--green");
+
+        async function loginUser() {
+            const identifier = document.getElementById("identifier").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const role = document.getElementById("role").value.trim();
+
+            if (!identifier || !password || !role) {
+                showMessage("⚠️ Mohon isi semua kolom.", "warning");
+                return;
+            }
+
+            loginBtn.disabled = true;
+            loginBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Sedang masuk...`;
+
+            try {
+                const response = await fetch(scriptURL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams({
+                        action: "login",
+                        identifier,
+                        password,
+                        role
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showMessage("✅ Login berhasil!", "success");
+                    localStorage.setItem("user", JSON.stringify(result.user));
+                    setTimeout(() => window.location.href = "index.html", 1000);
+                } else {
+                    showMessage(result.message, "error");
+                }
+
+            } catch (error) {
+                console.error(error);
+                showMessage("❌ Gagal menghubungi server.", "error");
+            } finally {
+                loginBtn.disabled = false;
+                loginBtn.innerHTML = "Sign In";
+            }
+        }
+
+        function showMessage(msg, type = "info") {
+            const colors = {
+                success: "#4CAF50",
+                error: "#f44336",
+                warning: "#ff9800",
+                info: "#2196F3"
+            };
+
+            const div = document.createElement("div");
+            div.textContent = msg;
+            div.style.position = "fixed";
+            div.style.bottom = "20px";
+            div.style.right = "20px";
+            div.style.background = colors[type];
+            div.style.color = "white";
+            div.style.padding = "10px 15px";
+            div.style.borderRadius = "8px";
+            div.style.boxShadow = "0 3px 8px rgba(0,0,0,0.3)";
+            div.style.zIndex = "9999";
+            div.style.transition = "opacity 0.3s ease";
+            document.body.appendChild(div);
+            setTimeout(() => { div.style.opacity = "0"; setTimeout(() => div.remove(), 300); }, 1500);
+        }
+    </script>
+
+
+
 
     <!-- Main JS-->
     <script src="js/bootstrap5-init.js"></script>

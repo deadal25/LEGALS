@@ -33,42 +33,129 @@
     <link href="css/theme.css" rel="stylesheet" media="all">
 
     <style type="text/css">
-    /* FullCalendar Bootstrap 5 integration */
-    .fc-theme-standard .fc-view-harness {
-        border: none;
-    }
-    
-    .fc-theme-standard .fc-scrollgrid {
-        border: 1px solid var(--bs-border-color);
-        border-radius: 0.375rem;
-    }
-    
-    .fc .fc-button-primary {
-        background-color: var(--bs-primary);
-        border-color: var(--bs-primary);
-        color: #fff;
-    }
-    
-    .fc .fc-button-primary:hover {
-        background-color: var(--bs-primary);
-        border-color: var(--bs-primary);
-        opacity: 0.9;
-    }
-    
-    .fc-theme-standard .fc-header-toolbar {
-        margin-bottom: 1rem;
-    }
-    
-    .fc-event {
-        border-radius: 0.25rem;
-        border: none !important;
-        font-size: 0.875rem;
-    }
-    
-    .fc-daygrid-event {
-        margin: 2px 4px;
-    }
+        /* FullCalendar Bootstrap 5 integration */
+        .fc-theme-standard .fc-view-harness {
+            border: none;
+        }
+
+        .fc-theme-standard .fc-scrollgrid {
+            border: 1px solid var(--bs-border-color);
+            border-radius: 0.375rem;
+        }
+
+        .fc .fc-button-primary {
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+            color: #050505;
+        }
+
+        .fc .fc-button-primary:hover {
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+            opacity: 0.9;
+        }
+
+        .fc-theme-standard .fc-header-toolbar {
+            margin-bottom: 1rem;
+        }
+
+        .fc-event {
+            border-radius: 0.25rem;
+            border: none !important;
+            font-size: 0.875rem;
+        }
+
+        .fc-daygrid-event {
+            margin: 2px 4px;
+        }
+
+
+
+        /* ======== DARK MODE ======== */
+        body.dark-mode {
+            background-color: #ffffff !important;
+            color: #fffefe !important;
+        }
+
+        body.dark-mode .card,
+        body.dark-mode .header-desktop {
+            background-color: #6d6a6a !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode .main-content {
+            background-color: #8f8989 !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode a {
+            color: #000000 !important;
+        }
+
+        body.dark-mode .account-dropdown {
+            background-color: #6d6a6a !important;
+        }
+
+        body.dark-mode .account-dropdown__item a {
+            color: #ffffff !important;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 90px;
+            height: 32px;
+        }
+
+        .switch-input {
+            display: none;
+        }
+
+        .switch-label {
+            display: block;
+            cursor: pointer;
+            border: 2px solid #ccc;
+            border-radius: 50px;
+            background-color: #f5f5f5;
+            text-align: center;
+            font-size: 14px;
+            line-height: 28px;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar__list li a.active {
+            background-color: #e8f0fe;
+            /* warna terang seperti highlight */
+            color: #1a73e8 !important;
+            /* biru agar selaras */
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Mode gelap */
+        body.dark-mode .navbar__list li a.active {
+            background-color: #6d6a6a;
+            color: #0a0a0a !important;
+            border-radius: 8px;
+        }
+
+        /* Perbaiki agar active juga muncul di menu mobile */
+        .navbar-mobile__list li a.active {
+            background-color: #e8f0fe !important;
+            color: #1a73e8 !important;
+            border-radius: 8px !important;
+            font-weight: 600;
+        }
+
+        /* Versi dark mode */
+        body.dark-mode .navbar-mobile__list li a.active {
+            background-color: #6d6a6a !important;
+            color: #0a0a0a !important;
+        }
     </style>
+
 
 </head>
 
@@ -76,6 +163,7 @@
       since calendar doesn't add href's be default,
       it leads to odd behaviors like loading 'undefined'
       moving the class to menus lead to only the menu having the effect -->
+
 <body>
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
@@ -97,7 +185,7 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
@@ -114,11 +202,15 @@
                                     <a href="index4.html">Dashboard 4</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
+                            <a href="index.html">
+                                <i class="fas fa-tachometer-alt "></i>Dashboard</a>
+                        </li>
+                        <!-- <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
@@ -128,7 +220,7 @@
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
                         <li>
-                            <a href="calendar.html">
+                            <a class="active" href="calendar.html">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a>
                         </li>
                         <li>
@@ -137,20 +229,38 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                                <i class="fas fa-desktop"></i>Account</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
+                                
+                                <li id="menuAccountMobile">
+                                    <a href="register.html">
+                                        <i class="fas fa-user"></i> Register
+                                    </a>
+                                </li>
+                                <!-- <li id="menuAccountMobile1">
+                                    <a href="forget-pass.html">
+                                        <i class="fas fa-unlock-alt"></i> Forget Password
+                                    </a>
+                                </li> -->
+                                <li id="menuAccountMobile2">
+                                    <a href="users.html">
+                                        <i class="fas fa-user-edit"></i> Users
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
+                                    <a href="profile.html">
+                                        <i class="far fa-id-card"></i> Profil Akun
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a href="login.html">
+                                        <i class="fas fa-sign-in-alt"></i> Logout
+                                    </a>
                                 </li>
                             </ul>
+
                         </li>
-                        <li class="has-sub">
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
@@ -188,7 +298,7 @@
                                     <a href="typo.html">Typography</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </nav>
@@ -198,16 +308,16 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="index.html">
                     <img src="images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="has-sub">
+                        <!-- <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i href="index.html" class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="index.html">Dashboard 1</a>
@@ -222,11 +332,15 @@
                                     <a href="index4.html">Dashboard 4</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
+                            <a href="index.html">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        <!-- <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
@@ -235,30 +349,48 @@
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
-                        <li class="active">
-                            <a href="calendar.html">
+                        <li>
+                            <a class="active" href="calendar.html">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a>
                         </li>
                         <li>
                             <a href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li>
-                        <li class="has-sub">
+                        <li class="has-sub" >
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
+                                <i class="fas fa-desktop"></i>Account</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
+                                
+                                <li id="menuAccountDesktop">
+                                    <a href="register.html">
+                                        <i class="fas fa-user"></i> Register
+                                    </a>
+                                </li>
+                                <!-- <li id="menuAccountDesktop1">
+                                    <a href="forget-pass.html">
+                                        <i class="fas fa-unlock-alt"></i> Forget Password
+                                    </a>
+                                </li> -->
+                                <li id="menuAccountDesktop2">
+                                    <a href="users.html">
+                                        <i class="fas fa-user-edit"></i> Users
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
+                                    <a href="profile.html">
+                                        <i class="far fa-id-card"></i> Profil Akun
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a href="login.html">
+                                        <i class="fas fa-sign-in-alt"></i> Logout
+                                    </a>
                                 </li>
                             </ul>
+
                         </li>
-                        <li class="has-sub">
+                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -296,7 +428,7 @@
                                     <a href="typo.html">Typography</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
             </div>
@@ -311,10 +443,7 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                                <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
+
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
@@ -432,41 +561,59 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img id="userAvatar" src="images/icon/avatar-01.jpg" alt="User Avatar" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" id="userName" href="#">User</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img id="dropdownAvatar" src="images/icon/avatar-01.jpg"
+                                                            alt="User Avatar" />
                                                     </a>
                                                 </div>
-                                                <div class="content">
+                                                <div class="content" style="height: 5px; margin-top: -11px;">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#" id="dropdownName">User</a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email" id="dropdownEmail">user@example.com</span><br>
+                                                    <small id="dropdownCabang" style="color:#777;">Cabang: -</small>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                    <a href="profile.html"><i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
+                                                <!-- <div class="account-dropdown__item">
+                                                    <a href="#"><i class="zmdi zmdi-settings"></i>Setting</a>
+                                                </div> -->
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
+                                                        <i class="zmdi zmdi-settings"></i>Tema
+
+                                                        <!-- <span id="themeLabel">Terang</span> -->
+                                                        <label class="switch switch-text switch-secondary switch-pill"
+                                                            style="margin-left: 5px; width: 100px;">
+                                                            <input id="themeToggle" type="checkbox"
+                                                                class="switch-input">
+                                                            <span data-on="Gelap" data-off="Terang"
+                                                                class="switch-label"></span>
+                                                            <span class="switch-handle"></span>
+                                                        </label>
+                                                    </a>
                                                 </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                                </div>
+
+
+
+                                                <!-- <div class="account-dropdown__item">
+                                                    <a href="#"><i class="zmdi zmdi-money-box"></i>Billing</a>
+                                                </div> -->
                                             </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="#">
+                                            <div class="account-dropdown__footer"
+                                                style="background-color: #db3232; margin-top: -18px;">
+                                                <a href="#" id="logoutBtn">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -549,30 +696,35 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- CALENDAR LEGEND -->
                                 <div class="au-card">
                                     <div class="au-card-inner">
                                         <h3 class="title-2 m-b-30">Event Types</h3>
                                         <div class="calendar-legend">
                                             <div class="d-flex align-items-center mb-2">
-                                                <div class="legend-color bg-primary rounded me-2" style="width: 16px; height: 16px;"></div>
+                                                <div class="legend-color bg-primary rounded me-2"
+                                                    style="width: 16px; height: 16px;"></div>
                                                 <span class="fs-6">Meetings</span>
                                             </div>
                                             <div class="d-flex align-items-center mb-2">
-                                                <div class="legend-color bg-success rounded me-2" style="width: 16px; height: 16px;"></div>
+                                                <div class="legend-color bg-success rounded me-2"
+                                                    style="width: 16px; height: 16px;"></div>
                                                 <span class="fs-6">Tasks</span>
                                             </div>
                                             <div class="d-flex align-items-center mb-2">
-                                                <div class="legend-color bg-warning rounded me-2" style="width: 16px; height: 16px;"></div>
+                                                <div class="legend-color bg-warning rounded me-2"
+                                                    style="width: 16px; height: 16px;"></div>
                                                 <span class="fs-6">Appointments</span>
                                             </div>
                                             <div class="d-flex align-items-center mb-2">
-                                                <div class="legend-color bg-danger rounded me-2" style="width: 16px; height: 16px;"></div>
+                                                <div class="legend-color bg-danger rounded me-2"
+                                                    style="width: 16px; height: 16px;"></div>
                                                 <span class="fs-6">Deadlines</span>
                                             </div>
                                             <div class="d-flex align-items-center">
-                                                <div class="legend-color bg-info rounded me-2" style="width: 16px; height: 16px;"></div>
+                                                <div class="legend-color bg-info rounded me-2"
+                                                    style="width: 16px; height: 16px;"></div>
                                                 <span class="fs-6">Presentations</span>
                                             </div>
                                         </div>
@@ -583,7 +735,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <p>Copyright © 2025 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                    <p>Copyright © 2025 Colorlib. All rights reserved. Template by <a
+                                            href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
                                 </div>
                             </div>
                         </div>
@@ -613,166 +766,242 @@
 
     <!-- Calendar Initialization -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const calendarEl = document.getElementById('calendar');
-        
-        if (calendarEl) {
-            // Sample events data using modern date handling
-            const today = new Date();
-            const tomorrow = new Date(today);
-            tomorrow.setDate(today.getDate() + 1);
-            
-            const nextWeek = new Date(today);
-            nextWeek.setDate(today.getDate() + 7);
-            
-            const events = [
-                {
-                    title: 'Team Meeting',
-                    start: '2025-01-25T09:00:00',
-                    end: '2025-01-25T10:30:00',
-                    backgroundColor: '#007bff',
-                    borderColor: '#007bff',
-                    textColor: '#ffffff',
-                    extendedProps: {
-                        type: 'meeting',
-                        description: 'Weekly team sync meeting'
-                    }
-                },
-                {
-                    title: 'Project Deadline',
-                    start: '2025-01-28',
-                    allDay: true,
-                    backgroundColor: '#dc3545',
-                    borderColor: '#dc3545',
-                    textColor: '#ffffff',
-                    extendedProps: {
-                        type: 'deadline',
-                        description: 'Final submission deadline'
-                    }
-                },
-                {
-                    title: 'Client Presentation',
-                    start: '2025-02-02T14:00:00',
-                    end: '2025-02-02T15:30:00',
-                    backgroundColor: '#17a2b8',
-                    borderColor: '#17a2b8',
-                    textColor: '#ffffff',
-                    extendedProps: {
-                        type: 'presentation',
-                        description: 'Quarterly review presentation'
-                    }
-                },
-                {
-                    title: 'Doctor Appointment',
-                    start: '2025-01-30T11:00:00',
-                    end: '2025-01-30T12:00:00',
-                    backgroundColor: '#ffc107',
-                    borderColor: '#ffc107',
-                    textColor: '#000000',
-                    extendedProps: {
-                        type: 'appointment',
-                        description: 'Annual health checkup'
-                    }
-                },
-                {
-                    title: 'Development Task',
-                    start: '2025-01-27T10:00:00',
-                    end: '2025-01-27T16:00:00',
-                    backgroundColor: '#28a745',
-                    borderColor: '#28a745',
-                    textColor: '#ffffff',
-                    extendedProps: {
-                        type: 'task',
-                        description: 'Feature implementation'
-                    }
-                },
-                {
-                    title: 'Conference Call',
-                    start: '2025-02-05T15:00:00',
-                    end: '2025-02-05T16:00:00',
-                    backgroundColor: '#007bff',
-                    borderColor: '#007bff',
-                    textColor: '#ffffff',
-                    extendedProps: {
-                        type: 'meeting',
-                        description: 'International team sync'
-                    }
-                }
-            ];
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarEl = document.getElementById('calendar');
 
-            // Initialize FullCalendar v6+
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-                },
-                height: 'auto',
-                events: events,
-                eventDisplay: 'block',
-                dayMaxEvents: 3,
-                moreLinkText: 'more',
-                
-                // Event click handler
-                eventClick: function(info) {
-                    const event = info.event;
-                    const props = event.extendedProps;
-                    
-                    alert(`Event: ${event.title}\n` +
-                          `Type: ${props.type || 'N/A'}\n` +
-                          `Description: ${props.description || 'No description'}\n` +
-                          `Start: ${event.start ? event.start.toLocaleString() : 'N/A'}\n` +
-                          `End: ${event.end ? event.end.toLocaleString() : 'N/A'}`);
-                },
-                
-                // Date click handler for adding new events
-                dateClick: function(info) {
-                    const title = prompt('Enter event title:');
-                    if (title) {
-                        calendar.addEvent({
-                            title: title,
-                            start: info.date,
-                            allDay: info.allDay,
-                            backgroundColor: '#6c757d',
-                            borderColor: '#6c757d',
-                            textColor: '#ffffff'
-                        });
-                    }
-                },
-                
-                // Responsive behavior
-                windowResize: function() {
-                    calendar.updateSize();
-                }
-            });
+            if (calendarEl) {
+                // Sample events data using modern date handling
+                const today = new Date();
+                const tomorrow = new Date(today);
+                tomorrow.setDate(today.getDate() + 1);
 
-            calendar.render();
-            
-            // Store calendar instance globally for external access
-            window.calendarInstance = calendar;
+                const nextWeek = new Date(today);
+                nextWeek.setDate(today.getDate() + 7);
+
+                const events = [
+                    {
+                        title: 'Team Meeting',
+                        start: '2025-01-25T09:00:00',
+                        end: '2025-01-25T10:30:00',
+                        backgroundColor: '#007bff',
+                        borderColor: '#007bff',
+                        textColor: '#ffffff',
+                        extendedProps: {
+                            type: 'meeting',
+                            description: 'Weekly team sync meeting'
+                        }
+                    },
+                    {
+                        title: 'Project Deadline',
+                        start: '2025-01-28',
+                        allDay: true,
+                        backgroundColor: '#dc3545',
+                        borderColor: '#dc3545',
+                        textColor: '#ffffff',
+                        extendedProps: {
+                            type: 'deadline',
+                            description: 'Final submission deadline'
+                        }
+                    },
+                    {
+                        title: 'Client Presentation',
+                        start: '2025-02-02T14:00:00',
+                        end: '2025-02-02T15:30:00',
+                        backgroundColor: '#17a2b8',
+                        borderColor: '#17a2b8',
+                        textColor: '#ffffff',
+                        extendedProps: {
+                            type: 'presentation',
+                            description: 'Quarterly review presentation'
+                        }
+                    },
+                    {
+                        title: 'Doctor Appointment',
+                        start: '2025-01-30T11:00:00',
+                        end: '2025-01-30T12:00:00',
+                        backgroundColor: '#ffc107',
+                        borderColor: '#ffc107',
+                        textColor: '#000000',
+                        extendedProps: {
+                            type: 'appointment',
+                            description: 'Annual health checkup'
+                        }
+                    },
+                    {
+                        title: 'Development Task',
+                        start: '2025-01-27T10:00:00',
+                        end: '2025-01-27T16:00:00',
+                        backgroundColor: '#28a745',
+                        borderColor: '#28a745',
+                        textColor: '#ffffff',
+                        extendedProps: {
+                            type: 'task',
+                            description: 'Feature implementation'
+                        }
+                    },
+                    {
+                        title: 'Conference Call',
+                        start: '2025-02-05T15:00:00',
+                        end: '2025-02-05T16:00:00',
+                        backgroundColor: '#007bff',
+                        borderColor: '#007bff',
+                        textColor: '#ffffff',
+                        extendedProps: {
+                            type: 'meeting',
+                            description: 'International team sync'
+                        }
+                    }
+                ];
+
+                // Initialize FullCalendar v6+
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                    },
+                    height: 'auto',
+                    events: events,
+                    eventDisplay: 'block',
+                    dayMaxEvents: 3,
+                    moreLinkText: 'more',
+
+                    // Event click handler
+                    eventClick: function (info) {
+                        const event = info.event;
+                        const props = event.extendedProps;
+
+                        alert(`Event: ${event.title}\n` +
+                            `Type: ${props.type || 'N/A'}\n` +
+                            `Description: ${props.description || 'No description'}\n` +
+                            `Start: ${event.start ? event.start.toLocaleString() : 'N/A'}\n` +
+                            `End: ${event.end ? event.end.toLocaleString() : 'N/A'}`);
+                    },
+
+                    // Date click handler for adding new events
+                    dateClick: function (info) {
+                        const title = prompt('Enter event title:');
+                        if (title) {
+                            calendar.addEvent({
+                                title: title,
+                                start: info.date,
+                                allDay: info.allDay,
+                                backgroundColor: '#6c757d',
+                                borderColor: '#6c757d',
+                                textColor: '#ffffff'
+                            });
+                        }
+                    },
+
+                    // Responsive behavior
+                    windowResize: function () {
+                        calendar.updateSize();
+                    }
+                });
+
+                calendar.render();
+
+                // Store calendar instance globally for external access
+                window.calendarInstance = calendar;
+            }
+        });
+
+        // Function for "Add Event" button
+        function addNewEvent() {
+            const title = prompt('Enter event title:');
+            if (title && window.calendarInstance) {
+                const today = new Date();
+                window.calendarInstance.addEvent({
+                    title: title,
+                    start: today,
+                    backgroundColor: '#6c757d',
+                    borderColor: '#6c757d',
+                    textColor: '#ffffff',
+                    extendedProps: {
+                        type: 'custom',
+                        description: 'User created event'
+                    }
+                });
+            }
         }
-    });
-    
-    // Function for "Add Event" button
-    function addNewEvent() {
-        const title = prompt('Enter event title:');
-        if (title && window.calendarInstance) {
-            const today = new Date();
-            window.calendarInstance.addEvent({
-                title: title,
-                start: today,
-                backgroundColor: '#6c757d',
-                borderColor: '#6c757d',
-                textColor: '#ffffff',
-                extendedProps: {
-                    type: 'custom',
-                    description: 'User created event'
-                }
-            });
-        }
-    }
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const user = JSON.parse(localStorage.getItem("user"));
+            if (!user) {
+                window.location.href = "login.html";
+                return;
+            }
+            /* 🔒 SEMBUNYIKAN MENU ACCOUNT JIKA BUKAN ADMIN */
+            if ((user.role || "").toLowerCase() !== "admin") {
+                const accMobile = document.getElementById("menuAccountMobile");
+                    const accMobile1 = document.getElementById("menuAccountMobile1");
+                    const accMobile2 = document.getElementById("menuAccountMobile2");
+                    const accDesktop = document.getElementById("menuAccountDesktop");
+                    const accDesktop1 = document.getElementById("menuAccountDesktop1");
+                    const accDesktop2 = document.getElementById("menuAccountDesktop2");
+
+                    if (accMobile) accMobile.style.display = "none";
+                    if (accMobile1) accMobile1.style.display = "none";
+                    if (accMobile2) accMobile2.style.display = "none";
+                    if (accDesktop) accDesktop.style.display = "none";
+                    if (accDesktop1) accDesktop1.style.display = "none";
+                    if (accDesktop2) accDesktop2.style.display = "none";
+            }
+
+            if (user) {
+                document.getElementById("userName").textContent = user.namaLengkap || "User";
+                document.getElementById("dropdownName").textContent = user.namaLengkap || "User";
+                document.getElementById("dropdownEmail").textContent = user.email || "-";
+                document.getElementById("dropdownCabang").textContent = user.role ? "" + user.role : "-";
+
+                if (user.avatarUrl) {
+                    document.getElementById("userAvatar").src = user.avatarUrl;
+                    document.getElementById("dropdownAvatar").src = user.avatarUrl;
+                }
+            } else {
+                window.location.href = "login.html";
+            }
+
+            document.getElementById("logoutBtn").addEventListener("click", function (e) {
+                e.preventDefault();
+                localStorage.removeItem("user");
+                window.location.href = "login.html";
+            });
+            console.log("User data loaded from localStorage:", user);
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const themeToggle = document.getElementById("themeToggle");
+
+            // Ambil tema dari localStorage
+            const currentTheme = localStorage.getItem("theme") || "light";
+
+            // Set awal tema
+            if (currentTheme === "dark") {
+                document.body.classList.add("dark-mode");
+                themeToggle.checked = true;
+            } else {
+                document.body.classList.remove("dark-mode");
+                themeToggle.checked = false;
+            }
+
+            // Event ketika switch diubah
+            themeToggle.addEventListener("change", function () {
+                if (themeToggle.checked) {
+                    document.body.classList.add("dark-mode");
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    document.body.classList.remove("dark-mode");
+                    localStorage.setItem("theme", "light");
+                }
+            });
+        });
+    </script>
+
+    
 
 
 </body>

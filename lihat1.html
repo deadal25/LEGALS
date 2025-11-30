@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perjanjian Jual Beli dan Pengiriman Aspal Curah Penetrasi Rapat</title>
+    <style>
+        /* Styling Dasar untuk Dokumen (DIOPTIMALKAN UNTUK CETAK RAPAT) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white; /* Hapus latar belakang gelap */
+            font-size: 9pt; /* Ukuran font lebih kecil (9pt) */
+        }
+
+        .document-container {
+            width: 21cm; /* Lebar A4 */
+            min-height: 29.7cm; /* Tinggi A4 */
+            margin: 5px auto; /* Margin atas/bawah dikurangi */
+            padding: 10px 20px; /* Padding dikurangi */
+            background-color: white;
+            box-sizing: border-box;
+            line-height: 1.1; /* Jarak antar baris dikurangi menjadi 1.3 */
+            font-size: 9pt;
+        }
+
+        /* Header Dokumen */
+        .document-header {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 3px; /* Padding bawah dikurangi */
+            margin-bottom: 10px; /* Margin bawah dikurangi */
+        }
+
+        .logo-area {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 3px;
+        }
+
+        .logo {
+            width: 100px; /* Ukuran logo dikurangi */
+            height: auto;
+        }
+
+        .document-header h1 {
+            font-size: 12pt; /* Ukuran judul dikurangi */
+            margin: 0 0 3px 0;
+        }
+
+        /* Dalam bagian Header Dokumen */
+
+
+/* PERUBAHAN DI SINI */
+.no-dokumen {
+    text-align: center; /* DIUBAH DARI 'right' MENJADI 'center' */
+    font-size: 8.5pt;
+    margin-top: 0;
+}
+
+        /* Pembukaan dan Penutup */
+        .pembukaan, .penutup {
+            text-align: justify;
+            margin-bottom: 5px; /* Margin bawah dikurangi */
+        }
+
+        /* Konten Utama (Tabel) */
+        .main-content-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            margin-bottom: 10px;
+        }
+
+        .item-cell {
+            width: 50%;
+            padding: 5px 8px; /* Padding di dalam sel dikurangi */
+            border: 1px solid #000;
+            vertical-align: top;
+            box-sizing: border-box;
+            height: 130px; /* Memberi tinggi minimal agar tata letak tetap rapi */
+        }
+        
+        /* Tambahkan class pada item tertentu yang membutuhkan lebih banyak ruang */
+        .item-cell.item-penjual, .item-cell.item-pembeli {
+            height: 90px;
+        }
+
+
+        .item-number {
+            font-weight: bold;
+            float: left;
+            margin-right: 5px; /* Jarak nomor dikurangi */
+            width: 14px;
+        }
+
+        .item-body {
+            overflow: hidden;
+        }
+
+        .item-body h2 {
+            font-size: 9pt; /* Ukuran sub-judul dikurangi */
+            margin: 0;
+            display: inline;
+        }
+
+        .item-body p, .item-body ul {
+            margin: 2px 0; /* Jarak antar paragraf/list dikurangi */
+            padding: 0;
+            text-align: justify;
+        }
+
+        .item-body ul {
+            list-style-type: none;
+            padding-left: 15px; /* Indentasi dikurangi */
+        }
+
+        .item-body ul li {
+            position: relative;
+            padding-left: 10px;
+            margin-bottom: 2px; /* Jarak antar list item dikurangi */
+        }
+
+        .item-body ul li:before {
+            content: '-';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Penyesuaian untuk Tanda Tangan */
+        .tanda-tangan-area {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 20px; /* Margin atas dikurangi */
+            font-size: 9pt;
+        }
+
+        .signature-box {
+            width: 45%;
+        }
+
+        .signature-box p {
+            margin: 0;
+        }
+
+        .signature-box p:nth-child(2) {
+            margin-bottom: 40px; /* Jarak untuk tanda tangan dikurangi */
+            margin-top: 5px;
+        }
+
+        .signature-box p:last-child {
+            border-top: 1px solid #000;
+            display: inline-block;
+            padding: 0 10px;
+            margin-top: 0;
+        }
+
+        /* MEDIA CETAK: Pastikan tampilan bagus saat di-print */
+        @media print {
+            body {
+                font-size: 9pt;
+            }
+            .document-container {
+                margin: 0;
+                box-shadow: none;
+                padding: 10px 20px; /* Kurangi padding untuk memaksimalkan ruang */
+                min-height: auto; /* Hapus min-height agar print hanya 1 halaman */
+            }
+             .item-cell {
+                height: auto !important; /* Biarkan tinggi sel otomatis */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-container">
+        <header class="document-header">
+            <div class="logo-area">
+                <img src="https://via.placeholder.com/100x30?text=KALLA+ASPAL" alt="Kalla Aspal Logo" class="logo">
+            </div>
+            <h1>PERJANJIAN JUAL BELI DAN PENGIRIMAN ASPAL CURAH PENETRASI</h1>
+            <p class="no-dokumen">No. [x]</p>
+        </header>
+
+        <p class="pembukaan">
+            Perjanjian Jual Beli Aspal dan Pengiriman ini ("**Perjanjian**") dibuat di [x] pada hari ini, tanggal [x], telah disepakati bersama oleh para pihak, sebagai berikut:
+        </p>
+
+        <table class="main-content-table">
+            <tr>
+                <td class="item-cell item-penjual" colspan="1">
+                    <div class="item-number">1.</div>
+                    <div class="item-body">
+                        <h2>PENJUAL (PEMILIK ASPAL)</h2>
+                        <p><strong>PT Bumi Sarana Utama</strong></p>
+                        <p>Wisma Kalla Lt. 2, Jl. Dr. Sam Ratulangi No. 8-10, Makassar</p>
+                        <p>Telp. 0411-873999 HP: [x] Faks. 0411-851445</p>
+                        <p>e-mail: bumisaranautama.co.id</p>
+                    </div>
+                </td>
+                <td class="item-cell item-pembeli" colspan="1">
+                    <div class="item-number">2.</div>
+                    <div class="item-body">
+                        <h2>PEMBELI</h2>
+                        <p><strong>PT/CV/Perorangan [x]</strong></p>
+                        <p>Alamat: [x]</p>
+                        <p>Telp. [x]</p>
+                        <p>e-mail: [x]</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="item-cell" colspan="1">
+                    <div class="item-number">3.</div>
+                    <div class="item-body">
+                        <h2>VOLUME DAN HARGA</h2>
+                        <ul>
+                            <li>Volume: <strong>[x]</strong> Metric Tons (sesuai penerbitan PO)</li>
+                            <li>Harga Satuan: <strong>Rp [x]</strong></li>
+                            <li>Harga tersebut belum termasuk bea masuk dan pungutan/biaya lainnya yang diterbitkan terlebih dahulu dan berlaku terhadap aspal yg belum diserahkan</li>
+                            <li>PPN 11%: <strong>[x]</strong></li>
+                            <li>Biaya Angkut: <strong>[x]</strong></li>
+                            <li>Total Harga: <strong>[x]</strong></li>
+                            <li>Biaya-biaya lain: pihak sesuai ketentuan yg berlaku</li>
+                        </ul>
+                    </div>
+                </td>
+                <td class="item-cell" colspan="1">
+                    <div class="item-number">4.</div>
+                    <div class="item-body">
+                        <h2>JANGKA WAKTU</h2>
+                        <p>Jangka waktu Perjanjian terhitung sejak tanggal ditandatanganinya Perjanjian Jual Beli atau tanggal lain yang disepakati Para Pihak dan berakhir sejak kewajiban telah terpenuhi oleh Para Pihak atau seluruh pembayaran selesai.</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="item-cell" colspan="1">
+                    <div class="item-number">5.</div>
+                    <div class="item-body">
+                        <h2>HARGA TOTAL PERJANJIAN: JUMLAH ASPAL X TOTAL HARGA ASPAL</h2>
+                        <p><strong>FASILITAS PEMBAYARAN KREDIT</strong></p>
+                        <p>Batasan Limit pengambilan aspal <strong>[x]</strong> Mton* dan/atau</p>
+                        <p>Sebesar <strong>Rp [x]</strong></p>
+                        <p><small>*diberikan setelah memenuhi syarat yang berlaku</small></p>
+                    </div>
+                </td>
+                <td class="item-cell" colspan="1">
+                    <div class="item-number">6.</div>
+                    <div class="item-body">
+                        <h2>TATA CARA PEMBAYARAN</h2>
+                        <p>Pembayaran paling lambat <strong>[x]</strong> hari setelah aspal diterima</p>
+                        <p>Dokumen yang harus dilengkapi dalam satu (1) rangkap, terdiri dari:</p>
+                        <ul>
+                            <li>Kwitansi/tagihan/invoice.</li>
+                            <li>Faktur pajak.</li>
+                            <li>Nota pengiriman barang/material; dan</li>
+                            <li>Berita acara serah terima barang/material.</li>
+                        </ul>
+                        <p>Apabila disepakati untuk pembayaran kredit dengan jangka waktu selambat-lambatnya <strong>[x]</strong>.</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="item-cell" colspan="1">
+                    <div class="item-number">7.</div>
+                    <div class="item-body">
+                        <h2>CARA PEMBAYARAN</h2>
+                        <p>transfer ke:</p>
+                        <p>Bank: Mandiri</p>
+                        <p>No. Rekening: 152-00-1367251-0</p>
+                        <p>Atas nama: PT Bumi Sarana Utama</p>
+                    </div>
+                </td>
+                <td class="item-cell" colspan="1">
+                    <div class="item-number">8.</div>
+                    <div class="item-body">
+                        <h2>PENGIRIMAN, PENYERAHAN DAN PERNYATAAN</h2>
+                        <ul>
+                            <li>Lokasi pengiriman sesuai dengan PO</li>
+                            <li>Serah terima dibuktikan dengan Berita Acara Penyerahan Aspal (BAPA).</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="item-cell" colspan="1">
+                    <div class="item-number">9.</div>
+                    <div class="item-body">
+                        <h2>KETERLAMBATAN PEMBAYARAN</h2>
+                        <ul>
+                            <li>Pembeli dikenakan denda keterlambatan 1‰ (satu per mil) per hari kalender atas pembayaran tertunggak terhitung tujuh (7) hari hari sejak tanggal jatuh tempo.</li>
+                            <li>PENJUAL berhak menghentikan pengiriman apabila PEMBELI belum melakukan pembayaran dan/atau diragukan.</li>
+                            <li>PENJUAL akan mengirimkan surat tertulis apabila tagihan telah jatuh tempo.</li>
+                        </ul>
+                    </div>
+                </td>
+                <td class="item-cell" colspan="1">
+                    <div class="item-number">10.</div>
+                    <div class="item-body">
+                        <h2>PENGAJUAN DAN PEMBUKTIAN HUTANG</h2>
+                        <p>Pengakuan bermaterai dari PENJUAL adalah valid dan mengikat PEMBELI dan dapat dipergunakan sebagai pengakuan hutang, kecuali dapat dibuktikan sebaliknya.</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="item-cell" colspan="1">
+                    <div class="item-number">11.</div>
+                    <div class="item-body">
+                        <h2>PENGHENTIAN DAN BERAKHIRNYA PERJANJIAN</h2>
+                        <ul>
+                            <li>Jangka waktu berakhir sesuai dinyatakan berakhir oleh Para Pihak.</li>
+                            <li>Perubahan kebijakan Pemerintah.</li>
+                            <li>Salah satu pihak tidak dapat atau telah mendapatkan Surat Peringatan (1, 2, dan 3 @ 7 hari)</li>
+                            <li>Salah satu pihak dibubarkan, atau likuidasi atau dinyatakan pailit/bangkrut.</li>
+                            <li>Perjanjian ini mengesampingkan Pasal 1266 dan Pasal 1267 KUHPerdata.</li>
+                        </ul>
+                    </div>
+                </td>
+                <td class="item-cell" colspan="1">
+                    <div class="item-number">12.</div>
+                    <div class="item-body">
+                        <h2>LAIN-LAIN</h2>
+                        <ul>
+                            <li>Penambahan aspal dibuatkan dalam bentuk addendum.</li>
+                            <li>Perjanjian ini tidak dapat dialihkan ke pihak lainnya kecuali mendapat persetujuan dari pihak lawan dalam Perjanjian.</li>
+                            <li>Hal-hal yang belum diatur dituangkan dalam addendum merupakan satu kesatuan dengan Perjanjian ini.</li>
+                            <li>PENJUAL dan PEMBELI memiliki kewenangan sesuai ketentuan hukum yang berlaku untuk melaksanakan perjanjian ini.</li>
+                            <li>Pilihan domisili Pengadilan Negeri [x]</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <p class="penutup">
+            Demikian Perjanjian ini dibuat dalam keadaan sadar tanpa paksaan dan disetujui serta ditanda tangani bersama dalam rangkap 2 (dua), bermaterai cukup yang masing-masing mempunyai kekuatan hukum yang sama.
+        </p>
+
+        <div class="tanda-tangan-area">
+            <div class="signature-box">
+                <p>PENJUAL</p>
+                <p><strong>PT BUMI SARANA UTAMA</strong></p>
+                <br><br><br>
+                <p>[x]</p>
+            </div>
+            <div class="signature-box">
+                <p>PEMBELI</p>
+                <p>[X]</p>
+                <br><br><br>
+                <p>[x]</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
