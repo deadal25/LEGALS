@@ -214,7 +214,7 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>Account</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                
+
                                 <li id="menuAccountMobile">
                                     <a href="register.html">
                                         <i class="fas fa-user"></i> Register
@@ -344,7 +344,7 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>Account</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                
+
                                 <li id="menuAccountDesktop">
                                     <a href="register.html">
                                         <i class="fas fa-user"></i> Register
@@ -788,6 +788,52 @@
                             </div>
 
                         </div>
+                        <div id="kontrakpercabang">
+                            <div class="row mb-3">
+                                <div class="col-lg-4">
+                                    <select id="filterCabang" class="form-control">
+                                        <option value="ADMIN">Semua Cabang</option>
+                                        <option value="MAKASSAR">Makassar</option>
+                                        <option value="PALU">Palu</option>
+                                        <option value="BANJARMASIN">Banjarmasin</option>
+                                        <option value="BALIKPAPAN">Balikpapan</option>
+                                        <option value="PONTIANAK">Pontianak</option>
+                                        <option value="SAMARINDA">Samarinda</option>
+                                        <option value="KENDARI">Kendari</option>
+                                        <option value="JAYAPURA">Jayapura</option>
+                                        <option value="SORONG">Sorong</option>
+                                        <!-- Tambah sesuai cabang -->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h2 class="title-1 m-b-25">Data Kontrak Digital Di Setiap Cabang</h2>
+                                    <div class="table-responsive table--no-card m-b-40"
+                                        style="max-height: 455px; overflow-y: auto;">
+                                        <table class="table table-borderless table-striped table-earning"
+                                            id="dataKontrakTableCabang">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nama Cabang</th>
+                                                    <th>Jumlah Kontrak</th>
+                                                    <th>Jumlah Customer</th>
+                                                    <th class="text-end">Jumlah TTD Sales</th>
+                                                    <th class="text-end">Jumlah TTD ADH</th>
+                                                    <th class="text-end">Jumlah TTD Penjual</th>
+                                                    <th class="text-end">Jumlah TTD Pembeli</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- data dari spreadsheet akan muncul di sini -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-lg-9">
@@ -799,17 +845,17 @@
                                         <thead>
                                             <tr>
                                                 <th>No Perjanjian</th>
-                                                <th>Tempat</th>
-                                                <th>Tanggal</th>
-                                                <th class="text-end">Status Pembeli</th>
-                                                <th class="text-end">Nama Perusahaan</th>
+                                                <th>Tempat Perjanjian</th>
+                                                <th>Tanggal Perjanjian</th>
+                                                <th>Nama Perusahaan</th>
                                                 <th class="text-end">Status TTD Sales</th>
                                                 <th class="text-end">Status TTD ADH</th>
                                                 <th class="text-end">Status TTD Penjual</th>
                                                 <th class="text-end">Status TTD Pembeli</th>
+                                                <th class="text-end">Status Pembeli</th>
                                                 <th class="text-end">Alamat Pembeli</th>
                                                 <th class="text-end">No HP Pembeli</th>
-                                                <th class="text-end">Email Pembeli</th>
+                                                <th >Email Pembeli</th>
                                                 <th class="text-end">Total Harga</th>
                                             </tr>
                                         </thead>
@@ -889,7 +935,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
 
                         <!-- <div class="row">
                             <div class="col-md-12">
@@ -917,7 +963,7 @@
     <script src="vendor/perfect-scrollbar/perfect-scrollbar-1.5.6.min.js"></script>
     <script src="vendor/chartjs/chart.umd.js-4.5.0.min.js"></script>
 
-    
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const user = JSON.parse(localStorage.getItem("user"));
@@ -928,21 +974,23 @@
                 return;
             }
             /* 🔒 SEMBUNYIKAN MENU ACCOUNT JIKA BUKAN ADMIN */
-if ((user.role || "").toLowerCase() !== "admin") {
-    const accMobile = document.getElementById("menuAccountMobile");
-                    const accMobile1 = document.getElementById("menuAccountMobile1");
-                    const accMobile2 = document.getElementById("menuAccountMobile2");
-                    const accDesktop = document.getElementById("menuAccountDesktop");
-                    const accDesktop1 = document.getElementById("menuAccountDesktop1");
-                    const accDesktop2 = document.getElementById("menuAccountDesktop2");
+            if ((user.role || "").toLowerCase() !== "admin") {
+                const accMobile = document.getElementById("menuAccountMobile");
+                const accMobile1 = document.getElementById("menuAccountMobile1");
+                const accMobile2 = document.getElementById("menuAccountMobile2");
+                const accDesktop = document.getElementById("menuAccountDesktop");
+                const accDesktop1 = document.getElementById("menuAccountDesktop1");
+                const accDesktop2 = document.getElementById("menuAccountDesktop2");
 
-                    if (accMobile) accMobile.style.display = "none";
-                    if (accMobile1) accMobile1.style.display = "none";
-                    if (accMobile2) accMobile2.style.display = "none";
-                    if (accDesktop) accDesktop.style.display = "none";
-                    if (accDesktop1) accDesktop1.style.display = "none";
-                    if (accDesktop2) accDesktop2.style.display = "none";
-}
+                if (accMobile) accMobile.style.display = "none";
+                if (accMobile1) accMobile1.style.display = "none";
+                if (accMobile2) accMobile2.style.display = "none";
+                if (accDesktop) accDesktop.style.display = "none";
+                if (accDesktop1) accDesktop1.style.display = "none";
+                if (accDesktop2) accDesktop2.style.display = "none";
+                document.getElementById("kontrakpercabang").style.display = "none";
+
+            }
 
 
             // Tampilkan info user
@@ -977,9 +1025,9 @@ if ((user.role || "").toLowerCase() !== "admin") {
                 "SORONG": ["SOR"],
                 "GORONTALO": ["GTL"],
                 "CILEGON": ["CLG"],
-                 "JAYAPURA": ["JPR"],
+                "JAYAPURA": ["JPR"],
                 "SAMARINDA": ["SMD"],
-                 "PONTIANAK": ["PTK"],
+                "PONTIANAK": ["PTK"],
                 "BANJARMASIN": ["BJM"],
                 "BALIKPAPAN": ["BPP"]
             };
@@ -1002,106 +1050,106 @@ if ((user.role || "").toLowerCase() !== "admin") {
             // LOAD DASHBOARD (SEMUA IKUT FILTER)
             // =============================
             async function loadDashboardFiltered() {
-    try {
-        let res = await fetch(
-            "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec?mode=tabeldata"
-        );
-        let data = await res.json();
+                try {
+                    let res = await fetch(
+                        "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec?mode=tabeldata"
+                    );
+                    let data = await res.json();
 
-        // Filter data sesuai cabang
-        let filtered = filterByCabang(data, "noperjanjian");
+                    // Filter data sesuai cabang
+                    let filtered = filterByCabang(data, "noperjanjian");
 
-        // ==============================
-        // 1️⃣ Jumlah Kontrak
-        // ==============================
-        document.getElementById("jumlahKontrak").innerText =
-            filtered.length.toLocaleString("id-ID");
+                    // ==============================
+                    // 1️⃣ Jumlah Kontrak
+                    // ==============================
+                    document.getElementById("jumlahKontrak").innerText =
+                        filtered.length.toLocaleString("id-ID");
 
-        // ==============================
-        // 2️⃣ Jumlah TTD Sales (HANYA Sudah TTD)
-        // ==============================
-        let jumlahTTDSales = filtered.filter(x =>
-            String(x.status_sales || "").toLowerCase().includes("sudah")
-        ).length;
+                    // ==============================
+                    // 2️⃣ Jumlah TTD Sales (HANYA Sudah TTD)
+                    // ==============================
+                    let jumlahTTDSales = filtered.filter(x =>
+                        String(x.status_sales || "").toLowerCase().includes("sudah")
+                    ).length;
 
-        document.getElementById("jumlahTTDSales").innerText =
-            jumlahTTDSales.toLocaleString("id-ID");
+                    document.getElementById("jumlahTTDSales").innerText =
+                        jumlahTTDSales.toLocaleString("id-ID");
 
-        let jumlahTTDADH = filtered.filter(x =>
-            String(x.status_adh || "").toLowerCase().includes("sudah")
-        ).length;
+                    let jumlahTTDADH = filtered.filter(x =>
+                        String(x.status_adh || "").toLowerCase().includes("sudah")
+                    ).length;
 
-        document.getElementById("jumlahTTDADH").innerText =
-            jumlahTTDADH.toLocaleString("id-ID");
+                    document.getElementById("jumlahTTDADH").innerText =
+                        jumlahTTDADH.toLocaleString("id-ID");
 
-        let jumlahTTDPenjual = filtered.filter(x =>
-            String(x.status_penjual || "").toLowerCase().includes("sudah")
-        ).length;
+                    let jumlahTTDPenjual = filtered.filter(x =>
+                        String(x.status_penjual || "").toLowerCase().includes("sudah")
+                    ).length;
 
-        document.getElementById("jumlahTTDPenjual").innerText =
-            jumlahTTDPenjual.toLocaleString("id-ID");
+                    document.getElementById("jumlahTTDPenjual").innerText =
+                        jumlahTTDPenjual.toLocaleString("id-ID");
 
-        let jumlahTTDPembeli = filtered.filter(x =>
-            String(x.status_pembeli || "").toLowerCase().includes("sudah")
-        ).length;
+                    let jumlahTTDPembeli = filtered.filter(x =>
+                        String(x.status_pembeli || "").toLowerCase().includes("sudah")
+                    ).length;
 
-        document.getElementById("jumlahTTDPembeli").innerText =
-            jumlahTTDPembeli.toLocaleString("id-ID");
+                    document.getElementById("jumlahTTDPembeli").innerText =
+                        jumlahTTDPembeli.toLocaleString("id-ID");
 
-        // ==============================
-        // 3️⃣ Jumlah Customer Unik
-        // ==============================
-        const customers = new Set(
-            filtered.map(x => x.emailpembeli || x.nohppembeli)
-        );
+                    // ==============================
+                    // 3️⃣ Jumlah Customer Unik
+                    // ==============================
+                    const customers = new Set(
+                        filtered.map(x => x.emailpembeli || x.nohppembeli)
+                    );
 
-        document.getElementById("jumlahcustomer").innerText =
-            customers.size.toLocaleString("id-ID");
+                    document.getElementById("jumlahcustomer").innerText =
+                        customers.size.toLocaleString("id-ID");
 
-        // ==============================
-        // 4️⃣ Rata-Rata Harga Aspal
-        // ==============================
-        const hargaAspal = filtered
-            .map(x => Number(x.hargaaspal) || 0)
-            .filter(x => x > 0);
+                    // ==============================
+                    // 4️⃣ Rata-Rata Harga Aspal
+                    // ==============================
+                    const hargaAspal = filtered
+                        .map(x => Number(x.hargaaspal) || 0)
+                        .filter(x => x > 0);
 
-        const avgAspal = hargaAspal.length
-            ? hargaAspal.reduce((a, b) => a + b) / hargaAspal.length
-            : 0;
+                    const avgAspal = hargaAspal.length
+                        ? hargaAspal.reduce((a, b) => a + b) / hargaAspal.length
+                        : 0;
 
-        document.getElementById("Eshargaaspal").innerText =
-            avgAspal.toLocaleString("id-ID", {
-                style: "currency",
-                currency: "IDR",
-                maximumFractionDigits: 0
-            });
+                    document.getElementById("Eshargaaspal").innerText =
+                        avgAspal.toLocaleString("id-ID", {
+                            style: "currency",
+                            currency: "IDR",
+                            maximumFractionDigits: 0
+                        });
 
-        // ==============================
-        // 5️⃣ Rata-Rata Biaya Angkut
-        // ==============================
-        const biayaAngkut = filtered
-            .map(x => Number(x.rataBiayaAngkut) || 0)
-            .filter(x => x > 0);
+                    // ==============================
+                    // 5️⃣ Rata-Rata Biaya Angkut
+                    // ==============================
+                    const biayaAngkut = filtered
+                        .map(x => Number(x.rataBiayaAngkut) || 0)
+                        .filter(x => x > 0);
 
-        const avgAngkut = biayaAngkut.length
-            ? biayaAngkut.reduce((a, b) => a + b) / biayaAngkut.length
-            : 0;
+                    const avgAngkut = biayaAngkut.length
+                        ? biayaAngkut.reduce((a, b) => a + b) / biayaAngkut.length
+                        : 0;
 
-        if (document.getElementById("Esbiayaangkut")) {
-            document.getElementById("Esbiayaangkut").innerText =
-                avgAngkut.toLocaleString("id-ID", {
-                    style: "currency",
-                    currency: "IDR",
-                    maximumFractionDigits: 0
-                });
-        }
+                    if (document.getElementById("Esbiayaangkut")) {
+                        document.getElementById("Esbiayaangkut").innerText =
+                            avgAngkut.toLocaleString("id-ID", {
+                                style: "currency",
+                                currency: "IDR",
+                                maximumFractionDigits: 0
+                            });
+                    }
 
-        console.log("Data ditampilkan:", filtered);
+                    console.log("Data ditampilkan:", filtered);
 
-    } catch (err) {
-        console.error("Gagal load dashboard:", err);
-    }
-}
+                } catch (err) {
+                    console.error("Gagal load dashboard:", err);
+                }
+            }
 
 
             loadDashboardFiltered();  // jalankan setelah login
@@ -1121,14 +1169,14 @@ if ((user.role || "").toLowerCase() !== "admin") {
             "PALU": ["PLU", "PGM"],
             "PAREPARE": ["PRE"],
             "MAMUJU": ["MMJ"],
-             "BULUNGAN": ["BLG"],
-             "KENDARI": ["KDR"],
-             "SORONG": ["SOR"],
-             "GORONTALO": ["GTL"],
-             "CILEGON": ["CLG"],
-             "JAYAPURA": ["JPR"],
-             "SAMARINDA": ["SMD"],
-              "PONTIANAK": ["PTK"],
+            "BULUNGAN": ["BLG"],
+            "KENDARI": ["KDR"],
+            "SORONG": ["SOR"],
+            "GORONTALO": ["GTL"],
+            "CILEGON": ["CLG"],
+            "JAYAPURA": ["JPR"],
+            "SAMARINDA": ["SMD"],
+            "PONTIANAK": ["PTK"],
             "BANJARMASIN": ["BJM"],
             "BALIKPAPAN": ["BPP"]
         };
@@ -1146,6 +1194,142 @@ if ((user.role || "").toLowerCase() !== "admin") {
             });
         }
     </script>
+
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
+
+        const ALL_CABANG = [
+            "MAKASSAR", "PALU",
+            "BULUNGAN", "KENDARI", "SORONG", "GORONTALO",
+            "CILEGON", "JAYAPURA", "SAMARINDA", "PONTIANAK",
+            "BANJARMASIN", "BALIKPAPAN"
+        ];
+
+        // Load data API
+        async function loadDataCabang(cabang) {
+            const res = await fetch(`${scriptURL}?mode=status&cabang=${cabang}`);
+            return await res.json();
+        }
+
+        // ==============================
+        // RENDER UNTUK ADMIN (banyak baris)
+        // ==============================
+        async function renderAdminTable() {
+            const tbody = document.querySelector("#dataKontrakTableCabang tbody");
+            tbody.innerHTML = "";
+
+            for (const cabang of ALL_CABANG) {
+                const data = await loadDataCabang(cabang);
+
+                const totalKontrak = data.length;
+                const totalCustomer = new Set(data.map(d => d.nama_perusahaan)).size;
+
+                let ttdSales = 0, ttdADH = 0, ttdPenjual = 0, ttdPembeli = 0;
+
+                data.forEach(item => {
+                    const sSales = (item.status_sales || "").toLowerCase();
+                    const sADH = (item.status_adh || "").toLowerCase();
+                    const sPenjual = (item.status_penjual || "").toLowerCase();
+                    const sPembeli = (item.status_pembeli || "").toLowerCase();
+
+                    if (sSales.includes("sudah")) ttdSales++;
+                    if (sADH.includes("sudah")) ttdADH++;
+                    if (sPenjual.includes("sudah")) ttdPenjual++;
+                    if (sPembeli.includes("sudah")) ttdPembeli++;
+                });
+
+                tbody.innerHTML += `
+            <tr>
+                <td>${cabang}</td>
+                <td>${totalKontrak}</td>
+                <td>${totalCustomer}</td>
+                <td class="text-end">${ttdSales}</td>
+                <td class="text-end">${ttdADH}</td>
+                <td class="text-end">${ttdPenjual}</td>
+                <td class="text-end">${ttdPembeli}</td>
+            </tr>
+        `;
+            }
+        }
+
+        // ==============================
+        // RENDER UNTUK USER (hanya satu baris)
+        // ==============================
+        function renderTableCabang(data, cabang) {
+            const tbody = document.querySelector("#dataKontrakTableCabang tbody");
+            tbody.innerHTML = "";
+
+            const totalKontrak = data.length;
+            const totalCustomer = new Set(data.map(d => d.nama_perusahaan)).size;
+
+            let ttdSales = 0, ttdADH = 0, ttdPenjual = 0, ttdPembeli = 0;
+
+            data.forEach(item => {
+                const sSales = (item.status_sales || "").toLowerCase();
+                const sADH = (item.status_adh || "").toLowerCase();
+                const sPenjual = (item.status_penjual || "").toLowerCase();
+                const sPembeli = (item.status_pembeli || "").toLowerCase();
+
+                if (sSales.includes("sudah")) ttdSales++;
+                if (sADH.includes("sudah")) ttdADH++;
+                if (sPenjual.includes("sudah")) ttdPenjual++;
+                if (sPembeli.includes("sudah")) ttdPembeli++;
+            });
+
+            tbody.innerHTML = `
+        <tr>
+            <td>${cabang}</td>
+            <td>${totalKontrak}</td>
+            <td>${totalCustomer}</td>
+            <td class="text-end">${ttdSales}</td>
+            <td class="text-end">${ttdADH}</td>
+            <td class="text-end">${ttdPenjual}</td>
+            <td class="text-end">${ttdPembeli}</td>
+        </tr>
+    `;
+        }
+
+        // ==============================
+        // EVENT DROPDOWN (ADMIN & USER)
+        // ==============================
+        document.getElementById("filterCabang").addEventListener("change", async function () {
+            const cabang = this.value;
+            const user = JSON.parse(localStorage.getItem("user")) || {};
+
+            if ((user.role || "").toLowerCase() === "admin") {
+                if (cabang === "ADMIN") {
+                    renderAdminTable();   // 🔥 tampilkan tabel banyak baris
+                } else {
+                    const data = await loadDataCabang(cabang);
+                    renderTableCabang(data, cabang); // 🔥 hanya satu cabang
+                }
+            } else {
+                // User biasa
+                const data = await loadDataCabang(cabang);
+                renderTableCabang(data, cabang);
+            }
+            
+        });
+
+        // ==============================
+        // LOAD AWAL
+        // ==============================
+        document.addEventListener("DOMContentLoaded", async () => {
+
+            const user = JSON.parse(localStorage.getItem("user")) || {};
+
+            if ((user.role || "").toLowerCase() === "admin") {
+                renderAdminTable();
+            } else {
+                const cabang = document.getElementById("filterCabang").value;
+                const data = await loadDataCabang(cabang);
+                renderTableCabang(data, cabang);
+            }
+        });
+    </script>
+
+
 
 
     <script>
@@ -1294,12 +1478,12 @@ if ((user.role || "").toLowerCase() !== "admin") {
             <td>${item.noperjanjian || "-"}</td>
             <td>${item.tempatperjanjian || "-"}</td>
             <td>${date}</td>
-            <td>${item.statuspembeli || "-"}</td>
             <td>${item.namaperusahaan || "-"}</td>
             <td class="text-end">${item.status_sales || "-"}</td>
             <td class="text-end">${item.status_adh || "-"}</td>
             <td class="text-end">${item.status_penjual || "-"}</td>
             <td class="text-end">${item.status_pembeli || "-"}</td>
+            <td>${item.statuspembeli || "-"}</td>
             <td class="text-end">${item.alamatpembeli || "-"}</td>
             <td class="text-end">${item.nohppembeli || "-"}</td>
             <td class="text-end">${item.emailpembeli || "-"}</td>
