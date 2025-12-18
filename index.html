@@ -194,13 +194,19 @@
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li> -->
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
+                       <li>
+                            <a href="progresttd.html">
+                                <i class="fas fa-tasks"></i>Progres TTD</a>
                         </li>
+                        
                         <li>
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+
+                        <li>
+                            <a href="statusdokumen.html">
+                                <i class="fas fa-file-alt"></i>Status Dokumen</a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -225,9 +231,14 @@
                                         <i class="fas fa-unlock-alt"></i> Forget Password
                                     </a>
                                 </li> -->
-                                <li id="menuAccountMobile2">
+                                <li id="menuAccountMobile1">
                                     <a href="users.html">
                                         <i class="fas fa-user-edit"></i> Users
+                                    </a>
+                                </li>
+                                <li id="menuAccountMobile2">
+                                    <a href="approval.html" >
+                                        <i class="fas fa-tasks"></i> Approval
                                     </a>
                                 </li>
                                 <li>
@@ -325,12 +336,18 @@
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li> -->
                         <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
+                            <a href="progresttd.html">
+                                <i class="fas fa-tasks"></i>Progres TTD</a>
                         </li>
+                        
                         <li>
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+
+                        <li>
+                            <a href="statusdokumen.html">
+                                <i class="fas fa-file-alt"></i>Status Dokumen</a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -355,9 +372,14 @@
                                         <i class="fas fa-unlock-alt"></i> Forget Password
                                     </a>
                                 </li> -->
-                                <li id="menuAccountDesktop2">
+                                <li id="menuAccountDesktop1">
                                     <a href="users.html">
                                         <i class="fas fa-user-edit"></i> Users
+                                    </a>
+                                </li>
+                                <li id="menuAccountDesktop2">
+                                    <a href="approval.html" >
+                                        <i class="fas fa-tasks"></i> Approval
                                     </a>
                                 </li>
                                 <li>
@@ -674,15 +696,14 @@
                                     <div class="overview__inner p-3">
                                         <div class="overview-box">
                                             <div class="icon text-white">
-                                                <i class="fa-solid fa-road"
-                                                    style="font-size: 40px; margin-left: -15px;"></i>
+                                                <i class="zmdi zmdi-calendar-note"
+                                                    style="font-size: 40px;"></i>
                                             </div>
                                             <div class="text text-white">
-                                                <h2 class="fw-bold mb-0" id="Eshargaaspal"
-                                                    style="margin-left: -15px; font-size: 25px;">0</h2>
+                                                <h2 class="fw-bold mb-0 text-center" id="kontrakpending"
+                                                    style="margin-left: -20px; font-size: 25px;">0</h2>
                                                 <span class="text-white-50"
-                                                    style="white-space: nowrap; margin-left: -15px;">Estimasi Harga
-                                                    Aspal</span>
+                                                    style="white-space: nowrap; ">Kontrak Pending</span>
                                             </div>
                                         </div>
                                     </div>
@@ -696,15 +717,14 @@
                                     <div class="overview__inner p-3">
                                         <div class="overview-box">
                                             <div class="icon text-white">
-                                                <i class="zmdi zmdi-shopping-cart"
-                                                    style="font-size: 40px; margin-left: -10px;"></i>
+                                                <i class="zmdi zmdi-calendar-note"
+                                                    style="font-size: 40px; "></i>
                                             </div>
                                             <div class="text text-white">
-                                                <h2 class="fw-bold mb-0" id="Esbiayaangkut"
-                                                    style="margin-left: -10px; font-size: 25px;">0</h2>
+                                                <h2 class="fw-bold mb-0 text-center" id="kontrakapproval"
+                                                    style="margin-left: -20px; font-size: 25px;">0</h2>
                                                 <span class="text-white-50"
-                                                    style="white-space: nowrap; margin-left: -10px;">Estimasi Biaya
-                                                    Angkut</span>
+                                                    style="white-space: nowrap; ;">Kontrak Approval</span>
                                             </div>
                                         </div>
                                     </div>
@@ -819,6 +839,8 @@
                                                     <th>Nama Cabang</th>
                                                     <th>Jumlah Kontrak</th>
                                                     <th>Jumlah Customer</th>
+                                                    <th>Jumlah Approval Pending</th>
+                                                    <th>Jumlah Approval Diterima</th>
                                                     <th class="text-end">Jumlah TTD Sales</th>
                                                     <th class="text-end">Jumlah TTD ADH</th>
                                                     <th class="text-end">Jumlah TTD Penjual</th>
@@ -848,6 +870,7 @@
                                                 <th>Tempat Perjanjian</th>
                                                 <th>Tanggal Perjanjian</th>
                                                 <th>Nama Perusahaan</th>
+                                                <th>Status Approval</th>
                                                 <th class="text-end">Status TTD Sales</th>
                                                 <th class="text-end">Status TTD ADH</th>
                                                 <th class="text-end">Status TTD Penjual</th>
@@ -1060,6 +1083,29 @@
                     let filtered = filterByCabang(data, "noperjanjian");
 
                     // ==============================
+// 4️⃣ Jumlah Kontrak Pending & Approval
+// ==============================
+
+// Pending = statusApproval kosong ATAU PENDING
+let jumlahKontrakPending = filtered.filter(x => {
+    const s = String(x.statusApproval || "").trim().toUpperCase();
+    return s === "" || s === "PENDING";
+}).length;
+
+// Approval = statusApproval DITERIMA
+let jumlahKontrakApproval = filtered.filter(x => {
+    const s = String(x.statusApproval || "").trim().toUpperCase();
+    return s === "DITERIMA";
+}).length;
+
+document.getElementById("kontrakpending").innerText =
+    jumlahKontrakPending.toLocaleString("id-ID");
+
+document.getElementById("kontrakapproval").innerText =
+    jumlahKontrakApproval.toLocaleString("id-ID");
+
+
+                    // ==============================
                     // 1️⃣ Jumlah Kontrak
                     // ==============================
                     document.getElementById("jumlahKontrak").innerText =
@@ -1106,45 +1152,6 @@
                     document.getElementById("jumlahcustomer").innerText =
                         customers.size.toLocaleString("id-ID");
 
-                    // ==============================
-                    // 4️⃣ Rata-Rata Harga Aspal
-                    // ==============================
-                    const hargaAspal = filtered
-                        .map(x => Number(x.hargaaspal) || 0)
-                        .filter(x => x > 0);
-
-                    const avgAspal = hargaAspal.length
-                        ? hargaAspal.reduce((a, b) => a + b) / hargaAspal.length
-                        : 0;
-
-                    document.getElementById("Eshargaaspal").innerText =
-                        avgAspal.toLocaleString("id-ID", {
-                            style: "currency",
-                            currency: "IDR",
-                            maximumFractionDigits: 0
-                        });
-
-                    // ==============================
-                    // 5️⃣ Rata-Rata Biaya Angkut
-                    // ==============================
-                    const biayaAngkut = filtered
-                        .map(x => Number(x.rataBiayaAngkut) || 0)
-                        .filter(x => x > 0);
-
-                    const avgAngkut = biayaAngkut.length
-                        ? biayaAngkut.reduce((a, b) => a + b) / biayaAngkut.length
-                        : 0;
-
-                    if (document.getElementById("Esbiayaangkut")) {
-                        document.getElementById("Esbiayaangkut").innerText =
-                            avgAngkut.toLocaleString("id-ID", {
-                                style: "currency",
-                                currency: "IDR",
-                                maximumFractionDigits: 0
-                            });
-                    }
-
-                    console.log("Data ditampilkan:", filtered);
 
                 } catch (err) {
                     console.error("Gagal load dashboard:", err);
@@ -1153,6 +1160,7 @@
 
 
             loadDashboardFiltered();  // jalankan setelah login
+            setInterval(loadDashboardFiltered, 5000);
         });
     </script>
 
@@ -1224,30 +1232,58 @@
 
                 const totalKontrak = data.length;
                 const totalCustomer = new Set(data.map(d => d.nama_perusahaan)).size;
-
+                
+      
                 let ttdSales = 0, ttdADH = 0, ttdPenjual = 0, ttdPembeli = 0;
+                let approvalPending = 0;
+let approvalDiterima = 0;
 
+
+                // data.forEach(item => {
+                //     const sSales = (item.status_sales || "").toLowerCase();
+                //     const sADH = (item.status_adh || "").toLowerCase();
+                //     const sPenjual = (item.status_penjual || "").toLowerCase();
+                //     const sPembeli = (item.status_pembeli || "").toLowerCase();
+
+                //     if (sSales.includes("sudah")) ttdSales++;
+                //     if (sADH.includes("sudah")) ttdADH++;
+                //     if (sPenjual.includes("sudah")) ttdPenjual++;
+                //     if (sPembeli.includes("sudah")) ttdPembeli++;
+                // });
                 data.forEach(item => {
-                    const sSales = (item.status_sales || "").toLowerCase();
-                    const sADH = (item.status_adh || "").toLowerCase();
-                    const sPenjual = (item.status_penjual || "").toLowerCase();
-                    const sPembeli = (item.status_pembeli || "").toLowerCase();
+    const sSales = (item.status_sales || "").toLowerCase();
+    const sADH = (item.status_adh || "").toLowerCase();
+    const sPenjual = (item.status_penjual || "").toLowerCase();
+    const sPembeli = (item.status_pembeli || "").toLowerCase();
 
-                    if (sSales.includes("sudah")) ttdSales++;
-                    if (sADH.includes("sudah")) ttdADH++;
-                    if (sPenjual.includes("sudah")) ttdPenjual++;
-                    if (sPembeli.includes("sudah")) ttdPembeli++;
-                });
+    const rawApproval = (item.statusApproval || "").toString().trim().toUpperCase();
+
+    if (sSales.includes("sudah")) ttdSales++;
+    if (sADH.includes("sudah")) ttdADH++;
+    if (sPenjual.includes("sudah")) ttdPenjual++;
+    if (sPembeli.includes("sudah")) ttdPembeli++;
+
+    // ✅ LOGIKA APPROVAL
+    if (rawApproval === "DITERIMA") {
+    approvalDiterima++;
+} else if (rawApproval === "PENDING" || rawApproval === "" || rawApproval === "-") {
+    approvalPending++;
+}
+
+});
+
 
                 tbody.innerHTML += `
             <tr>
                 <td>${cabang}</td>
                 <td>${totalKontrak}</td>
                 <td>${totalCustomer}</td>
-                <td class="text-end">${ttdSales}</td>
-                <td class="text-end">${ttdADH}</td>
-                <td class="text-end">${ttdPenjual}</td>
-                <td class="text-end">${ttdPembeli}</td>
+                <td>${approvalPending}</td>
+    <td>${approvalDiterima}</td>
+                <td >${ttdSales}</td>
+                <td >${ttdADH}</td>
+                <td >${ttdPenjual}</td>
+                <td >${ttdPembeli}</td>
             </tr>
         `;
             }
@@ -1262,30 +1298,60 @@
 
             const totalKontrak = data.length;
             const totalCustomer = new Set(data.map(d => d.nama_perusahaan)).size;
+           
+
+
 
             let ttdSales = 0, ttdADH = 0, ttdPenjual = 0, ttdPembeli = 0;
+            let approvalPending = 0;
+let approvalDiterima = 0;
 
+
+            // data.forEach(item => {
+            //     const sSales = (item.status_sales || "").toLowerCase();
+            //     const sADH = (item.status_adh || "").toLowerCase();
+            //     const sPenjual = (item.status_penjual || "").toLowerCase();
+            //     const sPembeli = (item.status_pembeli || "").toLowerCase();
+
+            //     if (sSales.includes("sudah")) ttdSales++;
+            //     if (sADH.includes("sudah")) ttdADH++;
+            //     if (sPenjual.includes("sudah")) ttdPenjual++;
+            //     if (sPembeli.includes("sudah")) ttdPembeli++;
+            // });
             data.forEach(item => {
-                const sSales = (item.status_sales || "").toLowerCase();
-                const sADH = (item.status_adh || "").toLowerCase();
-                const sPenjual = (item.status_penjual || "").toLowerCase();
-                const sPembeli = (item.status_pembeli || "").toLowerCase();
+    const sSales = (item.status_sales || "").toLowerCase();
+    const sADH = (item.status_adh || "").toLowerCase();
+    const sPenjual = (item.status_penjual || "").toLowerCase();
+    const sPembeli = (item.status_pembeli || "").toLowerCase();
 
-                if (sSales.includes("sudah")) ttdSales++;
-                if (sADH.includes("sudah")) ttdADH++;
-                if (sPenjual.includes("sudah")) ttdPenjual++;
-                if (sPembeli.includes("sudah")) ttdPembeli++;
-            });
+    const rawApproval = (item.statusApproval || "").toString().trim().toUpperCase();
+
+    if (sSales.includes("sudah")) ttdSales++;
+    if (sADH.includes("sudah")) ttdADH++;
+    if (sPenjual.includes("sudah")) ttdPenjual++;
+    if (sPembeli.includes("sudah")) ttdPembeli++;
+
+    // ✅ LOGIKA APPROVAL
+    if (rawApproval === "DITERIMA") {
+    approvalDiterima++;
+} else if (rawApproval === "PENDING" || rawApproval === "" || rawApproval === "-") {
+    approvalPending++;
+}
+
+});
+
 
             tbody.innerHTML = `
         <tr>
             <td>${cabang}</td>
             <td>${totalKontrak}</td>
             <td>${totalCustomer}</td>
-            <td class="text-end">${ttdSales}</td>
-            <td class="text-end">${ttdADH}</td>
-            <td class="text-end">${ttdPenjual}</td>
-            <td class="text-end">${ttdPembeli}</td>
+            <td>${approvalPending}</td>
+            <td>${approvalDiterima}</td>
+            <td >${ttdSales}</td>
+            <td >${ttdADH}</td>
+            <td >${ttdPenjual}</td>
+            <td >${ttdPembeli}</td>
         </tr>
     `;
         }
@@ -1373,6 +1439,7 @@
         }
 
         loadMapFiltered();
+        setInterval(loadMapFiltered, 15000);
     </script>
     <script>
         const dataUrl3 = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec?mode=tabeldata";
@@ -1399,6 +1466,8 @@
 
             console.log("HASIL FILTER:", filteredData);
             console.log("COUNT STATUS:", values);
+           
+
 
             // Hapus chart lama jika ada (menghindari duplikasi)
             if (window.statusChart instanceof Chart) {
@@ -1434,6 +1503,7 @@
         }
 
         loadStatusChart();
+        setInterval(loadStatusChart, 15000);
     </script>
 
     <script>
@@ -1461,6 +1531,7 @@
         }
 
         loadContractTable();
+        setInterval(loadContractTable, 10000);
     </script>
     <script>
         async function loadDataKontrak() {
@@ -1479,22 +1550,24 @@
             <td>${item.tempatperjanjian || "-"}</td>
             <td>${date}</td>
             <td>${item.namaperusahaan || "-"}</td>
-            <td class="text-end">${item.status_sales || "-"}</td>
-            <td class="text-end">${item.status_adh || "-"}</td>
-            <td class="text-end">${item.status_penjual || "-"}</td>
-            <td class="text-end">${item.status_pembeli || "-"}</td>
+            <td class="text-center">${item.statusApproval || "PENDING"}</td>
+            <td class="text-center">${item.status_sales || "-"}</td>
+            <td class="text-center">${item.status_adh || "-"}</td>
+            <td class="text-center">${item.status_penjual || "-"}</td>
+            <td class="text-center">${item.status_pembeli || "-"}</td>
             <td>${item.statuspembeli || "-"}</td>
-            <td class="text-end">${item.alamatpembeli || "-"}</td>
-            <td class="text-end">${item.nohppembeli || "-"}</td>
-            <td class="text-end">${item.emailpembeli || "-"}</td>
+            <td >${item.alamatpembeli || "-"}</td>
+            <td >${item.nohppembeli || "-"}</td>
+            <td >${item.emailpembeli || "-"}</td>
             
-            <td class="text-end">${item.totalharga || "-"}</td>
+            <td >${item.totalharga || "-"}</td>
         `;
                 tbody.appendChild(tr);
             });
         }
 
         loadDataKontrak();
+        setInterval(loadDataKontrak, 10000);
     </script>
 
 

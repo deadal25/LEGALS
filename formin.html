@@ -111,6 +111,81 @@
             background-color: #6d6a6a !important;
             color: #0a0a0a !important;
         }
+
+      
+
+        .alert-float {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 320px;
+            max-width: 450px;
+            padding: 15px 20px;
+            z-index: 99999;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        /* --- POPUP UTAMA MOBILE FIRST --- */
+#pesansementara {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 16px 22px;
+    border-radius: 14px;
+    width: 60%;
+    
+    text-align: center;
+    z-index: 99999;
+    font-size: 15px;
+    font-weight: 600;
+    display: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    animation: fadeIn 0.25s ease-out;
+    border: 1px solid #f0ad4e;
+}
+
+/* --- LOADING SPINNER YANG SIMPLE & KECIL UNTUK HP --- */
+.loader-pending {
+    width: 36px;
+    height: 36px;
+    border: 4px solid #e5e5e5;
+    border-top-color: #f0ad4e;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    animation: spin 0.8s linear infinite;
+}
+
+/* --- SPINNER ANIMATION --- */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- FADE IN --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -48%); }
+    to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* --- DARK MODE OTOMATIS --- */
+body.dark-mode #pesansementara {
+    background: #1f1f1f;
+    color: #fff;
+    border: 1px solid #f0ad4e;
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .loader-pending {
+    border: 4px solid #444;
+    border-top-color: #f0ad4e;
+}
+
+
+
     </style>
 
 </head>
@@ -163,18 +238,12 @@
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li> -->
                         <li>
-                            <a href="progresttd.html">
-                                <i class="fas fa-tasks"></i>Progres TTD</a>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
                         </li>
-                        
                         <li>
                             <a class="active" href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-
-                        <li>
-                            <a href="statusdokumen.html">
-                                <i class="fas fa-file-alt"></i>Status Dokumen</a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -184,11 +253,11 @@
                             <a href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li>
-                        <li class="has-sub" >
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>Account</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                
+
                                 <li id="menuAccountMobile">
                                     <a href="register.html">
                                         <i class="fas fa-user"></i> Register
@@ -205,7 +274,7 @@
                                     </a>
                                 </li>
                                 <li id="menuAccountMobile2">
-                                    <a href="approval.html">
+                                    <a href="approval.html" >
                                         <i class="fas fa-tasks"></i> Approval
                                     </a>
                                 </li>
@@ -304,18 +373,12 @@
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li> -->
                         <li>
-                            <a href="progresttd.html">
-                                <i class="fas fa-tasks"></i>Progres TTD</a>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
                         </li>
-                        
                         <li>
                             <a class="active" href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-
-                        <li>
-                            <a href="statusdokumen.html">
-                                <i class="fas fa-file-alt"></i>Status Dokumen</a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -329,7 +392,7 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>Account</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                
+
                                 <li id="menuAccountDesktop">
                                     <a href="register.html">
                                         <i class="fas fa-user"></i> Register
@@ -346,7 +409,7 @@
                                     </a>
                                 </li>
                                 <li id="menuAccountDesktop2">
-                                    <a href="approval.html">
+                                    <a href="approval.html" >
                                         <i class="fas fa-tasks"></i> Approval
                                     </a>
                                 </li>
@@ -454,43 +517,25 @@
                                     </div>
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-email"></i>
-                                        <span class="quantity">1</span>
+
+                                        <!-- 🔥 jumlah notif -->
+                                        <span class="quantity" id="notifCount">0</span>
+
                                         <div class="email-dropdown js-dropdown">
+
                                             <div class="email__title">
-                                                <p>You have 3 New Emails</p>
+                                                <p id="notifTitle">You have 0 New Notifications</p>
                                             </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, 3 min ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, Yesterday</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, January 15, 2025</span>
-                                                </div>
-                                            </div>
+
+                                            <!-- 🔥 tempat list notif secara dinamis -->
+                                            <div id="notifList"></div>
+
                                             <div class="email__footer">
-                                                <a href="#">See all emails</a>
+                                                <a href="#">See all notifications</a>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
                                         <span class="quantity">3</span>
@@ -616,31 +661,31 @@
                                             onsubmit="return false;">
                                             <!-- Dokumen 1-5 -->
                                             <div class="mb-3">
-                                                <label class="form-label">Akta Pendirian Perusahaan (Wajib)</label>
+                                                <label class="form-label">Dokumen 1 (Wajib)</label>
                                                 <input type="file" id="dok1" name="dok1" accept="application/pdf"
                                                     class="form-control" required>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label class="form-label">Akta Perubahan Terakhir Perusahaan (Wajib)</label>
+                                                <label class="form-label">Dokumen 2 (Wajib)</label>
                                                 <input type="file" id="dok2" name="dok2" accept="application/pdf"
                                                     class="form-control" required>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label class="form-label">SK Kemenkumham (Wajib)</label>
+                                                <label class="form-label">Dokumen 3 (Wajib)</label>
                                                 <input type="file" id="dok3" name="dok3" accept="application/pdf"
                                                     class="form-control" required>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label class="form-label">KTP dan NPWP Direktur (Wajib)</label>
+                                                <label class="form-label">Dokumen 4 (Wajib)</label>
                                                 <input type="file" id="dok4" name="dok4" accept="application/pdf"
                                                     class="form-control" required>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label class="form-label">Surat Kuasa Bila dikuasakan (Opsional)</label>
+                                                <label class="form-label">Dokumen 5 (Opsional)</label>
                                                 <input type="file" id="dok5" name="dok5" accept="application/pdf"
                                                     class="form-control">
                                             </div>
@@ -656,6 +701,8 @@
                                 </div>
                             </div>
 
+                            <div id="pesansementara"></div>
+
                             <div id="formKontrakSection" style="display:none;">
                                 <!-- FORM KONTRAK ANDA -->
 
@@ -670,29 +717,33 @@
                                                     enctype="multipart/form-data" class="form-horizontal"
                                                     style="font-size: 18px;">
                                                     <div class="row mb-3">
-    <div class="col col-md-3">
-        <label class="form-control-label">Nomor Perjanjian</label>
-    </div>
-    <div class="col-12 col-md-9">
-        <!-- Jadikan input read-only / tidak bisa diedit -->
-        <input type="text" id="noperjanjian" name="text-input"
-               placeholder="Masukkan Nomor Perjanjian"
-               class="form-control" readonly style="background-color: #e9ecef; cursor: not-allowed;">
-    </div>
-</div>
+                                                        <div class="col col-md-3">
+                                                            <label class=" form-control-label">Nomor Perjanjian</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+
+                                                            <input type="text" id="noperjanjian" name="text-input"
+                                                                placeholder="Masukkan Nomor Perjanjian"
+                                                                class="form-control">
+
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
 
                                                     <div class="row mb-3">
-    <div class="col col-md-3">
-        <label for="text-input" class="form-control-label">Tempat Pembuatan Perjanjian</label>
-    </div>
-    <div class="col-12 col-md-9">
-        <input type="text" id="tempatperjanjian" 
-               class="form-control" 
-               readonly
-               style="background:#e9ecef; cursor:not-allowed;">
-    </div>
-</div>
-
+                                                        <div class="col col-md-3">
+                                                            <label for="text-input" class=" form-control-label">Tempat
+                                                                Pembuatan
+                                                                Perjanjian
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="text" id="tempatperjanjian" name="text-input"
+                                                                placeholder="Masukkan Tempat Pembuatan Perjanjian"
+                                                                class="form-control">
+                                                            <!-- <small class="form-text text-muted">This is a help text</small> -->
+                                                        </div>
+                                                    </div>
 
                                                     <div class="row mb-3">
                                                         <div class="col-md-3">
@@ -728,7 +779,8 @@
 
                                                     <div class="row mb-3">
                                                         <div class="col col-md-3">
-                                                            <label for="statuspembeli" class=" form-control-label">Status
+                                                            <label for="statuspembeli"
+                                                                class=" form-control-label">Status
                                                                 Pembeli</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
@@ -1047,13 +1099,13 @@
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const user = JSON.parse(localStorage.getItem("user"));
-  if (!user) {
-    window.location.href = "login.html";
-    return;
-  }
-  /* 🔒 SEMBUNYIKAN MENU ACCOUNT JIKA BUKAN ADMIN */
-if ((user.role || "").toLowerCase() !== "admin") {
-    const accMobile = document.getElementById("menuAccountMobile");
+                if (!user) {
+                    window.location.href = "login.html";
+                    return;
+                }
+                /* 🔒 SEMBUNYIKAN MENU ACCOUNT JIKA BUKAN ADMIN */
+                if ((user.role || "").toLowerCase() !== "admin") {
+                    const accMobile = document.getElementById("menuAccountMobile");
                     const accMobile1 = document.getElementById("menuAccountMobile1");
                     const accMobile2 = document.getElementById("menuAccountMobile2");
                     const accDesktop = document.getElementById("menuAccountDesktop");
@@ -1066,7 +1118,7 @@ if ((user.role || "").toLowerCase() !== "admin") {
                     if (accDesktop) accDesktop.style.display = "none";
                     if (accDesktop1) accDesktop1.style.display = "none";
                     if (accDesktop2) accDesktop2.style.display = "none";
-}
+                }
 
                 if (user) {
                     document.getElementById("userName").textContent = user.namaLengkap || "User";
@@ -1091,331 +1143,395 @@ if ((user.role || "").toLowerCase() !== "admin") {
             });
         </script>
 
+<script>
+    // =======================
+    // KONVERSI FILE KE BASE64
+    // =======================
+    function toBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result.split(',')[1]);
+            reader.onerror = reject;
+        });
+    }
 
-        <script>
-            function toBase64(file) {
-                return new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.readAsDataURL(file);
-                    reader.onload = () => resolve(reader.result.split(',')[1]);
-                    reader.onerror = reject;
-                });
-            }
+    const scriptURL1 = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
 
-            const scriptURL1 = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
+    // ======================================================
+    // SIMPAN STATUS TERAKHIR -> AGAR UI TIDAK BERUBAH TERUS
+    // ======================================================
+    let lastStatus = null;
 
-            async function uploadAllDokumen() {
-                const btn = document.getElementById("btnUpload");
+    // ======================
+    // UPLOAD SEMUA DOKUMEN
+    // ======================
+    async function uploadAllDokumen() {
+        const btn = document.getElementById("btnUpload");
 
-                // Ambil file
-                const dok1 = document.getElementById("dok1").files[0];
-                const dok2 = document.getElementById("dok2").files[0];
-                const dok3 = document.getElementById("dok3").files[0];
-                const dok4 = document.getElementById("dok4").files[0];
-                const dok5 = document.getElementById("dok5").files[0] ?? null;
+        const dok1 = document.getElementById("dok1").files[0];
+        const dok2 = document.getElementById("dok2").files[0];
+        const dok3 = document.getElementById("dok3").files[0];
+        const dok4 = document.getElementById("dok4").files[0];
+        const dok5 = document.getElementById("dok5").files[0] ?? null;
 
-                const user = JSON.parse(localStorage.getItem("user"));
-                const cabang = user ? user.role : "";
+        const user = JSON.parse(localStorage.getItem("user"));
+        const cabang = user ? user.role : "";
 
-                // Nama folder dinamis berdasarkan waktu sekarang
-                const now = new Date();
-                const namaFolder = `${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, '0')}${now.getDate().toString().padStart(2, '0')}_${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
-
-                // Validasi
-                if (!dok1 || !dok2 || !dok3 || !dok4) {
-                    showMessage("❌ 4 dokumen wajib belum lengkap!", "error");
-                    return;
-                }
-                if (!cabang) {
-                    showMessage("⚠️ Cabang wajib diisi!", "warning");
-                    return;
-                }
-
-                // Loading
-                btn.disabled = true;
-                btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Mengupload...`;
-
-                try {
-                    // Konversi ke base64
-                    const b64_1 = await toBase64(dok1);
-                    const b64_2 = await toBase64(dok2);
-                    const b64_3 = await toBase64(dok3);
-                    const b64_4 = await toBase64(dok4);
-                    const b64_5 = dok5 ? await toBase64(dok5) : "";
-
-                    // Kirim ke Apps Script
-                    let formData = new FormData();
-                    formData.append("action", "upload5Dokumen");
-                    formData.append("cabang", cabang);
-                    formData.append("namaFolder", namaFolder);
-                    formData.append("dok1", b64_1);
-                    formData.append("dok2", b64_2);
-                    formData.append("dok3", b64_3);
-                    formData.append("dok4", b64_4);
-                    formData.append("dok5", b64_5);
-                    formData.append("email", user.email);
-                    formData.append("emailSales", (user.emailSales || "").trim());
-
-                    const response = await fetch(scriptURL1, { method: "POST", body: formData });
-                    const raw = await response.text();
-                    console.log("RAW RESPONSE:", raw);
-
-                    const result = JSON.parse(raw);
-
-                    if (!result.success) {
-                        showMessage("❌ Gagal upload: " + result.message, "error");
-                        return;
-                    }
-
-                    showMessage("✅ Semua dokumen berhasil diupload!", "success");
-                    console.log("Drive links:", result.links);
-
-                    // Tampilkan form kontrak jika ada
-                    const formKontrak = document.getElementById("formKontrakSection");
-                    if (formKontrak) {
-                        formKontrak.style.display = "block";
-                        formKontrak.scrollIntoView({ behavior: "smooth" });
-                    }
-
-                    // Sembunyikan form upload
-                    document.getElementById("formUploadDokumen").style.display = "none";
-
-                } catch (error) {
-                    showMessage("❌ Error frontend: " + error, "error");
-                    console.error(error);
-                } finally {
-                    btn.disabled = false;
-                    btn.innerHTML = `<i class="fas fa-upload"></i> Upload Dokumen`;
-                }
-            }
-
-            function showMessage(msg, type = "info") {
-                const colors = { success: "#4CAF50", error: "#f44336", warning: "#ff9800", info: "#2196F3" };
-                const div = document.createElement("div");
-                div.textContent = msg;
-                div.style.position = "fixed";
-                div.style.bottom = "20px";
-                div.style.right = "20px";
-                div.style.background = colors[type];
-                div.style.color = "white";
-                div.style.padding = "10px 15px";
-                div.style.borderRadius = "8px";
-                div.style.boxShadow = "0 3px 8px rgba(0,0,0,0.3)";
-                div.style.zIndex = "9999";
-                div.style.transition = "opacity 0.3s ease";
-                document.body.appendChild(div);
-                setTimeout(() => { div.style.opacity = "0"; setTimeout(() => div.remove(), 300); }, 2500);
-            }
-        </script>
-
-        <script>
-const scriptURL5 = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
-
-const cabangMap = {
-    "SAMARINDA": ["BSU-SMD"],
-    "PALU": ["BSU-PLU"],
-    "PAGIMANA": ["BSU-PLU-PGM"],
-    "MAKASSAR": ["BSU-MKSR-PRE", "BSU-MKS-MMJ"], // Makassar punya dua pilihan
-    "MAMUJU": ["BSU-MKS-MMJ"],
-    "SORONG": ["BSU-SOR"],
-    "JAYAPURA": ["BSU-JPR"],
-    "PONTIANAK": ["BSU-PTK"],
-    "KENDARI": ["BSU-KDR"],
-};
-
-function getLoginCabang() {
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
-    return (user.role || "").toUpperCase();
-}
-
-function bulanRomawi(month) {
-    const romawi = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
-    return romawi[month - 1];
-}
-
-function formatNomor(n, kode, monthRoman, year) {
-    const nomorStr = n.toString().padStart(3, "0");
-    return `No. ${nomorStr}/KT/${kode}/${monthRoman}/${year}`;
-}
-
-async function generateNomorPerjanjian() {
-    try {
         const now = new Date();
-        const monthRoman = bulanRomawi(now.getMonth() + 1);
-        const year = now.getFullYear();
+        const namaFolder = `${now.getFullYear()}${(now.getMonth() + 1)
+            .toString().padStart(2, '0')}${now.getDate()
+            .toString().padStart(2, '0')}_${now.getHours()
+            .toString().padStart(2, '0')}:${now.getMinutes()
+            .toString().padStart(2, '0')}:${now.getSeconds()
+            .toString().padStart(2, '0')}`;
 
-        const loginCabang = getLoginCabang();
-        const kodeCabangList = cabangMap[loginCabang];
-
-        if (!kodeCabangList || kodeCabangList.length === 0) {
-            console.warn("Cabang tidak ditemukan di mapping!");
+        if (!dok1 || !dok2 || !dok3 || !dok4) {
+            showMessage("❌ 4 dokumen wajib belum lengkap!", "error");
+            return;
+        }
+        if (!cabang) {
+            showMessage("⚠️ Cabang wajib diisi!", "warning");
             return;
         }
 
-        // Ambil data nomor perjanjian yang sudah ada
-        const res = await fetch(`${scriptURL5}?mode=getAllNomor`);
-        const allData = await res.json();
+        btn.disabled = true;
+        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Mengupload...`;
 
-        let selectedKode = kodeCabangList[0]; // default
-        // Jika Makassar, user bisa memilih
-        if (loginCabang === "MAKASSAR") {
-            selectedKode = prompt(
-                `Pilih kode cabang untuk Makassar:\n1 = ${kodeCabangList[0]}\n2 = ${kodeCabangList[1]}`,
-                "1"
-            );
-            selectedKode = kodeCabangList[(parseInt(selectedKode) || 1) - 1];
-        }
+        try {
+            const b64_1 = await toBase64(dok1);
+            const b64_2 = await toBase64(dok2);
+            const b64_3 = await toBase64(dok3);
+            const b64_4 = await toBase64(dok4);
+            const b64_5 = dok5 ? await toBase64(dok5) : "";
 
-        // Cari nomor unik
-        let nomor = 1;
-        while (true) {
-            const nomorFormat = formatNomor(nomor, selectedKode, monthRoman, year);
-            const sudahAda = allData.some(row => row.noperjanjian === nomorFormat);
-            if (!sudahAda) {
-                document.getElementById("noperjanjian").value = nomorFormat;
-                break;
+            let formData = new FormData();
+            formData.append("action", "upload5Dokumen");
+            formData.append("cabang", cabang);
+            formData.append("namaFolder", namaFolder);
+            formData.append("dok1", b64_1);
+            formData.append("dok2", b64_2);
+            formData.append("dok3", b64_3);
+            formData.append("dok4", b64_4);
+            formData.append("dok5", b64_5);
+            formData.append("email", user.email);
+
+            const response = await fetch(scriptURL1, { method: "POST", body: formData });
+            const raw = await response.text();
+            const result = JSON.parse(raw);
+
+            if (!result.success) {
+                showMessage("❌ Gagal upload: " + result.message, "error");
+                return;
             }
-            nomor++;
+
+            showMessage("✅ Semua dokumen berhasil diupload!", "success");
+
+            document.getElementById("formUploadDokumen").style.display = "none";
+            document.getElementById("pesansementara").innerHTML = `
+                <div class="loader-pending"></div>
+                ⏳ Dokumen berhasil dikirim. Menunggu verifikasi admin...
+            `;
+
+            localStorage.setItem("namaFolderUser", namaFolder);
+
+        } catch (error) {
+            showMessage("❌ Error frontend: " + error, "error");
+            console.error(error);
+
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = `<i class="fas fa-upload"></i> Upload Dokumen`;
         }
-
-    } catch (err) {
-        console.error("Gagal generate nomor perjanjian:", err);
     }
-}
 
-document.addEventListener("DOMContentLoaded", generateNomorPerjanjian);
+    // ======================
+    // CEK STATUS USER
+    // ======================
+    async function cekStatusUser() {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user) return;
+
+        const email = user.email;
+        if (!email) return;
+
+        try {
+            const res = await fetch(scriptURL1 + "?mode=statusDokumen");
+            const data = await res.json();
+
+            const row = data.find(r => r.email && r.email.trim() === email.trim());
+            if (!row) return;
+
+            let form  = document.getElementById("formUploadDokumen");
+            let pesan = document.getElementById("pesansementara");
+
+            // ================================
+            // STOP jika status TIDAK BERUBAH
+            // ================================
+            if (row.status === lastStatus) return;
+            lastStatus = row.status;
+
+            // =======================
+            // STATUS PENDING
+            // =======================
+            if (row.status === "PENDING") {
+                pesan.innerHTML = `
+                    <div class="loader-pending"></div>
+                    ⏳ Dokumen sedang menunggu verifikasi admin...
+                `;
+                pesan.style.display = "block";
+                form.style.display = "none";
+            }
+
+            // =======================
+            // STATUS DITERIMA
+            // =======================
+            else if (row.status === "DITERIMA") {
+                showFloatingMessage(`
+                    <div class="alert alert-success m-0">
+                        ✔ Dokumen anda telah disetujui.
+                    </div>
+                `, 3000);
+
+                document.getElementById("formKontrakSection").style.display = "block";
+                pesan.style.display = "none";
+                form.style.display = "none";
+            }
+
+            // =======================
+            // STATUS DITOLAK
+            // =======================
+            else if (row.status === "DITOLAK") {
+                showFloatingMessage(`
+                    <div class="alert alert-danger m-0">
+                        ❌ Dokumen anda ditolak. Silakan upload ulang.
+                    </div>
+                `, 3000);
+
+                form.style.display = "block";
+                pesan.style.display = "none";
+            }
+
+        } catch (err) {
+            console.log("Error cek status:", err);
+        }
+    }
+
+    
+
+    // ======================
+    // SIMPLE MESSAGE (TOAST)
+    // ======================
+    function showMessage(msg, type = "info") {
+        const colors = { success: "#4CAF50", error: "#f44336", warning: "#ff9800", info: "#2196F3" };
+        const div = document.createElement("div");
+        div.textContent = msg;
+        div.style.position = "fixed";
+        div.style.bottom = "20px";
+        div.style.right = "20px";
+        div.style.background = colors[type];
+        div.style.color = "white";
+        div.style.padding = "10px 15px";
+        div.style.borderRadius = "8px";
+        div.style.boxShadow = "0 3px 8px rgba(0,0,0,0.3)";
+        div.style.zIndex = "9999";
+        div.style.transition = "opacity 0.3s ease";
+        document.body.appendChild(div);
+
+        setTimeout(() => { div.style.opacity = "0"; setTimeout(() => div.remove(), 300); }, 2500);
+    }
+
+    
+
 </script>
-<script>
-function setTempatPerjanjian() {
-    const tempatInput = document.getElementById("tempatperjanjian");
-    const loginCabang = getLoginCabang(); // dari localStorage user.role
-    let tempat = "";
-
-    // Atur nama kota sesuai cabang login
-    const tempatMap = {
-        "MAKASSAR": "Makassar",
-        "PALU": "Palu",
-        "SAMARINDA": "Samarinda",
-        "PONTIANAK": "Pontianak",
-        "PAGIMANA": "Pagi Mana",
-        "MAMUJU": "Mamuju",
-        "SORONG": "Sorong",
-        "JAYAPURA": "Jayapura",
-        "KENDARI":"Kendari"
-    };
-
-    tempat = tempatMap[loginCabang] || loginCabang;
-
-    tempatInput.value = tempat;
-}
-
-// Jalankan otomatis saat halaman dibuka
-document.addEventListener("DOMContentLoaded", setTempatPerjanjian);
-</script>
 
 
+        <script>
+            const scriptURL5 = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
+
+            // =========================
+            // Mapping Kode Cabang
+            // =========================
+            const cabangMap = {
+                "SAMARINDA": "BSU-SMD",
+                "PALU": "BSU-PLU",
+                "PAGIMANA": "BSU-PLU-PGM",
+                "MAKASSAR": "BSU-MKSR-PRE",
+                "MAMUJU": "BSU-MKS-MMJ",
+                "SORONG": "BSU-SOR",
+                "JAYAPURA": "BSU-JPR"
+            };
+
+            // =========================
+            // Ambil cabang login dari user.role
+            // =========================
+            function getLoginCabang() {
+                const user = JSON.parse(localStorage.getItem("user") || "{}");
+                return (user.role || "").toUpperCase();
+            }
+
+            // =========================
+            // Konversi bulan → romawi
+            // =========================
+            function bulanRomawi(month) {
+                const romawi = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
+                return romawi[month - 1];
+            }
+
+            // =========================
+            // Format Nomor Perjanjian
+            // =========================
+            function formatNomor(n, kode, monthRoman, year) {
+                const nomorStr = n.toString().padStart(3, "0");
+                return `No. ${nomorStr}/KT/${kode}/${monthRoman}/${year}`;
+            }
+
+            // =========================
+            // Generate Nomor Otomatis
+            // =========================
+            async function generateNomorPerjanjian() {
+                try {
+                    const now = new Date();
+                    const monthRoman = bulanRomawi(now.getMonth() + 1);
+                    const year = now.getFullYear();
+
+                    let loginCabang = getLoginCabang();
+                    console.log("CABANG LOGIN:", loginCabang);
+
+                    const kodeCabang = cabangMap[loginCabang];
+                    if (!kodeCabang) {
+                        console.warn("Cabang tidak ditemukan di mapping!");
+                        return;
+                    }
+
+                    // Ambil nomor-nomor yang sudah ada
+                    const res = await fetch(`${scriptURL5}?mode=getAllNomor`);
+                    const allData = await res.json();
+
+                    let nomor = 1;
+
+                    while (true) {
+                        const nomorFormat = formatNomor(nomor, kodeCabang, monthRoman, year);
+
+                        // Periksa apakah nomor sudah ada
+                        const sudahAda = allData.some(row => row.noperjanjian === nomorFormat);
+
+                        if (!sudahAda) {
+                            document.getElementById("noperjanjian").value = nomorFormat;
+                            break;
+                        }
+
+                        nomor++;
+                    }
+
+                } catch (err) {
+                    console.error("Gagal generate nomor perjanjian:", err);
+                }
+            }
+
+            // =========================
+            // Jalankan saat halaman terbuka
+            // =========================
+            document.addEventListener("DOMContentLoaded", generateNomorPerjanjian);
+        </script>
 
 
 
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
-
-const formElement = document.getElementById("formPerjanjian");
-const submitButton = formElement.querySelector(".btn.btn-primary.btn-sm");
-const resetButton = formElement.querySelector(".btn.btn-danger.btn-sm");
-
-// =============================
-//   EVENT SUBMIT FORM
-// =============================
-submitButton.addEventListener("click", async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(formElement);
-
-    // 1️⃣ Ambil user dari localStorage
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
-
-    if (!user.email) {
-        alert("⚠️ User belum login! Silakan login terlebih dahulu.");
-        return;
-    }
-
-    // 2️⃣ Kirim loginEmail ke Apps Script
-    // 2️⃣ Kirim loginEmail + email tambahan ke Apps Script
-formData.append("loginEmail", (user.email || "").trim());
-formData.append("emailSales", (user.emailSales || "").trim());
-formData.append("emailADH", (user.emailADH || "").trim());
-formData.append("emailPenjual", (user.emailPenjual || "").trim());
 
 
+        <script>
+            const scriptURL = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
 
-    // 3️⃣ Ambil semua field form
-    const fields = [
-        "noperjanjian", "tempatperjanjian", "tanggalperjanjian", "nohppenjual",
-        "statuspembeli", "namaperusahaan", "alamatpembeli", "nohppembeli",
-        "emailpembeli", "volumeaspal", "hargaaspal", "ppnaspal", "biayaangkut",
-        "totalharga", "pengambilanaspal", "bataskredit", "jatuhtempo",
-        "jangkakredit", "domisilipengadilan", "namattdpenjual",
-        "jabatanpenjual", "namattdpembeli", "jabatanpembeli"
-    ];
+            const formElement = document.getElementById("formPerjanjian");
+            const submitButton = formElement.querySelector(".btn.btn-primary.btn-sm");
+            const resetButton = formElement.querySelector(".btn.btn-danger.btn-sm");
 
-    fields.forEach(id => {
-    const el = document.getElementById(id);
-    let val = el ? el.value.trim() : "";
-    formData.append(id, val);
-});
+            // =============================
+            //   EVENT SUBMIT FORM
+            // =============================
+            submitButton.addEventListener("click", async (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(formElement);
+
+                // 1️⃣ Ambil user dari localStorage
+                const user = JSON.parse(localStorage.getItem("user") || "{}");
+
+                if (!user.email) {
+                    alert("⚠️ User belum login! Silakan login terlebih dahulu.");
+                    return;
+                }
+
+                // 2️⃣ Kirim loginEmail ke Apps Script
+                // 2️⃣ Kirim loginEmail + email tambahan ke Apps Script
+                formData.append("loginEmail", (user.email || "").trim());
+                formData.append("emailSales", (user.emailSales || "").trim());
+                formData.append("emailADH", (user.emailADH || "").trim());
+                formData.append("emailPenjual", (user.emailPenjual || "").trim());
 
 
-    // 4️⃣ Validasi dasar
-    if (!formElement.noperjanjian.value || !formElement.emailpembeli.value) {
-        alert("Nomor perjanjian dan email pembeli wajib diisi!");
-        return;
-    }
 
-    // 5️⃣ Tombol loading
-    submitButton.disabled = true;
-    submitButton.innerText = "Menyimpan...";
+                // 3️⃣ Ambil semua field form
+                const fields = [
+                    "noperjanjian", "tempatperjanjian", "tanggalperjanjian", "nohppenjual",
+                    "statuspembeli", "namaperusahaan", "alamatpembeli", "nohppembeli",
+                    "emailpembeli", "volumeaspal", "hargaaspal", "ppnaspal", "biayaangkut",
+                    "totalharga", "pengambilanaspal", "bataskredit", "jatuhtempo",
+                    "jangkakredit", "domisilipengadilan", "namattdpenjual",
+                    "jabatanpenjual", "namattdpembeli", "jabatanpembeli"
+                ];
 
-    try {
-        const response = await fetch(scriptURL, { method: "POST", body: formData });
-        const result = await response.text();
+                fields.forEach(id => {
+                    const el = document.getElementById(id);
+                    let val = el ? el.value.trim() : "";
+                    formData.append(id, val);
+                });
 
-        alert("✅ Data berhasil disimpan!");
-        console.log("Response Apps Script:", result);
 
-        formElement.reset(); // kosongkan isian
-        resetUploadForm();
-document.getElementById("formUploadDokumen").style.display = "block";
+                // 4️⃣ Validasi dasar
+                if (!formElement.noperjanjian.value || !formElement.emailpembeli.value) {
+                    alert("Nomor perjanjian dan email pembeli wajib diisi!");
+                    return;
+                }
 
+                // 5️⃣ Tombol loading
+                submitButton.disabled = true;
+                submitButton.innerText = "Menyimpan...";
+
+                try {
+                    const response = await fetch(scriptURL, { method: "POST", body: formData });
+                    const result = await response.text();
+
+                    alert("✅ Data berhasil disimpan!");
+                    console.log("Response Apps Script:", result);
+
+                    formElement.reset(); // kosongkan isian
+                    // 🔥 MUNCULKAN KEMBALI FORM UPLOAD DOKUMEN
+                    document.getElementById("formUploadDokumen").style.display = "block";
+                    document.getElementById("pesansementara").style.display = "none";
                     document.getElementById("formKontrakSection").style.display = "none";
-    } catch (err) {
-        console.error("Fetch error:", err);
-        alert("⚠️ Gagal menyimpan data! Periksa koneksi atau Apps Script.");
-    } finally {
-        submitButton.disabled = false;
-        submitButton.innerText = "Submit";
-    }
-});
 
-// =============================
-//   EVENT RESET FORM
-// =============================
-resetButton.addEventListener("click", (e) => {
-    e.preventDefault();
+                    lastStatus = null;
+                } catch (err) {
+                    console.error("Fetch error:", err);
+                    alert("⚠️ Gagal menyimpan data! Periksa koneksi atau Apps Script.");
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.innerText = "Submit";
+                }
+            });
 
-    if (confirm("Apakah Anda yakin ingin menghapus semua isian formulir?")) {
-        formElement.reset();
-    }
-});
-function resetUploadForm() {
-    const uploadForm = document.getElementById("formUploadDokumen");
-    if (!uploadForm) return;
+            // =============================
+            //   EVENT RESET FORM
+            // =============================
+            resetButton.addEventListener("click", (e) => {
+                e.preventDefault();
 
-    uploadForm.querySelectorAll("input[type='file'], input[type='text'], input[type='number'], textarea, select")
-        .forEach(el => el.value = "");
-}
-
-</script>
+                if (confirm("Apakah Anda yakin ingin menghapus semua isian formulir?")) {
+                    formElement.reset();
+                }
+            });
+        </script>
 
 
 

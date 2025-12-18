@@ -220,112 +220,33 @@
         }
 
         .navbar__list li a.active {
-            background-color: #e8f0fe;
-            /* warna terang seperti highlight */
-            color: #1a73e8 !important;
-            /* biru agar selaras */
-            border-radius: 8px;
-            font-weight: 600;
-        }
+  background-color: #e8f0fe; /* warna terang seperti highlight */
+  color: #1a73e8 !important; /* biru agar selaras */
+  border-radius: 8px;
+  font-weight: 600;
+}
 
-        /* Mode gelap */
-        body.dark-mode .navbar__list li a.active {
-            background-color: #6d6a6a;
-            color: #0a0a0a !important;
-            border-radius: 8px;
-        }
+/* Mode gelap */
+body.dark-mode .navbar__list li a.active{
+  background-color: #6d6a6a;
+  color: #0a0a0a !important;
+  border-radius: 8px;
+}
+/* Perbaiki agar active juga muncul di menu mobile */
+.navbar-mobile__list li a.active {
+  background-color: #e8f0fe !important;
+  color: #1a73e8 !important;
+  border-radius: 8px !important;
+  font-weight: 600;
+}
 
-        /* Perbaiki agar active juga muncul di menu mobile */
-        .navbar-mobile__list li a.active {
-            background-color: #e8f0fe !important;
-            color: #1a73e8 !important;
-            border-radius: 8px !important;
-            font-weight: 600;
-        }
+/* Versi dark mode */
+body.dark-mode .navbar-mobile__list li a.active {
+  background-color: #6d6a6a !important;
+  color: #0a0a0a !important;
+}
 
-        /* Versi dark mode */
-        body.dark-mode .navbar-mobile__list li a.active {
-            background-color: #6d6a6a !important;
-            color: #0a0a0a !important;
-        }
-
-        /* Overlay */
-        .custom-modal {
-            display: none;
-            position: fixed;
-            margin-top: 50px;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            padding: 20px;
-            /* agar modal bisa scroll di layar kecil */
-        }
-
-        /* Card Modal */
-        .custom-modal-content {
-            background: #fff;
-            /* margin-top: 50px; */
-            width: 650px;
-            /* LEBARKAN */
-            max-width: 95%;
-            max-height: 90vh;
-            /* BATASI TINGGI */
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-            animation: fadeIn 0.25s ease;
-
-            overflow-y: auto;
-            /* AGAR BISA DI-SCROLL */
-        }
-
-        /* Title */
-        .custom-modal-content h3 {
-            margin-bottom: 10px;
-            font-weight: 1000;
-        }
-
-        /* Input spacing */
-        .custom-modal-content label {
-            margin-top: 1px;
-            font-weight: 500;
-        }
-
-        .custom-modal-content input {
-            margin-bottom: -2px;
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-    /* Area yang akan diblur (wrapper utama halaman) */
-    .blur-bg {
-        filter: blur(6px);
-        transition: 0.3s ease;
-        pointer-events: none; /* Biar tidak bisa diklik */
-    }
-    #editForm label {
-        color: black !important;
-        font-weight: 600;
-    }
-    
-</style>
-
-
+    </style>
 
 
 
@@ -379,18 +300,12 @@
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li> -->
                         <li>
-                            <a href="progresttd.html">
-                                <i class="fas fa-tasks"></i>Progres TTD</a>
+                            <a href="table.html" class="active">
+                                <i class="fas fa-table"></i>Tables</a>
                         </li>
-                        
                         <li>
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-
-                        <li>
-                            <a href="statusdokumen.html">
-                                <i class="fas fa-file-alt"></i>Status Dokumen</a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -404,7 +319,7 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>Account</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-
+                                
                                 <li id="menuAccountMobile">
                                     <a href="register.html">
                                         <i class="fas fa-user"></i> Register
@@ -416,7 +331,7 @@
                                     </a>
                                 </li> -->
                                 <li id="menuAccountMobile1">
-                                    <a href="users.html" class="active">
+                                    <a href="users.html">
                                         <i class="fas fa-user-edit"></i> Users
                                     </a>
                                 </li>
@@ -520,18 +435,12 @@
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li> -->
                         <li>
-                            <a href="progresttd.html">
-                                <i class="fas fa-tasks"></i>Progres TTD</a>
+                            <a class="active" href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
                         </li>
-                        
                         <li>
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-
-                        <li>
-                            <a href="statusdokumen.html">
-                                <i class="fas fa-file-alt"></i>Status Dokumen</a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -541,11 +450,11 @@
                             <a href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li>
-                        <li class="has-sub">
+                        <li class="has-sub" >
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>Account</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-
+                                
                                 <li id="menuAccountDesktop">
                                     <a href="register.html">
                                         <i class="fas fa-user"></i> Register
@@ -556,8 +465,8 @@
                                         <i class="fas fa-unlock-alt"></i> Forget Password
                                     </a>
                                 </li> -->
-                                 <li id="menuAccountDesktop1">
-                                    <a href="users.html" class="active">
+                                <li id="menuAccountDesktop1">
+                                    <a href="users.html">
                                         <i class="fas fa-user-edit"></i> Users
                                     </a>
                                 </li>
@@ -571,7 +480,7 @@
                                         <i class="far fa-id-card"></i> Profil Akun
                                     </a>
                                 </li>
-                                <li>
+                                 <li>
                                     <a href="login.html">
                                         <i class="fas fa-sign-in-alt"></i> Logout
                                     </a>
@@ -633,7 +542,7 @@
                         <div class="header-wrap">
                             <form class="form-header" onsubmit="handleSearch(event)">
                                 <input id="searchInput" class="au-input au-input--xl" type="text" name="search"
-                                    placeholder="Cari berdasarkan Username..." />
+                                    placeholder="Cari berdasarkan No. Perjanjian..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
@@ -829,98 +738,43 @@
                                 <div class="table-responsive table--no-card m-b-30">
 
                                     <div id="lastUpdate">Terakhir diperbarui: -</div>
-                                    <div id="pageContent">
+
                                     <table class="table table-borderless table-striped table-earning" id="statusTable">
                                         <thead>
                                             <tr>
-                                                <th>Nama Lengkap</th>
-                                                <th>NIK Karyawan</th>
-                                                <th>Username</th>
-                                                <th>Email</th>
-                                                <th>Password</th>
-                                                <th>Role</th>
-                                                <th>Email SALES</th>
-                                                <th>Email ADH</th>
-                                                <th>Email PENJUAL</th>
-                                                <th>Aksi</th>
+                                                <th rowspan="2">No. Perjanjian</th>
+                                                <th rowspan="2">Nama Perusahaan</th>
+                                                <th rowspan="2">Alamat Pembeli</th>
+                                                <th rowspan="2">Email Pembeli</th>
+                                                <th rowspan="2">No. HP Pembeli</th>
+                                                <th rowspan="2">Status Approval</th>
+                                                <th colspan="2">Sales</th>
+                                                <th colspan="2">ADH</th>
+                                                <th colspan="2">Penjual</th>
+                                                <th colspan="2">Pembeli</th>
+                                                <th rowspan="2">Aksi</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Waktu</th>
+                                                <th>Status</th>
+                                                <th>Waktu</th>
+                                                <th>Status</th>
+                                                <th>Waktu</th>
+                                                <th>Status</th>
+                                                <th>Waktu</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td colspan="10">Memuat data...</td>
+                                                <td colspan="14">Memuat data...</td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    </div>
+
+
+
                                 </div>
-                                <div id="editModal" class="custom-modal">
-                                    <div class="custom-modal-content">
-
-                                        <h3 class="text-center" style="font-weight:600; margin-bottom:15px;">
-                                            <i class="fas fa-user-edit" style="margin-right:8px; color:#007bff;"></i>
-                                            Edit Data User
-                                        </h3>
-
-
-                                        <form id="editForm">
-                                            <input type="hidden" id="editRowIndex">
-
-                                            <label>Nama Lengkap</label>
-                                            <input type="text" id="editNama" class="form-control" required>
-
-                                            <label>NIK</label>
-                                            <input type="text" id="editNik" class="form-control">
-
-                                            <label>Username</label>
-                                            <input type="text" id="editUsername" class="form-control">
-
-                                            <label>Email</label>
-                                            <input type="email" id="editEmail" class="form-control">
-
-                                            <label>Password</label>
-                                            <input type="text" id="editPassword" class="form-control">
-
-                                            <label>Role</label>
-                                            <select id="editRole" class="form-control">
-                                                <option value="Admin">Admin</option>
-                                                <option value="MAKASSAR">MAKASSAR</option>
-                                                <option value="PALU">PALU</option>
-                                                <option value="PONTIANAK">PONTIANAK</option>
-                                                <option value="JAYAPURA">JAYAPURA</option>
-                                                <option value="SORONG">SORONG</option>
-                                                <option value="SAMARINDA">SAMARINDA</option>
-                                                <option value="BULUNGAN">BULUNGAN</option>
-                                                <option value="CILEGON">CILEGON</option>
-                                                <option value="SAMARINDA">SAMARINDA</option>
-                                                <option value="BALIKPAPAN">BALIKPAPAN</option>
-                                                <option value="GORONTALO">GORONTALO</option>
-                                            </select>
-
-
-                                            <label>Email Sales</label>
-                                            <input type="email" id="editSales" class="form-control">
-
-                                            <label>Email ADH</label>
-                                            <input type="email" id="editADH" class="form-control">
-
-                                            <label>Email Penjual</label>
-                                            <input type="email" id="editPenjual" class="form-control">
-
-                                            <br>
-
-                                            <div class="d-flex justify-content-end gap-2">
-                                                <button type="submit" class="btn btn-success">Update</button>
-                                                <button type="button" class="btn btn-secondary"
-                                                    onclick="closeModal()">Batal</button>
-                                            </div>
-
-                                        </form>
-
-                                    </div>
-                                </div>
-
-
-
                             </div>
                             <!-- <div class="row">
                                 <div class="col-md-12">
@@ -946,245 +800,312 @@
         <script src="vendor/perfect-scrollbar/perfect-scrollbar-1.5.6.min.js"></script>
         <script src="vendor/chartjs/chart.umd.js-4.5.0.min.js"></script>
 
-        
-        <!-- ============================
-   CEK LOGIN & ROLE ADMIN
-=============================== -->
-<script>
+        <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const user = JSON.parse(localStorage.getItem("user"));
+  // =============================
+  // 1️⃣ Ambil data user dari localStorage
+  // =============================
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+  /* 🔒 SEMBUNYIKAN MENU ACCOUNT JIKA BUKAN ADMIN */
+if ((user.role || "").toLowerCase() !== "admin") {
+    const accMobile = document.getElementById("menuAccountMobile");
+                    const accMobile1 = document.getElementById("menuAccountMobile1");
+                    const accMobile2 = document.getElementById("menuAccountMobile2");
+                    const accDesktop = document.getElementById("menuAccountDesktop");
+                    const accDesktop1 = document.getElementById("menuAccountDesktop1");
+                    const accDesktop2 = document.getElementById("menuAccountDesktop2");
 
-    // 🚨 Wajib login
-    if (!user) {
-        window.location.href = "login.html";
-        return;
-    }
-
-    // 🚨 Hanya admin yang boleh akses halaman ini
-    if ((user.role || "").toLowerCase() !== "admin") {
-        alert("❌ Anda tidak memiliki akses ke halaman ini!");
-        window.location.href = "index.html";
-        return;
-    }
-
-    // 🔓 Jika admin → tampilkan data user
-    document.getElementById("userName").textContent = user.namaLengkap || "User";
-    document.getElementById("dropdownName").textContent = user.namaLengkap || "User";
-    document.getElementById("dropdownEmail").textContent = user.email || "-";
-    document.getElementById("dropdownCabang").textContent = user.role || "-";
-
-    if (user.avatarUrl) {
-        document.getElementById("userAvatar").src = user.avatarUrl;
-        document.getElementById("dropdownAvatar").src = user.avatarUrl;
-    }
-
-    // 🔓 Logout
-    document.getElementById("logoutBtn").addEventListener("click", function (e) {
-        e.preventDefault();
-        localStorage.removeItem("user");
-        window.location.href = "login.html";
-    });
-
-    console.log("User admin verified:", user);
-});
-</script>
-
-<!-- ============================
-   SEMBUNYIKAN MENU ACCOUNT JIKA BUKAN ADMIN
-   (Sebenarnya ini tidak kepakai lagi karena hanya admin bisa akses)
-=============================== -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) return;
-
-    if ((user.role || "").toLowerCase() !== "admin") {
-        ["menuAccountMobile", "menuAccountMobile1", "menuAccountMobile2",
-         "menuAccountDesktop", "menuAccountDesktop1", "menuAccountDesktop2"]
-        .forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.style.display = "none";
-        });
-    }
-});
-</script>
-
-<!-- ============================
-   LOAD USER TABLE
-=============================== -->
-<script>
-let allStatusData = [];
-let displayedData = [];
-
-const baseURL = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
-const getURL = baseURL + "?mode=tampilusers";
-const postURL = baseURL + "?action=updateUser";
-
-function loadUserTable(dataToShow = null) {
-    const tbody = document.querySelector("#statusTable tbody");
-    const data = dataToShow || allStatusData;
-
-    displayedData = data;
-    tbody.innerHTML = "";
-
-    if (!Array.isArray(data) || data.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="10">Tidak ada data</td></tr>`;
-        return;
-    }
-
-    data.forEach((row, index) => {
-        tbody.innerHTML += `
-            <tr>
-                <td>${row.nama || "-"}</td>
-                <td>${row.nik || "-"}</td>
-                <td>${row.username || "-"}</td>
-                <td>${row.email || "-"}</td>
-                <td>${row.password || "-"}</td>
-                <td>${row.role || "-"}</td>
-                <td>${row.emailSales || "-"}</td>
-                <td>${row.emailADH || "-"}</td>
-                <td>${row.emailPenjual || "-"}</td>
-                <td><button class="btn btn-primary btn-sm" onclick="openEditModal(${index})">✎ Edit Data User</button></td>
-            </tr>`;
-    });
-
-    document.getElementById("lastUpdate").innerHTML =
-        "Terakhir diperbarui: " + new Date().toLocaleString();
+                    if (accMobile) accMobile.style.display = "none";
+                    if (accMobile1) accMobile1.style.display = "none";
+                    if (accMobile2) accMobile2.style.display = "none";
+                    if (accDesktop) accDesktop.style.display = "none";
+                    if (accDesktop1) accDesktop1.style.display = "none";
+                    if (accDesktop2) accDesktop2.style.display = "none";
 }
 
-window.onload = () => {
-    fetch(getURL)
-        .then(res => res.json())
-        .then(data => {
-            allStatusData = data;
-            loadUserTable();
-        })
-        .catch(err => {
-            console.error(err);
-            document.querySelector("#statusTable tbody").innerHTML =
-                `<tr><td colspan="10">Gagal memuat data!</td></tr>`;
-        });
-        setInterval(() => {
-        fetch(getURL)
-            .then(res => res.json())
-            .then(data => {
-                // Cek apakah data berubah
-                if (JSON.stringify(data) !== JSON.stringify(allStatusData)) {
-                    allStatusData = data;
-                    loadUserTable();
-                }
-            })
-            .catch(err => console.error("Gagal memuat data otomatis:", err));
-    }, 10000);
-};
-</script>
 
-<!-- ============================
-   MODAL EDIT USER
-=============================== -->
-<script>
-function openEditModal(displayIndex) {
-    const row = displayedData[displayIndex];
+  // =============================
+  // 2️⃣ Tampilkan Profil Login
+  // =============================
+  document.getElementById("userName").textContent = user.namaLengkap || "User";
+  document.getElementById("dropdownName").textContent = user.namaLengkap || "User";
+  document.getElementById("dropdownEmail").textContent = user.email || "-";
 
-    const realIndex = allStatusData.findIndex(item =>
-        item.email === row.email && item.username === row.username
-    );
+  if (user.avatarUrl) {
+    document.getElementById("userAvatar").src = user.avatarUrl;
+    document.getElementById("dropdownAvatar").src = user.avatarUrl;
+  }
 
-    document.getElementById("editRowIndex").value = realIndex;
-
-    document.getElementById("editNama").value = row.nama;
-    document.getElementById("editNik").value = row.nik;
-    document.getElementById("editUsername").value = row.username;
-    document.getElementById("editEmail").value = row.email;
-    document.getElementById("editPassword").value = row.password;
-    document.getElementById("editRole").value = row.role;
-    document.getElementById("editSales").value = row.emailSales;
-    document.getElementById("editADH").value = row.emailADH;
-    document.getElementById("editPenjual").value = row.emailPenjual;
-
-    document.getElementById("editModal").style.display = "flex";
-    document.getElementById("pageContent").classList.add("blur-bg");
-}
-
-function closeModal() {
-    document.getElementById("editModal").style.display = "none";
-    document.getElementById("pageContent").classList.remove("blur-bg");
-}
-</script>
-
-<!-- ============================
-   UPDATE USER
-=============================== -->
-<script>
-document.getElementById("editForm").addEventListener("submit", function (e) {
+  // Tombol logout
+  document.getElementById("logoutBtn").addEventListener("click", function (e) {
     e.preventDefault();
+    localStorage.removeItem("user");
+    window.location.href = "login.html";
+  });
 
-    const updateBtn = document.querySelector("#editForm button[type='submit']");
-    const cancelBtn = document.querySelector("#editForm button[type='button']");
+  // =============================
+  // 3️⃣ Mapping Cabang Ke Kode (Multi-Akses)
+  // =============================
 
-    const index = Number(document.getElementById("editRowIndex").value);
-    const updatedData = {
-        nama: editNama.value.trim(),
-        nik: editNik.value.trim(),
-        username: editUsername.value.trim(),
-        email: editEmail.value.trim(),
-        password: editPassword.value.trim(),
-        role: editRole.value.trim(),
-        emailSales: editSales.value.trim(),
-        emailADH: editADH.value.trim(),
-        emailPenjual: editPenjual.value.trim()
-    };
+  const cabangUser = user.role ? user.role.trim().toUpperCase() : "ADMIN";
 
-    const originalText = updateBtn.textContent;
-    updateBtn.disabled = true;
-    cancelBtn.disabled = true;
-    updateBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Mengupdate...`;
+  const cabangMap = {
+    "ADMIN": ["ADMIN"],
+            "MAKASSAR": ["MKS", "PRE", "MMJ"],
+            "PALU": ["PLU", "PGM"],
+            "PAREPARE": ["PRE"],
+            "MAMUJU": ["MMJ"],
+             "BULUNGAN": ["BLG"],
+             "KENDARI": ["KDR"],
+             "SORONG": ["SOR"],
+             "GORONTALO": ["GTL"],
+             "CILEGON": ["CLG"],
+             "JAYAPURA": ["JPR"],
+             "SAMARINDA": ["SMD"],
+              "PONTIANAK": ["PTK"],
+            "BANJARMASIN": ["BJM"],
+            "BALIKPAPAN": ["BPP"]
+  };
 
-    fetch(postURL, {
-        method: "POST",
-        body: JSON.stringify({ index, data: updatedData })
-    })
-        .then(r => r.text())
-        .then(res => {
-            showMessage("✅ Data berhasil diperbarui!", "success");
+  // Jika tidak ditemukan, fallback ke akses cabang sendiri
+  window.kodeCabang = cabangMap[cabangUser] || [cabangUser];
 
-            allStatusData[index] = updatedData;
+  // =============================
+  // 4️⃣ URL API
+  // =============================
+  const apiUrlBase = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
+  window.apiUrl = `${apiUrlBase}?mode=status`;
+  window.notifyUrl = `${apiUrlBase}?mode=notify`;
 
-            loadUserTable(displayedData.length ? displayedData : allStatusData);
+  // =============================
+  // 5️⃣ Tampilkan label cabang di UI
+  // =============================
+  document.getElementById("dropdownCabang").textContent =
+    cabangUser === "ADMIN"
+      ? "Admin"
+      : `${cabangUser}`;
 
-            closeModal();
-        })
-        .catch(err => {
-            console.error(err);
-            showMessage("❌ Gagal memperbarui data!", "error");
-        })
-        .finally(() => {
-            updateBtn.disabled = false;
-            cancelBtn.disabled = false;
-            updateBtn.textContent = originalText;
+  console.log("Cabang login:", cabangUser, "→ Kode Akses:", window.kodeCabang);
+
+  // =============================
+  // 6️⃣ Load Data Awal + Auto Refresh
+  // =============================
+  loadStatusData();
+  setInterval(loadStatusData, 15000);
+});
+
+// =============================
+// 5️⃣ Fungsi Pendukung
+// =============================
+function formatWaktu(str) {
+  if (!str || str === "-" || str === "undefined") return "-";
+  const d = new Date(str);
+  if (isNaN(d)) return str;
+  return d.toLocaleDateString("id-ID") + " " + d.toLocaleTimeString("id-ID", { hour12: false });
+}
+
+function makeStatus(status) {
+  if (!status || status === "-" || status === "undefined") return `<span class="pending">❌ Belum TTD</span>`;
+  const cls = status.includes("✅") ? "done" : "pending";
+  return `<span class="${cls}">${status}</span>`;
+}
+
+function makeAksiButtons(row) {
+  const noperjanjian = row.noperjanjian;
+  const email = row.email_pembeli;
+  const nohp = row.nohp_pembeli;
+  const docId = row.docId || "";
+
+  const salesSudahTTD = row.status_sales && row.status_sales.includes("✅");
+  const adhSudahTTD = row.status_adh && row.status_adh.includes("✅");
+  const penjualSudahTTD = row.status_penjual && row.status_penjual.includes("✅");
+
+  function isActive(role) {
+    if (role === "sales") return true;
+    if (role === "adh") return salesSudahTTD;
+    if (role === "penjual") return salesSudahTTD && adhSudahTTD;
+    if (role === "pembeli") return salesSudahTTD && adhSudahTTD && penjualSudahTTD;
+    return false;
+  }
+
+  return `
+    <div class="aksi-cell">
+      <button class="btn btn-email ${!isActive("sales") ? "btn-disabled" : ""}" 
+        ${!isActive("sales") ? "disabled" : ""}
+        onclick="handleNotifClick('email','sales','${noperjanjian}','${row.status_sales}')">
+        📧 Email Sales
+      </button>
+
+      
+
+      <button class="btn btn-email ${!isActive("adh") ? "btn-disabled" : ""}" 
+        ${!isActive("adh") ? "disabled" : ""}
+        onclick="handleNotifClick('email','adh','${noperjanjian}','${row.status_adh}')">
+        📧 Email Adh
+      </button>
+
+      <button class="btn btn-email ${!isActive("penjual") ? "btn-disabled" : ""}" 
+        ${!isActive("penjual") ? "disabled" : ""}
+        onclick="handleNotifClick('email','penjual','${noperjanjian}','${row.status_penjual}')">
+        📧 Email Penjual
+      </button>
+
+      <button class="btn btn-email ${!isActive("pembeli") ? "btn-disabled" : ""}" 
+        ${!isActive("pembeli") ? "disabled" : ""}
+        onclick="handleNotifClick('email','pembeli','${noperjanjian}','${row.status_pembeli}')">
+        📧 Email Pembeli
+      </button>
+
+      ${nohp ? `
+      <button class="btn btn-wa ${!isActive("pembeli") ? "btn-disabled" : ""}" 
+        ${!isActive("pembeli") ? "disabled" : ""}
+        onclick="handleNotifClick('wa','pembeli','${noperjanjian}','${row.status_pembeli}','${nohp}','${docId}')">
+        📱 WhatsApp
+      </button>` : ""}
+    </div>`;
+}
+
+function handleNotifClick(type, role, noperjanjian, status, nohp = null, docId = null) {
+  if (status && status.includes("✅")) {
+    alert(`✅ ${role.toUpperCase()} sudah tanda tangan. Pengingat tidak perlu dikirim.`);
+    return;
+  }
+  if (type === "email") {
+    kirimEmail(role, noperjanjian);
+  } else if (type === "wa" && nohp) {
+    kirimWA(nohp, noperjanjian, docId);
+  }
+}
+
+function kirimEmail(role, noperjanjian) {
+  fetch(`${window.notifyUrl}&type=email&role=${role}&noperjanjian=${noperjanjian}`)
+    .then(res => res.text())
+    .then(() => alert(`📧 Pengingat email untuk ${role.toUpperCase()} dikirim!`))
+    .catch(err => alert("Gagal kirim email: " + err.message));
+}
+
+function kirimWA(nohp, noperjanjian, docId) {
+  const scriptUrl = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
+  if (nohp && !nohp.startsWith("0") && (nohp.length === 11 || nohp.length === 12)) {
+    nohp = "0" + nohp;
+  }
+  const safeDocId = docId || "DOC_ID_TIDAK_DITEMUKAN";
+  const linkTTD = `${scriptUrl}?mode=acc&noperjanjian=${encodeURIComponent(noperjanjian.trim())}&docId=${encodeURIComponent(safeDocId)}`;
+  const pesan = encodeURIComponent(`Halo! Silakan tandatangani dokumen perjanjian Anda di link berikut:\n${linkTTD}`);
+  window.open(`https://wa.me/${nohp.replace(/^0/, "62")}?text=${pesan}`, "_blank");
+}
+
+// =============================
+// 6️⃣ Muat Data Tabel + Filter per Cabang
+// =============================
+let allStatusData = [];
+
+function loadStatusData() {
+  fetch(window.apiUrl)
+    .then(res => res.json())
+    .then(data => {
+      // Ambil kode dari global
+      const allowedCodes = window.kodeCabang; // array: ["MKS","PRE","MMJ"] atau ["PRE"]
+
+      // Filter hanya jika bukan admin
+      if (!allowedCodes.includes("ADMIN")) {
+        data = data.filter(row => {
+          const npj = (row.noperjanjian || "").toUpperCase();
+          return allowedCodes.some(code => npj.includes(code));
         });
-});
-</script>
+      }
 
-<!-- ============================
-   THEME TOGGLE
-=============================== -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const themeToggle = document.getElementById("themeToggle");
-    const currentTheme = localStorage.getItem("theme") || "light";
+      allStatusData = data;
+      renderFilteredTable(data);
 
-    if (currentTheme === "dark") {
-        document.body.classList.add("dark-mode");
-        themeToggle.checked = true;
-    }
-
-    themeToggle.addEventListener("change", function () {
-        document.body.classList.toggle("dark-mode", themeToggle.checked);
-        localStorage.setItem("theme", themeToggle.checked ? "dark" : "light");
+      document.getElementById("lastUpdate").textContent =
+        "Terakhir diperbarui: " + new Date().toLocaleTimeString("id-ID", { hour12: false });
+    })
+    .catch(err => {
+      document.querySelector("#statusTable tbody").innerHTML = `
+        <tr><td colspan="15" style="color:red;">Gagal memuat data: ${err.message}</td></tr>`;
     });
-});
+}
+
+
+function renderFilteredTable(data) {
+  const tbody = document.querySelector("#statusTable tbody");
+  tbody.innerHTML = "";
+  if (!data.length) {
+    tbody.innerHTML = `<tr><td colspan="14" style="text-align:center;">Tidak ada data ditemukan</td></tr>`;
+    return;
+  }
+
+  data.forEach(row => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${row.noperjanjian || "-"}</td>
+      <td>${row.nama_perusahaan || "-"}</td>
+      <td>${row.alamat_pembeli || "-"}</td>
+      <td>${row.email_pembeli || "-"}</td>
+      <td>${row.nohp_pembeli || "-"}</td>
+      <td>${row.statusApproval || "-"}</td>
+      <td>${formatWaktu(row.waktu_sales)}</td>
+      <td>${makeStatus(row.status_sales)}</td>
+      <td>${formatWaktu(row.waktu_adh)}</td>
+      <td>${makeStatus(row.status_adh)}</td>
+      <td>${formatWaktu(row.waktu_penjual)}</td>
+      <td>${makeStatus(row.status_penjual)}</td>
+      <td>${formatWaktu(row.waktu_pembeli)}</td>
+      <td>${makeStatus(row.status_pembeli)}</td>
+      <td>${makeAksiButtons(row)}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function handleSearch(event) {
+  event.preventDefault();
+  const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
+  if (!keyword) {
+    renderFilteredTable(allStatusData);
+    return;
+  }
+  const filtered = allStatusData.filter(row =>
+    (row.noperjanjian || "").toLowerCase().includes(keyword) ||
+    (row.nama_perusahaan || "").toLowerCase().includes(keyword)
+  );
+  renderFilteredTable(filtered);
+}
 </script>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const themeToggle = document.getElementById("themeToggle");
+
+                // Ambil tema dari localStorage
+                const currentTheme = localStorage.getItem("theme") || "light";
+
+                // Set awal tema
+                if (currentTheme === "dark") {
+                    document.body.classList.add("dark-mode");
+                    themeToggle.checked = true;
+                } else {
+                    document.body.classList.remove("dark-mode");
+                    themeToggle.checked = false;
+                }
+
+                // Event ketika switch diubah
+                themeToggle.addEventListener("change", function () {
+                    if (themeToggle.checked) {
+                        document.body.classList.add("dark-mode");
+                        localStorage.setItem("theme", "dark");
+                    } else {
+                        document.body.classList.remove("dark-mode");
+                        localStorage.setItem("theme", "light");
+                    }
+                });
+            });
+        </script>
 
 
 

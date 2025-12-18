@@ -45,7 +45,7 @@
         }
 
         /* ======= TABLE ======= */
-        #statusTable {
+        #statusDokumen {
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
@@ -56,7 +56,7 @@
             transition: all 0.3s ease;
         }
 
-        #statusTable th {
+        #statusDokumen th {
             background: linear-gradient(90deg, #191c1f, #696d71);
             color: #fff;
             font-weight: 600;
@@ -68,7 +68,7 @@
             border: none;
         }
 
-        #statusTable td {
+        #statusDokumen td {
             text-align: center;
             padding: 10px 12px;
             border-bottom: 1px solid #f0f0f0;
@@ -77,11 +77,11 @@
             vertical-align: middle;
         }
 
-        #statusTable tr:last-child td {
+        #statusDokumen tr:last-child td {
             border-bottom: none;
         }
 
-        #statusTable tr:hover {
+        #statusDokumen tr:hover {
             background-color: #f8fbff;
             transition: background 0.2s ease;
         }
@@ -143,8 +143,8 @@
         /* ======= RESPONSIVE ======= */
         @media (max-width: 992px) {
 
-            #statusTable th,
-            #statusTable td {
+            #statusDokumen th,
+            #statusDokumen td {
                 font-size: 12px;
                 padding: 8px;
             }
@@ -220,33 +220,112 @@
         }
 
         .navbar__list li a.active {
-  background-color: #e8f0fe; /* warna terang seperti highlight */
-  color: #1a73e8 !important; /* biru agar selaras */
-  border-radius: 8px;
-  font-weight: 600;
-}
+            background-color: #e8f0fe;
+            /* warna terang seperti highlight */
+            color: #1a73e8 !important;
+            /* biru agar selaras */
+            border-radius: 8px;
+            font-weight: 600;
+        }
 
-/* Mode gelap */
-body.dark-mode .navbar__list li a.active{
-  background-color: #6d6a6a;
-  color: #0a0a0a !important;
-  border-radius: 8px;
-}
-/* Perbaiki agar active juga muncul di menu mobile */
-.navbar-mobile__list li a.active {
-  background-color: #e8f0fe !important;
-  color: #1a73e8 !important;
-  border-radius: 8px !important;
-  font-weight: 600;
-}
+        /* Mode gelap */
+        body.dark-mode .navbar__list li a.active {
+            background-color: #6d6a6a;
+            color: #0a0a0a !important;
+            border-radius: 8px;
+        }
 
-/* Versi dark mode */
-body.dark-mode .navbar-mobile__list li a.active {
-  background-color: #6d6a6a !important;
-  color: #0a0a0a !important;
-}
+        /* Perbaiki agar active juga muncul di menu mobile */
+        .navbar-mobile__list li a.active {
+            background-color: #e8f0fe !important;
+            color: #1a73e8 !important;
+            border-radius: 8px !important;
+            font-weight: 600;
+        }
 
-    </style>
+        /* Versi dark mode */
+        body.dark-mode .navbar-mobile__list li a.active {
+            background-color: #6d6a6a !important;
+            color: #0a0a0a !important;
+        }
+
+        /* Overlay */
+        .custom-modal {
+            display: none;
+            position: fixed;
+            margin-top: 50px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 20px;
+            /* agar modal bisa scroll di layar kecil */
+        }
+
+        /* Card Modal */
+        .custom-modal-content {
+            background: #fff;
+            /* margin-top: 50px; */
+            width: 650px;
+            /* LEBARKAN */
+            max-width: 95%;
+            max-height: 90vh;
+            /* BATASI TINGGI */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            animation: fadeIn 0.25s ease;
+
+            overflow-y: auto;
+            /* AGAR BISA DI-SCROLL */
+        }
+
+        /* Title */
+        .custom-modal-content h3 {
+            margin-bottom: 10px;
+            font-weight: 1000;
+        }
+
+        /* Input spacing */
+        .custom-modal-content label {
+            margin-top: 1px;
+            font-weight: 500;
+        }
+
+        .custom-modal-content input {
+            margin-bottom: -2px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    /* Area yang akan diblur (wrapper utama halaman) */
+    .blur-bg {
+        filter: blur(6px);
+        transition: 0.3s ease;
+        pointer-events: none; /* Biar tidak bisa diklik */
+    }
+    #editForm label {
+        color: black !important;
+        font-weight: 600;
+    }
+    
+</style>
+
+
 
 
 
@@ -300,12 +379,18 @@ body.dark-mode .navbar-mobile__list li a.active {
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li> -->
                         <li>
-                            <a href="table.html" class="active">
-                                <i class="fas fa-table"></i>Tables</a>
+                            <a href="progresttd.html">
+                                <i class="fas fa-tasks"></i>Progres TTD</a>
                         </li>
+                        
                         <li>
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+
+                        <li>
+                            <a href="statusdokumen.html">
+                                <i class="fas fa-file-alt"></i>Status Dokumen</a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -319,7 +404,7 @@ body.dark-mode .navbar-mobile__list li a.active {
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>Account</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                
+
                                 <li id="menuAccountMobile">
                                     <a href="register.html">
                                         <i class="fas fa-user"></i> Register
@@ -330,9 +415,14 @@ body.dark-mode .navbar-mobile__list li a.active {
                                         <i class="fas fa-unlock-alt"></i> Forget Password
                                     </a>
                                 </li> -->
-                                <li id="menuAccountMobile2">
-                                    <a href="users.html">
+                                <li id="menuAccountMobile1">
+                                    <a href="users.html" >
                                         <i class="fas fa-user-edit"></i> Users
+                                    </a>
+                                </li>
+                                <li id="menuAccountMobile2">
+                                    <a href="approval.html" class="active">
+                                        <i class="fas fa-tasks"></i> Approval
                                     </a>
                                 </li>
                                 <li>
@@ -430,12 +520,18 @@ body.dark-mode .navbar-mobile__list li a.active {
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li> -->
                         <li>
-                            <a class="active" href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
+                            <a href="progresttd.html">
+                                <i class="fas fa-tasks"></i>Progres TTD</a>
                         </li>
+                        
                         <li>
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+
+                        <li>
+                            <a href="statusdokumen.html">
+                                <i class="fas fa-file-alt"></i>Status Dokumen</a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -445,11 +541,11 @@ body.dark-mode .navbar-mobile__list li a.active {
                             <a href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li>
-                        <li class="has-sub" >
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>Account</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                
+
                                 <li id="menuAccountDesktop">
                                     <a href="register.html">
                                         <i class="fas fa-user"></i> Register
@@ -460,9 +556,14 @@ body.dark-mode .navbar-mobile__list li a.active {
                                         <i class="fas fa-unlock-alt"></i> Forget Password
                                     </a>
                                 </li> -->
-                                <li id="menuAccountDesktop2">
-                                    <a href="users.html">
+                                 <li id="menuAccountDesktop1">
+                                    <a href="users.html" >
                                         <i class="fas fa-user-edit"></i> Users
+                                    </a>
+                                </li>
+                                <li id="menuAccountDesktop2">
+                                    <a href="approval.html" class="active">
+                                        <i class="fas fa-tasks"></i> Approval
                                     </a>
                                 </li>
                                 <li>
@@ -470,7 +571,7 @@ body.dark-mode .navbar-mobile__list li a.active {
                                         <i class="far fa-id-card"></i> Profil Akun
                                     </a>
                                 </li>
-                                 <li>
+                                <li>
                                     <a href="login.html">
                                         <i class="fas fa-sign-in-alt"></i> Logout
                                     </a>
@@ -532,7 +633,7 @@ body.dark-mode .navbar-mobile__list li a.active {
                         <div class="header-wrap">
                             <form class="form-header" onsubmit="handleSearch(event)">
                                 <input id="searchInput" class="au-input au-input--xl" type="text" name="search"
-                                    placeholder="Cari berdasarkan No. Perjanjian..." />
+                                    placeholder="Cari berdasarkan Username..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
@@ -573,44 +674,26 @@ body.dark-mode .navbar-mobile__list li a.active {
                                         </div>
                                     </div>
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <span class="quantity">1</span>
-                                        <div class="email-dropdown js-dropdown">
-                                            <div class="email__title">
-                                                <p>You have 3 New Emails</p>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, 3 min ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, Yesterday</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, January 15, 2025</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__footer">
-                                                <a href="#">See all emails</a>
-                                            </div>
-                                        </div>
-                                    </div>
+    <i class="zmdi zmdi-email"></i>
+
+    <!-- 🔥 jumlah notif -->
+    <span class="quantity" id="notifCount">0</span>
+
+    <div class="email-dropdown js-dropdown">
+
+        <div class="email__title">
+            <p id="notifTitle">You have 0 New Notifications</p>
+        </div>
+
+        <!-- 🔥 tempat list notif secara dinamis -->
+        <div id="notifList"></div>
+
+        <div class="email__footer">
+            <a href="#">See all notifications</a>
+        </div>
+    </div>
+</div>
+
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
                                         <span class="quantity">3</span>
@@ -729,41 +812,33 @@ body.dark-mode .navbar-mobile__list li a.active {
 
                                     <div id="lastUpdate">Terakhir diperbarui: -</div>
 
-                                    <table class="table table-borderless table-striped table-earning" id="statusTable">
-                                        <thead>
-                                            <tr>
-                                                <th rowspan="2">No. Perjanjian</th>
-                                                <th rowspan="2">Nama Perusahaan</th>
-                                                <th rowspan="2">Alamat Pembeli</th>
-                                                <th rowspan="2">Email Pembeli</th>
-                                                <th rowspan="2">No. HP Pembeli</th>
-                                                <th colspan="2">Sales</th>
-                                                <th colspan="2">ADH</th>
-                                                <th colspan="2">Penjual</th>
-                                                <th colspan="2">Pembeli</th>
-                                                <th rowspan="2">Aksi</th>
-                                            </tr>
-                                            <tr>
-                                                <th>Waktu</th>
-                                                <th>Status</th>
-                                                <th>Waktu</th>
-                                                <th>Status</th>
-                                                <th>Waktu</th>
-                                                <th>Status</th>
-                                                <th>Waktu</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td colspan="13">Memuat data...</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-
+<div id="pageContent">
+    <table class="table table-borderless table-striped table-earning" id="statusDokumen">
+        <thead>
+            <tr>
+                <th>Nama Cabang</th>
+                <th>No Perjanjian</th>
+                <th>Dokumen 1</th>
+                <th>Dokumen 2</th>
+                <th>Dokumen 3</th>
+                <th>Dokumen 4</th>
+                <th>Dokumen 5</th>
+                <th>Dokumen 6</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="statusBody">
+            <tr><td colspan="10">Memuat data...</td></tr>
+        </tbody>
+    </table>
+</div>
 
                                 </div>
+                                
+
+
+
                             </div>
                             <!-- <div class="row">
                                 <div class="col-md-12">
@@ -789,311 +864,216 @@ body.dark-mode .navbar-mobile__list li a.active {
         <script src="vendor/perfect-scrollbar/perfect-scrollbar-1.5.6.min.js"></script>
         <script src="vendor/chartjs/chart.umd.js-4.5.0.min.js"></script>
 
-        <script>
+       <script>
+/* =====================================================
+   VALIDASI LOGIN & ROLE
+   ===================================================== */
 document.addEventListener("DOMContentLoaded", function () {
-  // =============================
-  // 1️⃣ Ambil data user dari localStorage
-  // =============================
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user) {
-    window.location.href = "login.html";
-    return;
-  }
-  /* 🔒 SEMBUNYIKAN MENU ACCOUNT JIKA BUKAN ADMIN */
-if ((user.role || "").toLowerCase() !== "admin") {
-    const accMobile = document.getElementById("menuAccountMobile");
-                    const accMobile1 = document.getElementById("menuAccountMobile1");
-                    const accMobile2 = document.getElementById("menuAccountMobile2");
-                    const accDesktop = document.getElementById("menuAccountDesktop");
-                    const accDesktop1 = document.getElementById("menuAccountDesktop1");
-                    const accDesktop2 = document.getElementById("menuAccountDesktop2");
+    const user = JSON.parse(localStorage.getItem("user"));
 
-                    if (accMobile) accMobile.style.display = "none";
-                    if (accMobile1) accMobile1.style.display = "none";
-                    if (accMobile2) accMobile2.style.display = "none";
-                    if (accDesktop) accDesktop.style.display = "none";
-                    if (accDesktop1) accDesktop1.style.display = "none";
-                    if (accDesktop2) accDesktop2.style.display = "none";
-}
+    // Jika belum login
+    if (!user) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    // Jika bukan admin → blok akses
+    if ((user.role || "").toLowerCase() !== "admin") {
+        alert("❌ Anda tidak memiliki akses ke halaman ini!");
+        window.location.href = "index.html";
+        return;
+    }
+
+    /* =====================================================
+       TAMPILKAN INFO USER
+       ===================================================== */
+    document.getElementById("userName").textContent = user.namaLengkap || "User";
+    document.getElementById("dropdownName").textContent = user.namaLengkap || "User";
+    document.getElementById("dropdownEmail").textContent = user.email || "-";
+    document.getElementById("dropdownCabang").textContent = user.role || "-";
+
+    if (user.avatarUrl) {
+        document.getElementById("userAvatar").src = user.avatarUrl;
+        document.getElementById("dropdownAvatar").src = user.avatarUrl;
+    }
+
+    /* =====================================================
+       SEMBUNYIKAN MENU ACCOUNT UNTUK NON ADMIN
+       (Sebetulnya redundant karena di atas sudah diblok)
+       ===================================================== */
+    if ((user.role || "").toLowerCase() !== "admin") {
+                const accMobile = document.getElementById("menuAccountMobile");
+                const accMobile1 = document.getElementById("menuAccountMobile1");
+                const accMobile2 = document.getElementById("menuAccountMobile2");
+                const accDesktop = document.getElementById("menuAccountDesktop");
+                const accDesktop1 = document.getElementById("menuAccountDesktop1");
+                const accDesktop2 = document.getElementById("menuAccountDesktop2");
+
+                if (accMobile) accMobile.style.display = "none";
+                if (accMobile1) accMobile1.style.display = "none";
+                if (accMobile2) accMobile2.style.display = "none";
+                if (accDesktop) accDesktop.style.display = "none";
+                if (accDesktop1) accDesktop1.style.display = "none";
+                if (accDesktop2) accDesktop2.style.display = "none";
+                document.getElementById("kontrakpercabang").style.display = "none";
+
+            }
+
+    /* =====================================================
+       LOGOUT
+       ===================================================== */
+    document.getElementById("logoutBtn").addEventListener("click", function (e) {
+        e.preventDefault();
+        localStorage.removeItem("user");
+        window.location.href = "login.html";
+    });
+
+    console.log("User loaded:", user);
+});
+</script>
 
 
-  // =============================
-  // 2️⃣ Tampilkan Profil Login
-  // =============================
-  document.getElementById("userName").textContent = user.namaLengkap || "User";
-  document.getElementById("dropdownName").textContent = user.namaLengkap || "User";
-  document.getElementById("dropdownEmail").textContent = user.email || "-";
 
-  if (user.avatarUrl) {
-    document.getElementById("userAvatar").src = user.avatarUrl;
-    document.getElementById("dropdownAvatar").src = user.avatarUrl;
-  }
+<!-- =====================================================
+     LOAD STATUS DOKUMEN
+     ===================================================== -->
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
 
-  // Tombol logout
-  document.getElementById("logoutBtn").addEventListener("click", function (e) {
-    e.preventDefault();
-    localStorage.removeItem("user");
-    window.location.href = "login.html";
-  });
+async function loadStatusDokumen() {
+    try {
+        const res = await fetch(scriptURL + "?mode=getStatusDokumen");
+        const data = await res.json();
+        const tbody = document.getElementById("statusBody");
 
-  // =============================
-  // 3️⃣ Mapping Cabang Ke Kode (Multi-Akses)
-  // =============================
+        tbody.innerHTML = "";
 
-  const cabangUser = user.role ? user.role.trim().toUpperCase() : "ADMIN";
+        data.forEach(row => {
+    if (!row.dok6 || row.dok6.trim() === "") return;
 
-  const cabangMap = {
-    "ADMIN": ["ADMIN"],
-            "MAKASSAR": ["MKS", "PRE", "MMJ"],
-            "PALU": ["PLU", "PGM"],
-            "PAREPARE": ["PRE"],
-            "MAMUJU": ["MMJ"],
-             "BULUNGAN": ["BLG"],
-             "KENDARI": ["KDR"],
-             "SORONG": ["SOR"],
-             "GORONTALO": ["GTL"],
-             "CILEGON": ["CLG"],
-             "JAYAPURA": ["JPR"],
-             "SAMARINDA": ["SMD"],
-              "PONTIANAK": ["PTK"],
-            "BANJARMASIN": ["BJM"],
-            "BALIKPAPAN": ["BPP"]
-  };
-
-  // Jika tidak ditemukan, fallback ke akses cabang sendiri
-  window.kodeCabang = cabangMap[cabangUser] || [cabangUser];
-
-  // =============================
-  // 4️⃣ URL API
-  // =============================
-  const apiUrlBase = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
-  window.apiUrl = `${apiUrlBase}?mode=status`;
-  window.notifyUrl = `${apiUrlBase}?mode=notify`;
-
-  // =============================
-  // 5️⃣ Tampilkan label cabang di UI
-  // =============================
-  document.getElementById("dropdownCabang").textContent =
-    cabangUser === "ADMIN"
-      ? "Admin"
-      : `${cabangUser}`;
-
-  console.log("Cabang login:", cabangUser, "→ Kode Akses:", window.kodeCabang);
-
-  // =============================
-  // 6️⃣ Load Data Awal + Auto Refresh
-  // =============================
-  loadStatusData();
-  setInterval(loadStatusData, 15000);
+    tbody.innerHTML += `
+        <tr>
+            <td class="text-left">${row.role}</td>
+            <td class="text-left">${row.nomorperjanjian}</td>
+            <td>${row.dok1 ? `<a href="${row.dok1}" target="_blank">Lihat</a>` : "-"}</td>
+            <td>${row.dok2 ? `<a href="${row.dok2}" target="_blank">Lihat</a>` : "-"}</td>
+            <td>${row.dok3 ? `<a href="${row.dok3}" target="_blank">Lihat</a>` : "-"}</td>
+            <td>${row.dok4 ? `<a href="${row.dok4}" target="_blank">Lihat</a>` : "-"}</td>
+            <td>${row.dok5 ? `<a href="${row.dok5}" target="_blank">Lihat</a>` : "-"}</td>
+            <td>${row.dok6 ? `<a href="${row.dok6}" target="_blank">Lihat</a>` : "-"}</td>
+            <td><b>${row.status}</b></td>
+            <td>
+                <button onclick="updateStatus('${row.nomorperjanjian}', 'DITERIMA')" class="btn btn-success btn-sm">Approve</button>
+                <button onclick="updateStatus('${row.nomorperjanjian}', 'DITOLAK')" class="btn btn-danger btn-sm">Tolak</button>
+            </td>
+        </tr>
+    `;
 });
 
-// =============================
-// 5️⃣ Fungsi Pendukung
-// =============================
-function formatWaktu(str) {
-  if (!str || str === "-" || str === "undefined") return "-";
-  const d = new Date(str);
-  if (isNaN(d)) return str;
-  return d.toLocaleDateString("id-ID") + " " + d.toLocaleTimeString("id-ID", { hour12: false });
+
+        document.getElementById("lastUpdate").innerText =
+            "Terakhir diperbarui: " + new Date().toLocaleString();
+
+    } catch (err) {
+        console.error("Error load data:", err);
+    }
 }
 
-function makeStatus(status) {
-  if (!status || status === "-" || status === "undefined") return `<span class="pending">❌ Belum TTD</span>`;
-  const cls = status.includes("✅") ? "done" : "pending";
-  return `<span class="${cls}">${status}</span>`;
-}
 
-function makeAksiButtons(row) {
-  const noperjanjian = row.noperjanjian;
-  const email = row.email_pembeli;
-  const nohp = row.nohp_pembeli;
-  const docId = row.docId || "";
+/* =====================================================
+   UPDATE STATUS (POST)
+   ===================================================== */
+async function updateStatus(noPerjanjian, statusBaru) {
+    if (!confirm("Ubah status nomor perjanjian " + noPerjanjian + " menjadi " + statusBaru + "?")) return;
 
-  const salesSudahTTD = row.status_sales && row.status_sales.includes("✅");
-  const adhSudahTTD = row.status_adh && row.status_adh.includes("✅");
-  const penjualSudahTTD = row.status_penjual && row.status_penjual.includes("✅");
+    const form = new FormData();
+    form.append("action", "updateStatusDokumen");
+    form.append("noperjanjian", noPerjanjian); // pakai nomor perjanjian
+    form.append("status", statusBaru);
 
-  function isActive(role) {
-    if (role === "sales") return true;
-    if (role === "adh") return salesSudahTTD;
-    if (role === "penjual") return salesSudahTTD && adhSudahTTD;
-    if (role === "pembeli") return salesSudahTTD && adhSudahTTD && penjualSudahTTD;
-    return false;
-  }
+    try {
+        const res = await fetch(scriptURL, { method: "POST", body: form });
+        const result = await res.text();
+        alert(result);
 
-  return `
-    <div class="aksi-cell">
-      <button class="btn btn-email ${!isActive("sales") ? "btn-disabled" : ""}" 
-        ${!isActive("sales") ? "disabled" : ""}
-        onclick="handleNotifClick('email','sales','${noperjanjian}','${row.status_sales}')">
-        📧 Email Sales
-      </button>
-
-      
-
-      <button class="btn btn-email ${!isActive("adh") ? "btn-disabled" : ""}" 
-        ${!isActive("adh") ? "disabled" : ""}
-        onclick="handleNotifClick('email','adh','${noperjanjian}','${row.status_adh}')">
-        📧 Email Adh
-      </button>
-
-      <button class="btn btn-email ${!isActive("penjual") ? "btn-disabled" : ""}" 
-        ${!isActive("penjual") ? "disabled" : ""}
-        onclick="handleNotifClick('email','penjual','${noperjanjian}','${row.status_penjual}')">
-        📧 Email Penjual
-      </button>
-
-      <button class="btn btn-email ${!isActive("pembeli") ? "btn-disabled" : ""}" 
-        ${!isActive("pembeli") ? "disabled" : ""}
-        onclick="handleNotifClick('email','pembeli','${noperjanjian}','${row.status_pembeli}')">
-        📧 Email Pembeli
-      </button>
-
-      ${nohp ? `
-      <button class="btn btn-wa ${!isActive("pembeli") ? "btn-disabled" : ""}" 
-        ${!isActive("pembeli") ? "disabled" : ""}
-        onclick="handleNotifClick('wa','pembeli','${noperjanjian}','${row.status_pembeli}','${nohp}','${docId}')">
-        📱 WhatsApp
-      </button>` : ""}
-    </div>`;
-}
-
-function handleNotifClick(type, role, noperjanjian, status, nohp = null, docId = null) {
-  if (status && status.includes("✅")) {
-    alert(`✅ ${role.toUpperCase()} sudah tanda tangan. Pengingat tidak perlu dikirim.`);
-    return;
-  }
-  if (type === "email") {
-    kirimEmail(role, noperjanjian);
-  } else if (type === "wa" && nohp) {
-    kirimWA(nohp, noperjanjian, docId);
-  }
-}
-
-function kirimEmail(role, noperjanjian) {
-  fetch(`${window.notifyUrl}&type=email&role=${role}&noperjanjian=${noperjanjian}`)
-    .then(res => res.text())
-    .then(() => alert(`📧 Pengingat email untuk ${role.toUpperCase()} dikirim!`))
-    .catch(err => alert("Gagal kirim email: " + err.message));
-}
-
-function kirimWA(nohp, noperjanjian, docId) {
-  const scriptUrl = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
-  if (nohp && !nohp.startsWith("0") && (nohp.length === 11 || nohp.length === 12)) {
-    nohp = "0" + nohp;
-  }
-  const safeDocId = docId || "DOC_ID_TIDAK_DITEMUKAN";
-  const linkTTD = `${scriptUrl}?mode=acc&noperjanjian=${encodeURIComponent(noperjanjian.trim())}&docId=${encodeURIComponent(safeDocId)}`;
-  const pesan = encodeURIComponent(`Halo! Silakan tandatangani dokumen perjanjian Anda di link berikut:\n${linkTTD}`);
-  window.open(`https://wa.me/${nohp.replace(/^0/, "62")}?text=${pesan}`, "_blank");
-}
-
-// =============================
-// 6️⃣ Muat Data Tabel + Filter per Cabang
-// =============================
-let allStatusData = [];
-
-function loadStatusData() {
-  fetch(window.apiUrl)
-    .then(res => res.json())
-    .then(data => {
-      // Ambil kode dari global
-      const allowedCodes = window.kodeCabang; // array: ["MKS","PRE","MMJ"] atau ["PRE"]
-
-      // Filter hanya jika bukan admin
-      if (!allowedCodes.includes("ADMIN")) {
-        data = data.filter(row => {
-          const npj = (row.noperjanjian || "").toUpperCase();
-          return allowedCodes.some(code => npj.includes(code));
+        // Update langsung di tabel
+        const rows = document.querySelectorAll("#statusBody tr");
+        rows.forEach(tr => {
+            const approveBtn = tr.querySelector(".btn-success");
+            if (approveBtn && approveBtn.getAttribute("onclick").includes(noPerjanjian)) {
+                tr.querySelector("td:nth-child(9)").innerHTML = `<b>${statusBaru}</b>`; // kolom status
+            }
         });
-      }
 
-      allStatusData = data;
-      renderFilteredTable(data);
-
-      document.getElementById("lastUpdate").textContent =
-        "Terakhir diperbarui: " + new Date().toLocaleTimeString("id-ID", { hour12: false });
-    })
-    .catch(err => {
-      document.querySelector("#statusTable tbody").innerHTML = `
-        <tr><td colspan="14" style="color:red;">Gagal memuat data: ${err.message}</td></tr>`;
-    });
+    } catch (err) {
+        alert("Gagal update status!");
+    }
 }
 
+loadStatusDokumen();
+setInterval(loadStatusDokumen, 5000);
 
-function renderFilteredTable(data) {
-  const tbody = document.querySelector("#statusTable tbody");
-  tbody.innerHTML = "";
-  if (!data.length) {
-    tbody.innerHTML = `<tr><td colspan="14" style="text-align:center;">Tidak ada data ditemukan</td></tr>`;
-    return;
-  }
 
-  data.forEach(row => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${row.noperjanjian || "-"}</td>
-      <td>${row.nama_perusahaan || "-"}</td>
-      <td>${row.alamat_pembeli || "-"}</td>
-      <td>${row.email_pembeli || "-"}</td>
-      <td>${row.nohp_pembeli || "-"}</td>
-      <td>${formatWaktu(row.waktu_sales)}</td>
-      <td>${makeStatus(row.status_sales)}</td>
-      <td>${formatWaktu(row.waktu_adh)}</td>
-      <td>${makeStatus(row.status_adh)}</td>
-      <td>${formatWaktu(row.waktu_penjual)}</td>
-      <td>${makeStatus(row.status_penjual)}</td>
-      <td>${formatWaktu(row.waktu_pembeli)}</td>
-      <td>${makeStatus(row.status_pembeli)}</td>
-      <td>${makeAksiButtons(row)}</td>`;
-    tbody.appendChild(tr);
-  });
-}
+/* =====================================================
+   TOAST MESSAGE
+   ===================================================== */
+function showMessage(msg, type = "info") {
+    const colors = {
+        success: "#4CAF50",
+        error: "#f44336",
+        warning: "#ff9800",
+        info: "#2196F3"
+    };
 
-function handleSearch(event) {
-  event.preventDefault();
-  const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
-  if (!keyword) {
-    renderFilteredTable(allStatusData);
-    return;
-  }
-  const filtered = allStatusData.filter(row =>
-    (row.noperjanjian || "").toLowerCase().includes(keyword) ||
-    (row.nama_perusahaan || "").toLowerCase().includes(keyword)
-  );
-  renderFilteredTable(filtered);
+    const div = document.createElement("div");
+    div.textContent = msg;
+    div.style.position = "fixed";
+    div.style.bottom = "20px";
+    div.style.right = "20px";
+    div.style.background = colors[type];
+    div.style.color = "white";
+    div.style.padding = "10px 15px";
+    div.style.borderRadius = "8px";
+    div.style.boxShadow = "0 3px 8px rgba(0,0,0,0.3)";
+    div.style.zIndex = "9999";
+    div.style.transition = "opacity 0.3s ease";
+
+    document.body.appendChild(div);
+
+    setTimeout(() => {
+        div.style.opacity = "0";
+        setTimeout(() => div.remove(), 300);
+    }, 2000);
 }
 </script>
 
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const themeToggle = document.getElementById("themeToggle");
 
-                // Ambil tema dari localStorage
-                const currentTheme = localStorage.getItem("theme") || "light";
+<!-- =====================================================
+     THEME MODE
+     ===================================================== -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const themeToggle = document.getElementById("themeToggle");
+    const currentTheme = localStorage.getItem("theme") || "light";
 
-                // Set awal tema
-                if (currentTheme === "dark") {
-                    document.body.classList.add("dark-mode");
-                    themeToggle.checked = true;
-                } else {
-                    document.body.classList.remove("dark-mode");
-                    themeToggle.checked = false;
-                }
+    // Set tema awal
+    document.body.classList.toggle("dark-mode", currentTheme === "dark");
+    themeToggle.checked = currentTheme === "dark";
 
-                // Event ketika switch diubah
-                themeToggle.addEventListener("change", function () {
-                    if (themeToggle.checked) {
-                        document.body.classList.add("dark-mode");
-                        localStorage.setItem("theme", "dark");
-                    } else {
-                        document.body.classList.remove("dark-mode");
-                        localStorage.setItem("theme", "light");
-                    }
-                });
-            });
-        </script>
+    // Ubah tema
+    themeToggle.addEventListener("change", function () {
+        if (themeToggle.checked) {
+            document.body.classList.add("dark-mode");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("theme", "light");
+        }
+    });
+});
+</script>
+
 
 
 

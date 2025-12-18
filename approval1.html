@@ -45,7 +45,7 @@
         }
 
         /* ======= TABLE ======= */
-        #statusTable {
+        #statusDokumen {
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
@@ -56,7 +56,7 @@
             transition: all 0.3s ease;
         }
 
-        #statusTable th {
+        #statusDokumen th {
             background: linear-gradient(90deg, #191c1f, #696d71);
             color: #fff;
             font-weight: 600;
@@ -68,7 +68,7 @@
             border: none;
         }
 
-        #statusTable td {
+        #statusDokumen td {
             text-align: center;
             padding: 10px 12px;
             border-bottom: 1px solid #f0f0f0;
@@ -77,11 +77,11 @@
             vertical-align: middle;
         }
 
-        #statusTable tr:last-child td {
+        #statusDokumen tr:last-child td {
             border-bottom: none;
         }
 
-        #statusTable tr:hover {
+        #statusDokumen tr:hover {
             background-color: #f8fbff;
             transition: background 0.2s ease;
         }
@@ -143,8 +143,8 @@
         /* ======= RESPONSIVE ======= */
         @media (max-width: 992px) {
 
-            #statusTable th,
-            #statusTable td {
+            #statusDokumen th,
+            #statusDokumen td {
                 font-size: 12px;
                 padding: 8px;
             }
@@ -379,18 +379,12 @@
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li> -->
                         <li>
-                            <a href="progresttd.html">
-                                <i class="fas fa-tasks"></i>Progres TTD</a>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
                         </li>
-                        
                         <li>
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-
-                        <li>
-                            <a href="statusdokumen.html">
-                                <i class="fas fa-file-alt"></i>Status Dokumen</a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -416,12 +410,12 @@
                                     </a>
                                 </li> -->
                                 <li id="menuAccountMobile1">
-                                    <a href="users.html" class="active">
+                                    <a href="users.html" >
                                         <i class="fas fa-user-edit"></i> Users
                                     </a>
                                 </li>
                                 <li id="menuAccountMobile2">
-                                    <a href="approval.html" >
+                                    <a href="approval.html" class="active">
                                         <i class="fas fa-tasks"></i> Approval
                                     </a>
                                 </li>
@@ -520,18 +514,12 @@
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li> -->
                         <li>
-                            <a href="progresttd.html">
-                                <i class="fas fa-tasks"></i>Progres TTD</a>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
                         </li>
-                        
                         <li>
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-
-                        <li>
-                            <a href="statusdokumen.html">
-                                <i class="fas fa-file-alt"></i>Status Dokumen</a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -557,12 +545,12 @@
                                     </a>
                                 </li> -->
                                  <li id="menuAccountDesktop1">
-                                    <a href="users.html" class="active">
+                                    <a href="users.html" >
                                         <i class="fas fa-user-edit"></i> Users
                                     </a>
                                 </li>
                                 <li id="menuAccountDesktop2">
-                                    <a href="approval.html" >
+                                    <a href="approval.html" class="active">
                                         <i class="fas fa-tasks"></i> Approval
                                     </a>
                                 </li>
@@ -674,44 +662,26 @@
                                         </div>
                                     </div>
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <span class="quantity">1</span>
-                                        <div class="email-dropdown js-dropdown">
-                                            <div class="email__title">
-                                                <p>You have 3 New Emails</p>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, 3 min ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, Yesterday</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, January 15, 2025</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__footer">
-                                                <a href="#">See all emails</a>
-                                            </div>
-                                        </div>
-                                    </div>
+    <i class="zmdi zmdi-email"></i>
+
+    <!-- 🔥 jumlah notif -->
+    <span class="quantity" id="notifCount">0</span>
+
+    <div class="email-dropdown js-dropdown">
+
+        <div class="email__title">
+            <p id="notifTitle">You have 0 New Notifications</p>
+        </div>
+
+        <!-- 🔥 tempat list notif secara dinamis -->
+        <div id="notifList"></div>
+
+        <div class="email__footer">
+            <a href="#">See all notifications</a>
+        </div>
+    </div>
+</div>
+
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
                                         <span class="quantity">3</span>
@@ -829,95 +799,30 @@
                                 <div class="table-responsive table--no-card m-b-30">
 
                                     <div id="lastUpdate">Terakhir diperbarui: -</div>
-                                    <div id="pageContent">
-                                    <table class="table table-borderless table-striped table-earning" id="statusTable">
-                                        <thead>
-                                            <tr>
-                                                <th>Nama Lengkap</th>
-                                                <th>NIK Karyawan</th>
-                                                <th>Username</th>
-                                                <th>Email</th>
-                                                <th>Password</th>
-                                                <th>Role</th>
-                                                <th>Email SALES</th>
-                                                <th>Email ADH</th>
-                                                <th>Email PENJUAL</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td colspan="10">Memuat data...</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    </div>
+
+<div id="pageContent">
+    <table class="table table-borderless table-striped table-earning" id="statusDokumen">
+        <thead>
+            <tr>
+                <th>Nama Cabang</th>
+                <th>Dokumen 1</th>
+                <th>Dokumen 2</th>
+                <th>Dokumen 3</th>
+                <th>Dokumen 4</th>
+                <th>Dokumen 5</th>
+                <th>Dokumen 6</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="statusBody">
+            <tr><td colspan="9">Memuat data...</td></tr>
+        </tbody>
+    </table>
+</div>
+
                                 </div>
-                                <div id="editModal" class="custom-modal">
-                                    <div class="custom-modal-content">
-
-                                        <h3 class="text-center" style="font-weight:600; margin-bottom:15px;">
-                                            <i class="fas fa-user-edit" style="margin-right:8px; color:#007bff;"></i>
-                                            Edit Data User
-                                        </h3>
-
-
-                                        <form id="editForm">
-                                            <input type="hidden" id="editRowIndex">
-
-                                            <label>Nama Lengkap</label>
-                                            <input type="text" id="editNama" class="form-control" required>
-
-                                            <label>NIK</label>
-                                            <input type="text" id="editNik" class="form-control">
-
-                                            <label>Username</label>
-                                            <input type="text" id="editUsername" class="form-control">
-
-                                            <label>Email</label>
-                                            <input type="email" id="editEmail" class="form-control">
-
-                                            <label>Password</label>
-                                            <input type="text" id="editPassword" class="form-control">
-
-                                            <label>Role</label>
-                                            <select id="editRole" class="form-control">
-                                                <option value="Admin">Admin</option>
-                                                <option value="MAKASSAR">MAKASSAR</option>
-                                                <option value="PALU">PALU</option>
-                                                <option value="PONTIANAK">PONTIANAK</option>
-                                                <option value="JAYAPURA">JAYAPURA</option>
-                                                <option value="SORONG">SORONG</option>
-                                                <option value="SAMARINDA">SAMARINDA</option>
-                                                <option value="BULUNGAN">BULUNGAN</option>
-                                                <option value="CILEGON">CILEGON</option>
-                                                <option value="SAMARINDA">SAMARINDA</option>
-                                                <option value="BALIKPAPAN">BALIKPAPAN</option>
-                                                <option value="GORONTALO">GORONTALO</option>
-                                            </select>
-
-
-                                            <label>Email Sales</label>
-                                            <input type="email" id="editSales" class="form-control">
-
-                                            <label>Email ADH</label>
-                                            <input type="email" id="editADH" class="form-control">
-
-                                            <label>Email Penjual</label>
-                                            <input type="email" id="editPenjual" class="form-control">
-
-                                            <br>
-
-                                            <div class="d-flex justify-content-end gap-2">
-                                                <button type="submit" class="btn btn-success">Update</button>
-                                                <button type="button" class="btn btn-secondary"
-                                                    onclick="closeModal()">Batal</button>
-                                            </div>
-
-                                        </form>
-
-                                    </div>
-                                </div>
+                                
 
 
 
@@ -946,28 +851,29 @@
         <script src="vendor/perfect-scrollbar/perfect-scrollbar-1.5.6.min.js"></script>
         <script src="vendor/chartjs/chart.umd.js-4.5.0.min.js"></script>
 
-        
-        <!-- ============================
-   CEK LOGIN & ROLE ADMIN
-=============================== -->
-<script>
+       <script>
+/* =====================================================
+   VALIDASI LOGIN & ROLE
+   ===================================================== */
 document.addEventListener("DOMContentLoaded", function () {
     const user = JSON.parse(localStorage.getItem("user"));
 
-    // 🚨 Wajib login
+    // Jika belum login
     if (!user) {
         window.location.href = "login.html";
         return;
     }
 
-    // 🚨 Hanya admin yang boleh akses halaman ini
+    // Jika bukan admin → blok akses
     if ((user.role || "").toLowerCase() !== "admin") {
         alert("❌ Anda tidak memiliki akses ke halaman ini!");
         window.location.href = "index.html";
         return;
     }
 
-    // 🔓 Jika admin → tampilkan data user
+    /* =====================================================
+       TAMPILKAN INFO USER
+       ===================================================== */
     document.getElementById("userName").textContent = user.namaLengkap || "User";
     document.getElementById("dropdownName").textContent = user.namaLengkap || "User";
     document.getElementById("dropdownEmail").textContent = user.email || "-";
@@ -978,213 +884,184 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("dropdownAvatar").src = user.avatarUrl;
     }
 
-    // 🔓 Logout
+    /* =====================================================
+       SEMBUNYIKAN MENU ACCOUNT UNTUK NON ADMIN
+       (Sebetulnya redundant karena di atas sudah diblok)
+       ===================================================== */
+    if ((user.role || "").toLowerCase() !== "admin") {
+                const accMobile = document.getElementById("menuAccountMobile");
+                const accMobile1 = document.getElementById("menuAccountMobile1");
+                const accMobile2 = document.getElementById("menuAccountMobile2");
+                const accDesktop = document.getElementById("menuAccountDesktop");
+                const accDesktop1 = document.getElementById("menuAccountDesktop1");
+                const accDesktop2 = document.getElementById("menuAccountDesktop2");
+
+                if (accMobile) accMobile.style.display = "none";
+                if (accMobile1) accMobile1.style.display = "none";
+                if (accMobile2) accMobile2.style.display = "none";
+                if (accDesktop) accDesktop.style.display = "none";
+                if (accDesktop1) accDesktop1.style.display = "none";
+                if (accDesktop2) accDesktop2.style.display = "none";
+                document.getElementById("kontrakpercabang").style.display = "none";
+
+            }
+
+    /* =====================================================
+       LOGOUT
+       ===================================================== */
     document.getElementById("logoutBtn").addEventListener("click", function (e) {
         e.preventDefault();
         localStorage.removeItem("user");
         window.location.href = "login.html";
     });
 
-    console.log("User admin verified:", user);
+    console.log("User loaded:", user);
 });
 </script>
 
-<!-- ============================
-   SEMBUNYIKAN MENU ACCOUNT JIKA BUKAN ADMIN
-   (Sebenarnya ini tidak kepakai lagi karena hanya admin bisa akses)
-=============================== -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) return;
 
-    if ((user.role || "").toLowerCase() !== "admin") {
-        ["menuAccountMobile", "menuAccountMobile1", "menuAccountMobile2",
-         "menuAccountDesktop", "menuAccountDesktop1", "menuAccountDesktop2"]
-        .forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.style.display = "none";
-        });
-    }
+
+<!-- =====================================================
+     LOAD STATUS DOKUMEN
+     ===================================================== -->
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
+
+async function loadStatusDokumen() {
+    try {
+        const res = await fetch(scriptURL + "?mode=getStatusDokumen");
+        const data = await res.json();
+        const tbody = document.getElementById("statusBody");
+
+        tbody.innerHTML = "";
+
+        data.forEach(row => {
+
+    // ❌ Jika dokumen 6 kosong, skip / tidak ditampilkan
+    if (!row.dok6 || row.dok6.trim() === "") return;
+
+    // ✅ Jika memiliki dokumen 6, tampilkan
+    tbody.innerHTML += `
+        <tr>
+            <td>${row.role}</td>
+            <td>${row.dok1 ? `<a href="${row.dok1}" target="_blank">Lihat</a>` : "-"}</td>
+            <td>${row.dok2 ? `<a href="${row.dok2}" target="_blank">Lihat</a>` : "-"}</td>
+            <td>${row.dok3 ? `<a href="${row.dok3}" target="_blank">Lihat</a>` : "-"}</td>
+            <td>${row.dok4 ? `<a href="${row.dok4}" target="_blank">Lihat</a>` : "-"}</td>
+            <td>${row.dok5 ? `<a href="${row.dok5}" target="_blank">Lihat</a>` : "-"}</td>
+            <td>${row.dok6 ? `<a href="${row.dok6}" target="_blank">Lihat</a>` : "-"}</td>
+            <td><b>${row.status}</b></td>
+            <td>
+                <button onclick="updateStatus('${row.email}', 'DITERIMA')" class="btn btn-success btn-sm">Approve</button>
+                <button onclick="updateStatus('${row.email}', 'DITOLAK')" class="btn btn-danger btn-sm">Tolak</button>
+            </td>
+        </tr>
+    `;
 });
-</script>
 
-<!-- ============================
-   LOAD USER TABLE
-=============================== -->
-<script>
-let allStatusData = [];
-let displayedData = [];
 
-const baseURL = "https://script.google.com/macros/s/AKfycbwyutAXOuSEfy1yItsWsWNCPBzOqyI-lktXPUdizX3H05Bj-syHkbrUIIbWWPGvXDBI8Q/exec";
-const getURL = baseURL + "?mode=tampilusers";
-const postURL = baseURL + "?action=updateUser";
+        document.getElementById("lastUpdate").innerText =
+            "Terakhir diperbarui: " + new Date().toLocaleString();
 
-function loadUserTable(dataToShow = null) {
-    const tbody = document.querySelector("#statusTable tbody");
-    const data = dataToShow || allStatusData;
-
-    displayedData = data;
-    tbody.innerHTML = "";
-
-    if (!Array.isArray(data) || data.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="10">Tidak ada data</td></tr>`;
-        return;
+    } catch (err) {
+        console.error("Error load data:", err);
     }
-
-    data.forEach((row, index) => {
-        tbody.innerHTML += `
-            <tr>
-                <td>${row.nama || "-"}</td>
-                <td>${row.nik || "-"}</td>
-                <td>${row.username || "-"}</td>
-                <td>${row.email || "-"}</td>
-                <td>${row.password || "-"}</td>
-                <td>${row.role || "-"}</td>
-                <td>${row.emailSales || "-"}</td>
-                <td>${row.emailADH || "-"}</td>
-                <td>${row.emailPenjual || "-"}</td>
-                <td><button class="btn btn-primary btn-sm" onclick="openEditModal(${index})">✎ Edit Data User</button></td>
-            </tr>`;
-    });
-
-    document.getElementById("lastUpdate").innerHTML =
-        "Terakhir diperbarui: " + new Date().toLocaleString();
 }
 
-window.onload = () => {
-    fetch(getURL)
-        .then(res => res.json())
-        .then(data => {
-            allStatusData = data;
-            loadUserTable();
-        })
-        .catch(err => {
-            console.error(err);
-            document.querySelector("#statusTable tbody").innerHTML =
-                `<tr><td colspan="10">Gagal memuat data!</td></tr>`;
+
+/* =====================================================
+   UPDATE STATUS (POST)
+   ===================================================== */
+async function updateStatus(email, statusBaru) {
+    if (!confirm("Ubah status menjadi " + statusBaru + "?")) return;
+
+    const form = new FormData();
+    form.append("action", "updateStatusDokumen");
+    form.append("email", email);
+    form.append("status", statusBaru);
+
+    try {
+        const res = await fetch(scriptURL, { method: "POST", body: form });
+        const result = await res.text();
+        alert(result);
+
+        // Update langsung di tabel
+        const rows = document.querySelectorAll("#statusBody tr");
+        rows.forEach(tr => {
+            const approveBtn = tr.querySelector(".btn-success");
+            if (approveBtn && approveBtn.getAttribute("onclick").includes(email)) {
+                tr.querySelector("td:nth-child(8)").innerHTML = `<b>${statusBaru}</b>`;
+            }
         });
-        setInterval(() => {
-        fetch(getURL)
-            .then(res => res.json())
-            .then(data => {
-                // Cek apakah data berubah
-                if (JSON.stringify(data) !== JSON.stringify(allStatusData)) {
-                    allStatusData = data;
-                    loadUserTable();
-                }
-            })
-            .catch(err => console.error("Gagal memuat data otomatis:", err));
-    }, 10000);
-};
-</script>
 
-<!-- ============================
-   MODAL EDIT USER
-=============================== -->
-<script>
-function openEditModal(displayIndex) {
-    const row = displayedData[displayIndex];
-
-    const realIndex = allStatusData.findIndex(item =>
-        item.email === row.email && item.username === row.username
-    );
-
-    document.getElementById("editRowIndex").value = realIndex;
-
-    document.getElementById("editNama").value = row.nama;
-    document.getElementById("editNik").value = row.nik;
-    document.getElementById("editUsername").value = row.username;
-    document.getElementById("editEmail").value = row.email;
-    document.getElementById("editPassword").value = row.password;
-    document.getElementById("editRole").value = row.role;
-    document.getElementById("editSales").value = row.emailSales;
-    document.getElementById("editADH").value = row.emailADH;
-    document.getElementById("editPenjual").value = row.emailPenjual;
-
-    document.getElementById("editModal").style.display = "flex";
-    document.getElementById("pageContent").classList.add("blur-bg");
+    } catch (err) {
+        alert("Gagal update status!");
+    }
 }
 
-function closeModal() {
-    document.getElementById("editModal").style.display = "none";
-    document.getElementById("pageContent").classList.remove("blur-bg");
-}
-</script>
+loadStatusDokumen();
 
-<!-- ============================
-   UPDATE USER
-=============================== -->
-<script>
-document.getElementById("editForm").addEventListener("submit", function (e) {
-    e.preventDefault();
 
-    const updateBtn = document.querySelector("#editForm button[type='submit']");
-    const cancelBtn = document.querySelector("#editForm button[type='button']");
-
-    const index = Number(document.getElementById("editRowIndex").value);
-    const updatedData = {
-        nama: editNama.value.trim(),
-        nik: editNik.value.trim(),
-        username: editUsername.value.trim(),
-        email: editEmail.value.trim(),
-        password: editPassword.value.trim(),
-        role: editRole.value.trim(),
-        emailSales: editSales.value.trim(),
-        emailADH: editADH.value.trim(),
-        emailPenjual: editPenjual.value.trim()
+/* =====================================================
+   TOAST MESSAGE
+   ===================================================== */
+function showMessage(msg, type = "info") {
+    const colors = {
+        success: "#4CAF50",
+        error: "#f44336",
+        warning: "#ff9800",
+        info: "#2196F3"
     };
 
-    const originalText = updateBtn.textContent;
-    updateBtn.disabled = true;
-    cancelBtn.disabled = true;
-    updateBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Mengupdate...`;
+    const div = document.createElement("div");
+    div.textContent = msg;
+    div.style.position = "fixed";
+    div.style.bottom = "20px";
+    div.style.right = "20px";
+    div.style.background = colors[type];
+    div.style.color = "white";
+    div.style.padding = "10px 15px";
+    div.style.borderRadius = "8px";
+    div.style.boxShadow = "0 3px 8px rgba(0,0,0,0.3)";
+    div.style.zIndex = "9999";
+    div.style.transition = "opacity 0.3s ease";
 
-    fetch(postURL, {
-        method: "POST",
-        body: JSON.stringify({ index, data: updatedData })
-    })
-        .then(r => r.text())
-        .then(res => {
-            showMessage("✅ Data berhasil diperbarui!", "success");
+    document.body.appendChild(div);
 
-            allStatusData[index] = updatedData;
-
-            loadUserTable(displayedData.length ? displayedData : allStatusData);
-
-            closeModal();
-        })
-        .catch(err => {
-            console.error(err);
-            showMessage("❌ Gagal memperbarui data!", "error");
-        })
-        .finally(() => {
-            updateBtn.disabled = false;
-            cancelBtn.disabled = false;
-            updateBtn.textContent = originalText;
-        });
-});
+    setTimeout(() => {
+        div.style.opacity = "0";
+        setTimeout(() => div.remove(), 300);
+    }, 2000);
+}
 </script>
 
-<!-- ============================
-   THEME TOGGLE
-=============================== -->
+
+
+<!-- =====================================================
+     THEME MODE
+     ===================================================== -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const themeToggle = document.getElementById("themeToggle");
     const currentTheme = localStorage.getItem("theme") || "light";
 
-    if (currentTheme === "dark") {
-        document.body.classList.add("dark-mode");
-        themeToggle.checked = true;
-    }
+    // Set tema awal
+    document.body.classList.toggle("dark-mode", currentTheme === "dark");
+    themeToggle.checked = currentTheme === "dark";
 
+    // Ubah tema
     themeToggle.addEventListener("change", function () {
-        document.body.classList.toggle("dark-mode", themeToggle.checked);
-        localStorage.setItem("theme", themeToggle.checked ? "dark" : "light");
+        if (themeToggle.checked) {
+            document.body.classList.add("dark-mode");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("theme", "light");
+        }
     });
 });
 </script>
+
 
 
 
