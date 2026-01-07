@@ -322,6 +322,18 @@
         color: black !important;
         font-weight: 600;
     }
+
+    .tr-diterima td {
+  background-color: #66db6f !important; /* hijau */
+}
+
+.tr-pending td {
+  background-color: #f0eaad !important; /* kuning */
+}
+
+.tr-ditolak td {
+  background-color: #c43727 !important; /* merah */
+}
     
 </style>
 
@@ -952,7 +964,7 @@ async function loadStatusDokumen() {
     if (!row.dok6 || row.dok6.trim() === "") return;
 
     tbody.innerHTML += `
-        <tr>
+        <tr class="${getRowClass(row.status)}">
             <td class="text-left">${row.role}</td>
             <td class="text-left">${row.nomorperjanjian}</td>
             <td>${row.dok1 ? `<a href="${row.dok1}" target="_blank">Lihat</a>` : "-"}</td>
@@ -1045,6 +1057,17 @@ function showMessage(msg, type = "info") {
         setTimeout(() => div.remove(), 300);
     }, 2000);
 }
+</script>
+
+<script>
+    function getRowClass(status) {
+  const s = (status || "PENDING").toUpperCase();
+
+  if (s === "DITERIMA") return "tr-diterima";
+  if (s === "DITOLAK") return "tr-ditolak";
+  return "tr-pending";
+}
+
 </script>
 
 

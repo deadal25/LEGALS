@@ -822,6 +822,12 @@
                                         <option value="KENDARI">Kendari</option>
                                         <option value="JAYAPURA">Jayapura</option>
                                         <option value="SORONG">Sorong</option>
+                                        <option value="BULUNGAN">Bulungan</option>
+                                        <option value="CILEGON">Cilegon</option>
+                                        <option value="LUWUK">Luwuk</option>
+                                        <option value="GORONTALO">Gorontalo</option>
+                                        <option value="PAGIMANA">Pagimana</option>
+
                                         <!-- Tambah sesuai cabang -->
                                     </select>
                                 </div>
@@ -1052,7 +1058,10 @@
                 "SAMARINDA": ["SMD"],
                 "PONTIANAK": ["PTK"],
                 "BANJARMASIN": ["BJM"],
-                "BALIKPAPAN": ["BPP"]
+                "BALIKPAPAN": ["BPP"],
+                "PAGIMANA": ["PGM"],
+                "LUWUK": ["LWK"]
+
             };
 
             const cabangUser = user.role ? user.role.toUpperCase() : "ADMIN";
@@ -1186,7 +1195,9 @@ document.getElementById("kontrakapproval").innerText =
             "SAMARINDA": ["SMD"],
             "PONTIANAK": ["PTK"],
             "BANJARMASIN": ["BJM"],
-            "BALIKPAPAN": ["BPP"]
+            "BALIKPAPAN": ["BPP"],
+            "PAGIMANA": ["PGM"],
+            "LUWUK": ["LWK"]
         };
 
         const cabangUser = user && user.role ? user.role.toUpperCase() : "ADMIN";
@@ -1211,7 +1222,7 @@ document.getElementById("kontrakapproval").innerText =
             "MAKASSAR", "PALU",
             "BULUNGAN", "KENDARI", "SORONG", "GORONTALO",
             "CILEGON", "JAYAPURA", "SAMARINDA", "PONTIANAK",
-            "BANJARMASIN", "BALIKPAPAN"
+            "BANJARMASIN", "BALIKPAPAN", "LUWUK", "PAGIMANA"
         ];
 
         // Load data API

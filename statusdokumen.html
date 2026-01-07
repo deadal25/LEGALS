@@ -322,7 +322,20 @@
         color: black !important;
         font-weight: 600;
     }
-    
+
+
+
+.tr-diterima td {
+  background-color: #66db6f !important; /* hijau */
+}
+
+.tr-pending td {
+  background-color: #f0eaad !important; /* kuning */
+}
+
+.tr-ditolak td {
+  background-color: #c43727 !important; /* merah */
+}
 </style>
 
 
@@ -883,7 +896,7 @@ const ALLOWED_ROLE = [
   "ADMIN","MAKASSAR","PALU","PAREPARE","MAMUJU",
   "BULUNGAN","KENDARI","SORONG","GORONTALO",
   "CILEGON","JAYAPURA","SAMARINDA","PONTIANAK",
-  "BANJARMASIN","BALIKPAPAN"
+  "BANJARMASIN","BALIKPAPAN","PAGIMANA","LUWUK"
 ];
 
 if (!ALLOWED_ROLE.includes(roleUser)) {
@@ -909,7 +922,10 @@ const cabangMap = {
   SAMARINDA: ["SMD"],
   PONTIANAK: ["PTK"],
   BANJARMASIN: ["BJM"],
-  BALIKPAPAN: ["BPP"]
+  BALIKPAPAN: ["BPP"],
+  PAGIMANA: ["PGM"],
+  LUWUK: ["LWK"],
+  BANJARMASIN: ["BJM"]
 };
 
 // Simpan global
@@ -988,7 +1004,16 @@ console.log("Role:", cabangUser, "Akses Cabang:", window.kodeCabang);
 
 </script>
 
+<script>
+    function getRowClass(status) {
+  const s = (status || "PENDING").toUpperCase();
 
+  if (s === "DITERIMA") return "tr-diterima";
+  if (s === "DITOLAK") return "tr-ditolak";
+  return "tr-pending";
+}
+
+</script>
 
 <!-- =====================================================
      LOAD STATUS DOKUMEN
@@ -1021,7 +1046,7 @@ async function loadStatusDokumen() {
 
 
     tbody.innerHTML += `
-        <tr>
+        <tr class="${getRowClass(row.status)}">
             <td class="text-left">${row.role}</td>
             <td class="text-left">${row.nomorperjanjian}</td>
             <td>${row.dok1 ? `<a href="${row.dok1}" target="_blank">Lihat</a>` : "-"}</td>

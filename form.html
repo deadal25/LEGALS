@@ -1221,6 +1221,11 @@ const cabangMap = {
     "JAYAPURA": ["BSU-JPR"],
     "PONTIANAK": ["BSU-PTK"],
     "KENDARI": ["BSU-KDR"],
+    "BANJARMASIN": ["BSU-BJM"],
+    "BULUNGAN": ["BSU-BLG"],
+    "LUWUK": ["BSU-LWK"],
+    "GORONTALO": ["BSU-GTR"],
+
 };
 
 function getLoginCabang() {
@@ -1297,11 +1302,15 @@ function setTempatPerjanjian() {
         "PALU": "Palu",
         "SAMARINDA": "Samarinda",
         "PONTIANAK": "Pontianak",
-        "PAGIMANA": "Pagi Mana",
+        "PAGIMANA": "Pagimana",
         "MAMUJU": "Mamuju",
         "SORONG": "Sorong",
         "JAYAPURA": "Jayapura",
-        "KENDARI":"Kendari"
+        "KENDARI":"Kendari",
+        "BANJARMASIN":"Banjarmasin",
+        "BULUNGAN":"Bulungan",
+        "LUWUK":"Luwuk",
+        "GORONTALO":"Gorontalo"
     };
 
     tempat = tempatMap[loginCabang] || loginCabang;
@@ -1380,7 +1389,7 @@ formData.append("emailPenjual", (user.emailPenjual || "").trim());
         const response = await fetch(scriptURL, { method: "POST", body: formData });
         const result = await response.text();
 
-        alert("✅ Data berhasil disimpan!");
+        alert("✅ Dokumen berhasil dibuat!");
         console.log("Response Apps Script:", result);
 
         formElement.reset(); // kosongkan isian
@@ -1390,7 +1399,7 @@ document.getElementById("formUploadDokumen").style.display = "block";
                     document.getElementById("formKontrakSection").style.display = "none";
     } catch (err) {
         console.error("Fetch error:", err);
-        alert("⚠️ Gagal menyimpan data! Periksa koneksi atau Apps Script.");
+        alert("⚠️ Gagal menyimpan Dokumen! Periksa koneksi atau Apps Script.");
     } finally {
         submitButton.disabled = false;
         submitButton.innerText = "Submit";
