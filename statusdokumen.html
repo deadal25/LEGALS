@@ -984,7 +984,7 @@ console.log("Role:", cabangUser, "Akses Cabang:", window.kodeCabang);
 
 <script>
     function hapusDokumen(nomorPerjanjian) {
-    if (!confirm(`Yakin ingin menghapus data\n${nomorPerjanjian} ?`)) return;
+    if (!confirm(`Yakin ingin menghapus Dokumen\n${nomorPerjanjian} ?`)) return;
 
     fetch(`${scriptURL}?mode=deleteDokumen&nomorperjanjian=${encodeURIComponent(nomorPerjanjian)}`)
         .then(res => res.json())
@@ -993,12 +993,12 @@ console.log("Role:", cabangUser, "Akses Cabang:", window.kodeCabang);
                 showMessage("✅ Data berhasil dihapus", "success");
                 loadStatusDokumen(); // refresh tabel
             } else {
-                showMessage("❌ Gagal menghapus data", "error");
+                showMessage("❌ Gagal menghapus Dokumen", "error");
             }
         })
         .catch(err => {
             console.error(err);
-            showMessage("❌ Error saat menghapus data", "error");
+            showMessage("❌ Error saat menghapus Dokumen", "error");
         });
 }
 

@@ -1064,7 +1064,7 @@ window.onload = () => {
         .catch(err => {
             console.error(err);
             document.querySelector("#statusTable tbody").innerHTML =
-                `<tr><td colspan="10">Gagal memuat data!</td></tr>`;
+                `<tr><td colspan="10">Gagal memuat data user!</td></tr>`;
         });
         setInterval(() => {
         fetch(getURL)
@@ -1076,7 +1076,7 @@ window.onload = () => {
                     loadUserTable();
                 }
             })
-            .catch(err => console.error("Gagal memuat data otomatis:", err));
+            .catch(err => console.error("Gagal memuat data user otomatis:", err));
     }, 10000);
 };
 </script>
@@ -1148,7 +1148,7 @@ document.getElementById("editForm").addEventListener("submit", function (e) {
     })
         .then(r => r.text())
         .then(res => {
-            showMessage("✅ Data berhasil diperbarui!", "success");
+            showMessage("✅ Data User berhasil diperbarui!", "success");
 
             allStatusData[index] = updatedData;
 
@@ -1158,7 +1158,7 @@ document.getElementById("editForm").addEventListener("submit", function (e) {
         })
         .catch(err => {
             console.error(err);
-            showMessage("❌ Gagal memperbarui data!", "error");
+            showMessage("❌ Gagal memperbarui data user!", "error");
         })
         .finally(() => {
             updateBtn.disabled = false;
